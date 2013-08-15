@@ -1,0 +1,2 @@
+default['main']['ubuntu']      = 'lucid'
+
