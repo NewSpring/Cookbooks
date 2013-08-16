@@ -44,6 +44,10 @@ execute "apt-get autoclean" do
   action :nothing
 end
 
+package "python-software-properties" do
+  action :install
+end
+
 # provides /var/lib/apt/periodic/update-success-stamp on apt-get update
 package "update-notifier-common" do
   notifies :run, resources(:execute => "apt-get-update"), :immediately
