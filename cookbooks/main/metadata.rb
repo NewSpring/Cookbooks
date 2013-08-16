@@ -7,3 +7,5 @@ version          "0.0.2"
 
 depends "firewall"
 depends "apt"
+
+recipe "main::apt", "Add PPA packages"
