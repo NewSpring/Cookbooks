@@ -1,0 +1,32 @@
+{
+  "name": "main",
+  "description": "Main cookbook for NewSpring Cloud Servers",
+  "long_description": "Description\n===========\n\nA very simple set of recipes that will help configure a Rackspace cloud server running 10.04. \n\nMore to come...\n\nRequirements\n============\n\nAttributes\n==========\n\nUsage\n=====\n\nIt's best to just include recipes in roles or specified in a run list.\n",
+  "maintainer": "NewSpring Church",
+  "maintainer_email": "web@newspring.cc",
+  "license": "All rights reserved",
+  "platforms": {
+  },
+  "dependencies": {
+    "firewall": ">= 0.0.0",
+    "apt": ">= 0.0.0"
+  },
+  "recommendations": {
+  },
+  "suggestions": {
+  },
+  "conflicting": {
+  },
+  "providing": {
+  },
+  "replacing": {
+  },
+  "attributes": {
+  },
+  "groupings": {
+  },
+  "recipes": {
+    "main::apt": "Add PPA packages"
+  },
+  "version": "0.0.2"
+}
