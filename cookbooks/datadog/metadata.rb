@@ -31,3 +31,50 @@ recipe "datadog::dogstatsd-ruby", "Installs the Ruby dogstatsd package for custo
 # integration-specific
 recipe "datadog::cassandra", "Installs and configures the Cassandra integration"
 recipe "datadog::couchdb", "Installs and configures the CouchDB integration"
+
+attribute "datadog/api_key",
+  :display_name => "Datadog API Key",
+  :description => "API Key for the Datadog Service",
+  :required => "required",
+  :recipes => [
+    "datadag::default",
+    "datadog::dd-agent",
+    "datadog::dd-handler",
+    "datadog::repository",
+    "datadog::dogstatsd-python",
+    "datadog::dogstatsd-ruby",
+    "datadog::cassandra",
+    "datadog::couchdb"
+  ]
+
+  attribute "datadog/use_ec2_instance_id",
+    :display_name => "Use EC2 Instance ID",
+    :description => "Use EC2 Instance ID as the host identifier rather than the hostname for the agent or the nodename for chef-handler",
+    :choice => ["true", "false"],
+    :default => "false",
+    :recipes => [
+      "datadag::default",
+      "datadog::dd-agent",
+      "datadog::dd-handler",
+      "datadog::repository",
+      "datadog::dogstatsd-python",
+      "datadog::dogstatsd-ruby",
+      "datadog::cassandra",
+      "datadog::couchdb"
+    ]
+
+  attribute "datadog/tags",
+    :display_name => "Tag Instance",
+    :description => "Tag each server instance for metric tracking in datadog.",
+    :required => "recommended",
+    :recipes => [
+      "datadag::default",
+      "datadog::dd-agent",
+      "datadog::dd-handler",
+      "datadog::repository",
+      "datadog::dogstatsd-python",
+      "datadog::dogstatsd-ruby",
+      "datadog::cassandra",
+      "datadog::couchdb"
+    ]
+

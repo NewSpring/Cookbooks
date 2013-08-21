@@ -30,7 +30,7 @@ default['datadog']['application_key'] = nil
 # The host of the Datadog intake server to send agent data to
 default['datadog']['url'] = "https://app.datadoghq.com"
 
-# Add tags as override attributes in your role  
+# Add tags as override attributes in your role
 default['datadog']['tags'] = ""
 
 # Repository configuration

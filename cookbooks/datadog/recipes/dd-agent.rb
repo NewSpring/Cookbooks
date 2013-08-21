@@ -16,6 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+rightscale_marker :begin
 
 # Install the Apt/Yum repository if enabled
 if node['datadog']['installrepo']
@@ -93,3 +94,8 @@ template "/etc/dd-agent/datadog.conf" do
   )
   notifies :restart, "service[datadog-agent]", :delayed
 end
+
+right_link_tag "server:datadog=true"
+log "  Datadog is installed and running..."
+
+rightscale_marker :end
