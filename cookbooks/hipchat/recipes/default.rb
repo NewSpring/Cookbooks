@@ -1,4 +1,4 @@
-hipchat = chef_gem 'hipchat' do
+hipchat = gem_package 'hipchat' do
   action :nothing
 end
 
