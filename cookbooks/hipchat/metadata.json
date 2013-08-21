@@ -1,0 +1,43 @@
+{
+  "name": "hipchat",
+  "description": "LWRP for sending messages to HipChat rooms",
+  "long_description": "",
+  "maintainer": "Cameron Johnston",
+  "maintainer_email": "cameron@rootdown.net",
+  "license": "none",
+  "platforms": {
+  },
+  "dependencies": {
+  },
+  "recommendations": {
+  },
+  "suggestions": {
+  },
+  "conflicting": {
+  },
+  "providing": {
+  },
+  "replacing": {
+  },
+  "attributes": {
+    "hipchat/api_key": {
+      "display_name": "HipChat API Key",
+      "description": "API Key for the HipChat Message Service, Only needs to be a notification API key.",
+      "required": "required",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "recipes": [
+
+      ]
+    }
+  },
+  "groupings": {
+  },
+  "recipes": {
+    "hipchat::default": "Installed HipChat Gem within Chef"
+  },
+  "version": "0.1.0"
+}

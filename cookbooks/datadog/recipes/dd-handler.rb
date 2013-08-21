@@ -16,6 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+rightscale_marker :begin
 
 include_recipe "chef_handler"
 ENV["DATADOG_HOST"] = node['datadog']['url']
@@ -46,3 +47,5 @@ chef_handler "Chef::Handler::Datadog" do
   supports :report => true, :exception => true
   action :nothing
 end.run_action(:enable)
+
+rightscale_marker :end
