@@ -78,3 +78,23 @@ attribute "datadog/api_key",
       "datadog::couchdb"
     ]
 
+  attribute "datadog/mysql/instances",
+    :display_name => "MySQL Instance Config",
+    :description => "The MySQL Instance Config in JSON format",
+    :required => "recommended",
+    :recipes => [ "datadog::mysql" ]
+
+  attribute "datadog/memcache/instances",
+    :display_name => "MemCache Instance Config",
+    :description => "The MemCache Instance Config in JSON Format",
+    :required => "recommended",
+    :recipes => [ "datadog::memcache" ]
+
+  attribute "datadog/apache/instances",
+    :display_name => "Apache Instance Config",
+    :description => "Apaache Instance Config in JSON Format",
+    :required => "recommended",
+    :recipes => [ "datadog::apache" ]
+
+
+

@@ -1,0 +1,60 @@
+{
+  "name": "newspring",
+  "description": "Installs/Configures newspring.cc",
+  "long_description": "#NewSpring Church Site Cookbook\n\n##Description\n\nThis is a Chef cookbook to install and configure a Rackspace cloud server running 10.04 Ubuntu with the latest version of the NewSpring Website (Expression Engine).  It has only been tested on Ubuntu 10.04.\n\n##Requirements\n\n- Application Cookbook\n- Application PHP Cookbook\n- Git\n\n##Attributes\n\n- `[:newspring][:hostname]` : MySQL Hostname\n- `[:newspring][:username]` : MySQL Username\n- `[:newspring][:password]` : MySQL Password\n- `[:newspring][:database]` : EE MySQL Database Password\n- `[:newspring][:branch]` : Git Branch\n- `[:newspring][:deploy_key]` : Github Deploy Key\n\n##Usage\n\nThere are two recipes, `default` which install the the base essentials for the server to function and `update` which updates the site to the latest revision. Future revisons of this cookbook will incorporate a Chef LWRP to install NewSpring Sites as needed.   \n\n",
+  "maintainer": "NewSpring Church",
+  "maintainer_email": "web@newspring.cc",
+  "license": "All rights reserved",
+  "platforms": {
+  },
+  "dependencies": {
+    "apache2": ">= 0.0.0",
+    "application": ">= 0.0.0",
+    "application_php": ">= 0.0.0"
+  },
+  "recommendations": {
+  },
+  "suggestions": {
+  },
+  "conflicting": {
+  },
+  "providing": {
+  },
+  "replacing": {
+  },
+  "attributes": {
+    "newspring/deploy_key": {
+      "display_name": "Github SSH key for Deployment",
+      "description": "The key this cookbook should use for authenication with Github",
+      "required": "required",
+      "recipes": [
+        "newspring::default",
+        "newspring::update"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "newspring/branch": {
+      "display_name": "Git branch",
+      "description": "Git branch or commit SHA used to specify which version of the site should be used",
+      "required": "required",
+      "recipes": [
+        "newspring::default",
+        "newspring::update"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string"
+    }
+  },
+  "groupings": {
+  },
+  "recipes": {
+  },
+  "version": "0.0.7"
+}
