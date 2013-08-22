@@ -55,6 +55,8 @@
   "groupings": {
   },
   "recipes": {
+    "newspring::default": "Installs the Expressione Engine System and Clones down the repo",
+    "newspring::update": "Deploys the Revision Specified"
   },
   "version": "0.0.7"
 }
