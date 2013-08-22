@@ -44,16 +44,6 @@ application "newspring" do
         action :touch
       end
   end
-  before_deploy do
-    application "events" do
-      owner "newspring"
-      group "newspring"
-      path "#{shared_path}"
-      repository "git@github.com:NewSpring/NewSpring-Events.git"
-      revision "master"
-      deploy_key node[:newspring][:deploy_key]
-    end
-  end
 end
 
 bash "set_permissions" do
