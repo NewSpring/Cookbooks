@@ -1,3 +1,5 @@
+rightscale_marker :begin
+
 include_recipe "hipchat"
 
 log" HOSTNAME: #{node[:cloud][:hostname]}"
@@ -12,3 +14,4 @@ hipchat_msg "added to lb" do
   color "yellow"
 end
 
+rightscale_marker :end
