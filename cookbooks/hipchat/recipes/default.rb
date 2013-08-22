@@ -5,6 +5,6 @@
 #
 #hipchat.run_action(:install)
 #
-execute "Install HipChat API" do
-  command "gem install hipchat"
-end
+#execute "Install HipChat API" do
+#  command "gem install hipchat"
+#end
