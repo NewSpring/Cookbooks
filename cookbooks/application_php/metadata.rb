@@ -9,3 +9,5 @@ version          "2.0.0"
 depends "application", "~> 3.0"
 depends "apache2"
 depends "php"
+
+recipe "application_php::default", "Initializing the Cookbook"
