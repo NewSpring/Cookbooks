@@ -12,7 +12,7 @@ group "newspring" do
   gid 5001
 end
 
-user "newspring" do 
+user "newspring" do
   uid 2001
   gid "newspring"
   shell "/dev/null"
@@ -25,7 +25,7 @@ application "newspring" do
   repository "git@github.com:NewSpring/NewSpring.git"
   deploy_key node[:newspring][:deploy_key]
   symlinks "images" => "images", "events/current" => "events"
-  create_dirs_before_symlink ["../shared/images"]  
+  create_dirs_before_symlink ["../shared/images"]
   revision node[:newspring][:branch]
   mod_php_apache2
   migrate false
@@ -51,7 +51,7 @@ application "newspring" do
       path "#{shared_path}"
       repository "git@github.com:NewSpring/NewSpring-Events.git"
       revision "master"
-      deploy_key node[:newspring][:deploy_key]      
+      deploy_key node[:newspring][:deploy_key]
     end
   end
 end

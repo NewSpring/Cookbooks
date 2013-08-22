@@ -8,6 +8,9 @@ depends "apache2"
 depends "application"
 depends "application_php"
 
+recipe "newspring::default", "Installs the Expressione Engine System and Clones down the repo"
+recipe "newspring::update", "Deploys the Revision Specified"
+
 attribute "newspring/deploy_key",
   :display_name => "Github SSH key for Deployment",
   :description => "The key this cookbook should use for authenication with Github",
