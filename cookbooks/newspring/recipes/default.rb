@@ -46,7 +46,7 @@ application "newspring" do
   end
   before_deploy do
     application "events" do
-      user "newspring"
+      owner "newspring"
       group "newspring"
       path "#{shared_path}"
       repository "git@github.com:NewSpring/NewSpring-Events.git"
