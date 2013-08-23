@@ -11,3 +11,11 @@ depends "apt"
 recipe "main::apt", "Add PPA packages"
 recipe "main::added_to_lb", "Notifcation that instance was added to Load Balancer"
 recipe "main::removed_from_lb", "Notification was removed from the Load Balancer"
+
+attribute "rightscale/public_key",
+  :display_name => "Public Key",
+  :description => "Public Key to simplify logging in",
+  :required => "recommended",
+  :recipes => [
+    "main::add_auth_key"
+  ]
