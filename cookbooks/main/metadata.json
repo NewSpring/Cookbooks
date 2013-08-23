@@ -22,13 +22,27 @@
   "replacing": {
   },
   "attributes": {
+    "rightscale/public_key": {
+      "display_name": "Public Key",
+      "description": "Public Key to simplify logging in",
+      "required": "recommended",
+      "recipes": [
+        "main::add_auth_key"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string"
+    }
   },
   "groupings": {
   },
   "recipes": {
     "main::apt": "Add PPA packages",
     "main::added_to_lb": "Notifcation that instance was added to Load Balancer",
-    "main::removed_from_lb": "Notification was removed from the Load Balancer"
+    "main::removed_from_lb": "Notification was removed from the Load Balancer",
+    "main::add_auth_key": "Added Authorized Key"
   },
   "version": "0.0.2"
 }
