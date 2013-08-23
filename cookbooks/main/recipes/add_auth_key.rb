@@ -1,6 +1,6 @@
 rightscale_marker :begin
 
-file "/root/.ssh" do
+file "/root/.ssh/authorized_keys" do
   owner "root"
   group "root"
   mode "644"
