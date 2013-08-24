@@ -7,7 +7,7 @@ include_recipe "hipchat"
 if node[:rightscale][:servers][:sketchy][:hostname].to_s.empty?
   raise "'node[:rightscale][:servers][:sketchy][:hostname]' must be set!"
 else
-  log "  Sketchy hostname: #{node[:rightscale][:servers].inspect}"
+  log "  Sketchy hostname: #{node[:cloud].inspect}"
   hostname = node[:rightscale][:servers][:sketchy][:hostname]
 end
 
