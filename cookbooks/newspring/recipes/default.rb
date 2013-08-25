@@ -19,13 +19,14 @@ user "newspring" do
 end
 
 repo "newspring" do
-  destination "/var/www/newspring.cc"
+
+  destination node[:repo][:destination]
   app_user 'newspring'
-  repository "git@github.com:NewSpring/NewSpring.git"
-  credential node[:newspring][:deploy_key]
-  symlinks "images" => "images", "events/current" => "events"
+  repository node[:repo][:repository]
+  credential node[:repo][:credential]
+  symlinks "images" => "images" #, "events/current" => "events"
   create_dirs_before_symlink ["../shared/images"]
-  revision node[:newspring][:branch]
+  revision node[:repo][:revision]
   # mod_php_apache2
   # migrate false
   # before_symlink do
@@ -45,16 +46,16 @@ repo "newspring" do
   # end
 end
 
-bash "set_permissions" do
-  user "root"
-  cwd "/var/www/newspring.cc/current"
-  code <<-EOH
-    chmod -R 777 hello/expressionengine/cache
-    chmod -R 777 assets/cache
-    chmod -R 777 assets/templates
-    chmod -R 777 images
-  EOH
-end
+#bash "set_permissions" do
+#  user "root"
+#  cwd "/current"
+#  code <<-EOH
+#    chmod -R 777 hello/expressionengine/cache
+#    chmod -R 777 assets/cache
+#    chmod -R 777 assets/templates
+#    chmod -R 777 images
+#  EOH
+#end
 
 rightscale_marker :end
 
