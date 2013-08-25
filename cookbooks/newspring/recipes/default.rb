@@ -27,6 +27,7 @@ repo "newspring" do
   symlinks "images" => "images" #, "events/current" => "events"
   create_dirs_before_symlink ["../shared/images"]
   revision node[:repo][:default][:revision]
+  action node[:repo][:default][:perform_action].to_sym
   # mod_php_apache2
   # migrate false
   # before_symlink do
