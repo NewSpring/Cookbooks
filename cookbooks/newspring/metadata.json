@@ -23,34 +23,6 @@
   "replacing": {
   },
   "attributes": {
-    "newspring/deploy_key": {
-      "display_name": "Github SSH key for Deployment",
-      "description": "The key this cookbook should use for authenication with Github",
-      "required": "required",
-      "recipes": [
-        "newspring::default",
-        "newspring::update"
-      ],
-      "choice": [
-
-      ],
-      "calculated": false,
-      "type": "string"
-    },
-    "newspring/branch": {
-      "display_name": "Git branch",
-      "description": "Git branch or commit SHA used to specify which version of the site should be used",
-      "required": "required",
-      "recipes": [
-        "newspring::default",
-        "newspring::update"
-      ],
-      "choice": [
-
-      ],
-      "calculated": false,
-      "type": "string"
-    }
   },
   "groupings": {
   },

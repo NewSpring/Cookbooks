@@ -19,7 +19,7 @@ user "newspring" do
 end
 
 repo "newspring" do
-
+  provider node[:repo][:provider]
   destination node[:repo][:destination]
   app_user 'newspring'
   repository node[:repo][:repository]

@@ -11,20 +11,20 @@ depends "application_php"
 recipe "newspring::default", "Installs the Expressione Engine System and Clones down the repo"
 recipe "newspring::update", "Deploys the Revision Specified"
 
-attribute "newspring/deploy_key",
-  :display_name => "Github SSH key for Deployment",
-  :description => "The key this cookbook should use for authenication with Github",
-  :required => "required",
-  :recipes => [
-    "newspring::default",
-    "newspring::update"
-  ]
-
-attribute "newspring/branch",
-  :display_name => "Git branch",
-  :description => "Git branch or commit SHA used to specify which version of the site should be used",
-  :required => "required",
-  :recipes => [
-    "newspring::default",
-    "newspring::update"
-  ]
+# attribute "newspring/deploy_key",
+#   :display_name => "Github SSH key for Deployment",
+#   :description => "The key this cookbook should use for authenication with Github",
+#   :required => "required",
+#   :recipes => [
+#     "newspring::default",
+#     "newspring::update"
+#   ]
+# 
+# attribute "newspring/branch",
+#   :display_name => "Git branch",
+#   :description => "Git branch or commit SHA used to specify which version of the site should be used",
+#   :required => "required",
+#   :recipes => [
+#     "newspring::default",
+#     "newspring::update"
+#   ]
