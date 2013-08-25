@@ -18,32 +18,31 @@ user "newspring" do
   shell "/dev/null"
 end
 
-application "newspring" do
-  path "/var/www/newspring.cc"
-  owner "newspring"
-  group "newspring"
+repo "newspring" do
+  destination "/var/www/newspring.cc"
+  app_user 'newspring'
   repository "git@github.com:NewSpring/NewSpring.git"
   deploy_key node[:newspring][:deploy_key]
   symlinks "images" => "images", "events/current" => "events"
   create_dirs_before_symlink ["../shared/images"]
   revision node[:newspring][:branch]
-  mod_php_apache2
-  migrate false
-  before_symlink do
-      template "#{release_path}/hello/expressionengine/config/database.php" do
-        source "database.php.erb"
-        user "newspring"
-        group "newspring"
-        mode 0666
-      end
+  # mod_php_apache2
+  # migrate false
+  # before_symlink do
+  #     template "#{release_path}/hello/expressionengine/config/database.php" do
+  #       source "database.php.erb"
+  #       user "newspring"
+  #       group "newspring"
+  #       mode 0666
+  #     end
 
-      file "#{release_path}/hello/expressionengine/config/config.php" do
-        user "newspring"
-        group "newspring"
-        mode "0666"
-        action :touch
-      end
-  end
+  #     file "#{release_path}/hello/expressionengine/config/config.php" do
+  #       user "newspring"
+  #       group "newspring"
+  #       mode "0666"
+  #       action :touch
+  #     end
+  # end
 end
 
 bash "set_permissions" do
