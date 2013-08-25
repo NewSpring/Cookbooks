@@ -19,14 +19,14 @@ user "newspring" do
 end
 
 repo "newspring" do
-  provider node[:repo][:provider]
-  destination node[:repo][:destination]
+  provider node[:repo][:default][:provider]
+  destination node[:repo][:default][:destination]
   app_user 'newspring'
-  repository node[:repo][:repository]
-  credential node[:repo][:credential]
+  repository node[:repo][:default][:repository]
+  credential node[:repo][:default][:credential]
   symlinks "images" => "images" #, "events/current" => "events"
   create_dirs_before_symlink ["../shared/images"]
-  revision node[:repo][:revision]
+  revision node[:repo][:default][:revision]
   # mod_php_apache2
   # migrate false
   # before_symlink do
