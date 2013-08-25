@@ -22,7 +22,7 @@ repo "newspring" do
   destination "/var/www/newspring.cc"
   app_user 'newspring'
   repository "git@github.com:NewSpring/NewSpring.git"
-  deploy_key node[:newspring][:deploy_key]
+  credential node[:newspring][:deploy_key]
   symlinks "images" => "images", "events/current" => "events"
   create_dirs_before_symlink ["../shared/images"]
   revision node[:newspring][:branch]
