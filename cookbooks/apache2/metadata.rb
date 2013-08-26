@@ -41,6 +41,9 @@ recipe            "apache2::mod_setenvif", "Apache module 'setenvif' with config
 recipe            "apache2::mod_ssl", "Apache module 'ssl' with config file, adds port 443 to listen_ports"
 recipe            "apache2::mod_status", "Apache module 'status' with config file"
 recipe            "apache2::mod_xsendfile", "Apache module 'xsendfile'"
+recipe            "apache2::mod_info", "Apache Module Info"
+recipe            "apache2::mem_cache", "Memcached Module"
+recipe            "apache2::mod_include", "Apache Include Module"
 
 %w{redhat centos scientific fedora debian ubuntu arch }.each do |os|
   supports os
