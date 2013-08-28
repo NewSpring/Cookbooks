@@ -63,10 +63,11 @@ end
 #Create Vhost
 web_app "#{node[:ee][:main]}.frontend" do
   cookbook "apache2"
-  template "apache.conf.erb"
+  template "web_app.conf.erb"
   docroot "#{node[:repo][:default][:destination]}/#{node[:ee][:main]}"
   vhost_port http_port
   server_name node[:newspring][:server_name]
+  server_aliases ["www.#{node[:ee][:main]}"]
   allow_override node[:web_apache][:allow_override]
   apache_log_dir node[:apache][:log_dir]
 end

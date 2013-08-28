@@ -58,7 +58,7 @@ node[:ee][:multisite].each do |m|
   #Create Vhost for each multisite
   web_app "#{cookie_domain}.frontend" do
     cookbook "apache2"
-    template "apache.conf.erb"
+    template "web_app.conf.erb"
     docroot "#{node[:repo][:default][:destination]}/#{cookie_domain}"
     vhost_port http_port
     server_name cookie_domain
