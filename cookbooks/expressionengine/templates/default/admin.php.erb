@@ -38,10 +38,10 @@ $system_path = "<%= node[:repo][:default][:destination] %>/<%= node[:ee][:main] 
  * will log into, and its URL.
  *
  */
-        $assign_to_config['site_name']  = '<%= site_name %>';
-        $assign_to_config['cp_url'] = '<%= site_url %>/admin.php';
-        $assign_to_config['site_url'] = '<%= site_url %>';
-        $assign_to_config['cookie_domain'] = "*.<%= cookie_domain %>";
+        $assign_to_config['site_name']  = '<%= @site_name %>';
+        $assign_to_config['cp_url'] = '<%= @site_url %>/admin.php';
+        $assign_to_config['site_url'] = '<%= @site_url %>';
+        $assign_to_config['cookie_domain'] = "*.<%= @cookie_domain %>";
 
 /*
  * --------------------------------------------------------------------
