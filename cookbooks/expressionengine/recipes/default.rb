@@ -51,7 +51,7 @@ end
 #Make sure EE permissions are correct
 bash "set_permissions" do
  user "root"
- cwd "#{node[:repo][:default][:destination]}/#{node[:ee][:main}"
+ cwd "#{node[:repo][:default][:destination]}/#{node[:ee][:main]}"
  code <<-EOH
    chmod -R 777 hello/expressionengine/cache
    chmod -R 777 assets/cache
@@ -64,7 +64,7 @@ end
 web_app "#{node[:ee][:main]}.frontend" do
   cookbook "apache2"
   template "apache.conf.erb"
-  docroot "#{node[:repo][:default][:destination]}/#{node[:ee][:main}"
+  docroot "#{node[:repo][:default][:destination]}/#{node[:ee][:main]}"
   vhost_port http_port
   server_name node[:newspring][:server_name]
   allow_override node[:web_apache][:allow_override]
