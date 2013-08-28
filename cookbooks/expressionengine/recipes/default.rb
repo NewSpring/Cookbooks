@@ -9,20 +9,20 @@
 
 rightscale_marker :begin
 
-group "newspring" do
+group node[:web_apache][:application_name] do
   gid 5001
 end
 
-user "newspring" do
+user node[:web_apache][:application_name] do
   uid 2001
-  gid "newspring"
+  gid node[:web_apache][:application_name]
   shell "/dev/null"
 end
 
 repo "newspring" do
   provider node[:repo][:default][:provider]
   destination "#{node[:repo][:default][:destination]}/#{node[:ee][:main]}"
-  app_user 'newspring'
+  app_user node[:web_apache][:application_name]
   repository node[:repo][:default][:repository]
   credential node[:repo][:default][:credential]
   symlinks "images" => "images" #, "events/current" => "events"

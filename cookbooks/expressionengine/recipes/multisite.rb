@@ -14,6 +14,13 @@ node[:ee][:multisite].each do |m|
     cookie_domain = "#{domain.subdomain}.#{domain.domain}.#{domain.public_suffix}"
   end
 
+  directory "#{node[:repo][:default][:destination]}/#{cookie_domain}" do
+    owner node[:web_apache][:application_name]
+    group node[:web_apache][:application_name]
+    mode 0775
+    action :create
+  end
+
   template "#{node[:repo][:default][:destination]}/#{cookie_domain}/index.php" do
     source "index.php.erb"
     mode 0666
