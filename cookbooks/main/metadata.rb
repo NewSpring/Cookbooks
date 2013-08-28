@@ -12,6 +12,8 @@ recipe "main::apt", "Add PPA packages"
 recipe "main::added_to_lb", "Notifcation that instance was added to Load Balancer"
 recipe "main::removed_from_lb", "Notification was removed from the Load Balancer"
 recipe "main::add_auth_key", "Added Authorized Key"
+recipe "main::ruby", "Install Ruby Stuffs"
+
 
 attribute "rightscale/public_key",
   :display_name => "Public Key",
