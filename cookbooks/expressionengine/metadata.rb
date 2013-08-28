@@ -25,7 +25,7 @@ attribute "ee/multisite",
   :display_name => "FQDN for Each Multisite Domain",
   :description => "FQDN for Each Multisite Domain, Format should look like http://domain.com or https://sub.domain.com",
   :required => "optional",
-  :type => "array"
+  :type => "array",
   :recipes => [
     "expressionengine::multisite"
   ]
