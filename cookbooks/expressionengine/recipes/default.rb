@@ -1,4 +1,5 @@
 
+
 # Cookbook Name:: newspring
 # Recipe:: default
 #
@@ -47,16 +48,29 @@ repo "newspring" do
   # end
 end
 
-#bash "set_permissions" do
-#  user "root"
-#  cwd "/current"
-#  code <<-EOH
-#    chmod -R 777 hello/expressionengine/cache
-#    chmod -R 777 assets/cache
-#    chmod -R 777 assets/templates
-#    chmod -R 777 images
-#  EOH
-#end
+#Make sure EE permissions are correct
+bash "set_permissions" do
+ user "root"
+ cwd "#{node[:repo][:default][:destination]}/#{node[:ee][:main}"
+ code <<-EOH
+   chmod -R 777 hello/expressionengine/cache
+   chmod -R 777 assets/cache
+   chmod -R 777 assets/templates
+   chmod -R 777 images
+ EOH
+end
+
+#Create Vhost
+web_app "#{node[:ee][:main]}.frontend" do
+  cookbook "apache2"
+  template "apache.conf.erb"
+  docroot "#{node[:repo][:default][:destination]}/#{node[:ee][:main}"
+  vhost_port http_port
+  server_name node[:newspring][:server_name]
+  allow_override node[:web_apache][:allow_override]
+  apache_log_dir node[:apache][:log_dir]
+  notifies :restart, resources(:service => "apache2")
+end
 
 rightscale_marker :end
 

@@ -3,7 +3,4 @@ hipchat = chef_gem 'hipchat' do
 end
 
 hipchat.run_action(:install)
-#
-#execute "Install HipChat API" do
-#  command "gem install hipchat"
-#end
+
