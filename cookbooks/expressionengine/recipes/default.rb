@@ -51,7 +51,7 @@ end
 #Make sure EE permissions are correct
 bash "set_permissions" do
  user "root"
- cwd "#{node[:repo][:default][:destination]}/#{node[:ee][:main]}"
+ cwd node[:repo][:default][:destination]
  code <<-EOH
    chmod -R 777 hello/expressionengine/cache
    chmod -R 777 assets/cache
