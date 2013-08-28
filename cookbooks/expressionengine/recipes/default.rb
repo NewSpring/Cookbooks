@@ -26,7 +26,7 @@ repo "newspring" do
   repository node[:repo][:default][:repository]
   credential node[:repo][:default][:credential]
   symlinks "images" => "images" #, "events/current" => "events"
-  create_dirs_before_symlink ["../shared/images"]
+  create_dirs_before_symlink ["images"]
   revision node[:repo][:default][:revision]
   action node[:repo][:default][:perform_action].to_sym
   # mod_php_apache2
@@ -51,7 +51,7 @@ end
 #Make sure EE permissions are correct
 bash "set_permissions" do
  user "root"
- cwd node[:repo][:default][:destination]
+ cwd "#{node[:repo][:default][:destination]}/"
  code <<-EOH
    chmod -R 777 hello/expressionengine/cache
    chmod -R 777 assets/cache
