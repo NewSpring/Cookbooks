@@ -69,7 +69,6 @@ web_app "#{node[:ee][:main]}.frontend" do
   server_name node[:newspring][:server_name]
   allow_override node[:web_apache][:allow_override]
   apache_log_dir node[:apache][:log_dir]
-  notifies :restart, resources(:service => "apache2")
 end
 
 rightscale_marker :end

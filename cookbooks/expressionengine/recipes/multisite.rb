@@ -64,7 +64,6 @@ node[:ee][:multisite].each do |m|
     server_name cookie_domain
     allow_override node[:web_apache][:allow_override]
     apache_log_dir node[:apache][:log_dir]
-    notifies :restart, resources(:service => "apache2")
   end
 end
 
