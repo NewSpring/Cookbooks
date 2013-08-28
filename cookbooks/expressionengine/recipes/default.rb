@@ -21,7 +21,7 @@ end
 
 repo "newspring" do
   provider node[:repo][:default][:provider]
-  destination node[:repo][:default][:destination]
+  destination "#{node[:repo][:default][:destination]}/#{node[:ee][:main]}"
   app_user 'newspring'
   repository node[:repo][:default][:repository]
   credential node[:repo][:default][:credential]
