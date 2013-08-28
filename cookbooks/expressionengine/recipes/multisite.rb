@@ -46,12 +46,12 @@ node[:ee][:multisite].each do |m|
   end
 
   link "#{node[:repo][:default][:destination]}/#{node[:ee][:main}/assets" do
-    to "#{node[:repo][:default][:destination]}/#{m}/assets"
+    to "#{node[:repo][:default][:destination]}/#{cookie_domain}/assets"
     link_type :symbolic
   end
 
   link "#{node[:repo][:default][:destination]}/#{node[:ee][:main}/themes" do
-    to "#{node[:repo][:default][:destination]}/#{m}/themes"
+    to "#{node[:repo][:default][:destination]}/#{cookie_domain}/themes"
     link_type :symbolic
   end
 
