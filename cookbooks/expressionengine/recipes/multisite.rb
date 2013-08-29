@@ -24,8 +24,8 @@ node[:ee][:multisite].each do |m|
   template "#{node[:repo][:default][:destination]}/#{cookie_domain}/index.php" do
     source "index.php.erb"
     mode 0666
-    owner "newspring"
-    group "newspring"
+    owner node[:web_apache][:application_name]
+    group node[:web_apache][:application_name]
     variables({
       :site_name => "#{site_name}",
       :site_url => "#{domain.url}",
@@ -36,8 +36,8 @@ node[:ee][:multisite].each do |m|
   template "#{node[:repo][:default][:destination]}/#{cookie_domain}/admin.php" do
     source "admin.php.erb"
     mode 0666
-    owner "newspring"
-    group "newspring"
+    owner node[:web_apache][:application_name]
+    group node[:web_apache][:application_name]
     variables({
       :site_name => "#{site_name}",
       :site_url => "#{domain.url}",
@@ -48,18 +48,20 @@ node[:ee][:multisite].each do |m|
   template "#{node[:repo][:default][:destination]}/#{cookie_domain}/.htaccess" do
     source "htaccess.erb"
     mode 0666
-    owner "newspring"
-    group "newspring"
+    owner node[:web_apache][:application_name]
+    group node[:web_apache][:application_name]
   end
 
-  link "#{node[:repo][:default][:destination]}/#{node[:ee][:main]}/assets" do
-    to "#{node[:repo][:default][:destination]}/#{cookie_domain}/assets"
+  link "#{node[:repo][:default][:destination]}/#{cookie_domain}/assets" do
+    to "#{node[:repo][:default][:destination]}/#{node[:ee][:main]}/assets"
     link_type :symbolic
+    action :create
   end
 
-  link "#{node[:repo][:default][:destination]}/#{node[:ee][:main]}/themes" do
-    to "#{node[:repo][:default][:destination]}/#{cookie_domain}/themes"
+  link "#{node[:repo][:default][:destination]}/#{cookie_domain}/themes" do
+    to "#{node[:repo][:default][:destination]}/#{node[:ee][:main]}/themes"
     link_type :symbolic
+    action :create
   end
 
   #Create Vhost for each multisite
