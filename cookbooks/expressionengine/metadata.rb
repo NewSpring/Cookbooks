@@ -33,7 +33,6 @@ attribute "ee/multisite",
 attribute "ee/system_folder",
   :display_name => "EE System Folder",
   :description => "EE System Folder, by default its set to 'system'",
-  :required => "required",
   :default => "system",
   :recipes => [
     "expressionengine::default"

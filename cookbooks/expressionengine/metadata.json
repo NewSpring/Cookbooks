@@ -52,7 +52,6 @@
     "ee/system_folder": {
       "display_name": "EE System Folder",
       "description": "EE System Folder, by default its set to 'system'",
-      "required": "required",
       "default": "system",
       "recipes": [
         "expressionengine::default"
@@ -61,7 +60,8 @@
 
       ],
       "calculated": false,
-      "type": "string"
+      "type": "string",
+      "required": "optional"
     },
     "ee/hostname": {
       "display_name": "Database Hostname",
