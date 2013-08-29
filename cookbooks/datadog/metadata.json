@@ -141,7 +141,10 @@
     "datadog::dogstatsd-python": "Installs the Python dogstatsd package for custom metrics",
     "datadog::dogstatsd-ruby": "Installs the Ruby dogstatsd package for custom metrics",
     "datadog::cassandra": "Installs and configures the Cassandra integration",
-    "datadog::couchdb": "Installs and configures the CouchDB integration"
+    "datadog::couchdb": "Installs and configures the CouchDB integration",
+    "datadog::memcache": "Installs and configures the MemCache integration",
+    "datadog::apache": "Installs and configures the Apache integration",
+    "datadog::mysql": "Installs and configures the MySQL integration"
   },
   "version": "1.0.1"
 }

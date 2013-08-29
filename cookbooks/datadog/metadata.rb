@@ -31,6 +31,9 @@ recipe "datadog::dogstatsd-ruby", "Installs the Ruby dogstatsd package for custo
 # integration-specific
 recipe "datadog::cassandra", "Installs and configures the Cassandra integration"
 recipe "datadog::couchdb", "Installs and configures the CouchDB integration"
+recipe "datadog::memcache", "Installs and configures the MemCache integration"
+recipe "datadog::apache", "Installs and configures the Apache integration"
+recipe "datadog::mysql", "Installs and configures the MySQL integration"
 
 attribute "datadog/api_key",
   :display_name => "Datadog API Key",
