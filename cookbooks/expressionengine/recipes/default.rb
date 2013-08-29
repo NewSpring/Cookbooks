@@ -31,14 +31,14 @@ repo "newspring" do
   action node[:repo][:default][:perform_action].to_sym
 end
 
-template "#{node[:repo][:default][:destination]}/#{node[:ee][:main]}/#{node[:ee][:system_folder]}/config/database.php" do
+template "#{node[:repo][:default][:destination]}/#{node[:ee][:main]}/#{node[:ee][:system_folder]}/expressionengine/config/database.php" do
   source "database.php.erb"
   mode 0666
   owner node[:web_apache][:application_name]
   group node[:web_apache][:application_name]
 end
 
-file "#{node[:repo][:default][:destination]}/#{node[:ee][:main]}/#{node[:ee][:system_folder]}/config/config.php" do
+file "#{node[:repo][:default][:destination]}/#{node[:ee][:main]}/#{node[:ee][:system_folder]}/expressionengine/config/config.php" do
   action :touch
   mode 0666
   owner node[:web_apache][:application_name]
