@@ -29,23 +29,20 @@ repo "newspring" do
   create_dirs_before_symlink ["images"]
   revision node[:repo][:default][:revision]
   action node[:repo][:default][:perform_action].to_sym
-  # mod_php_apache2
-  # migrate false
-  # before_symlink do
-  #     template "#{release_path}/hello/expressionengine/config/database.php" do
-  #       source "database.php.erb"
-  #       user "newspring"
-  #       group "newspring"
-  #       mode 0666
-  #     end
+end
 
-  #     file "#{release_path}/hello/expressionengine/config/config.php" do
-  #       user "newspring"
-  #       group "newspring"
-  #       mode "0666"
-  #       action :touch
-  #     end
-  # end
+template "#{node[:repo][:default][:destination]}/#{node[:ee][:main]}/#{node[:ee][:system_folder]}/config/database.php" do
+  source "database.php.erb"
+  mode 0666
+  owner node[:web_apache][:application_name]
+  group node[:web_apache][:application_name]
+end
+
+file "#{node[:repo][:default][:destination]}/#{node[:ee][:main]}/#{node[:ee][:system_folder]}/config/config.php" do
+  action :touch
+  mode 0666
+  owner node[:web_apache][:application_name]
+  group node[:web_apache][:application_name]
 end
 
 #Make sure EE permissions are correct
