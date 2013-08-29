@@ -62,6 +62,58 @@
       ],
       "calculated": false,
       "type": "string"
+    },
+    "ee/hostname": {
+      "display_name": "Database Hostname",
+      "description": "Database hostname",
+      "required": "required",
+      "recipes": [
+        "expressionengine::default"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "ee/username": {
+      "display_name": "Database Username",
+      "description": "Database Username",
+      "required": "required",
+      "recipes": [
+        "expressionengine::default"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "ee/password": {
+      "display_name": "Database Password",
+      "description": "Database Password",
+      "required": "required",
+      "recipes": [
+        "expressionengine::default"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "ee/database": {
+      "display_name": "Database",
+      "description": "Database",
+      "required": "required",
+      "recipes": [
+        "expressionengine::default"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string"
     }
   },
   "groupings": {

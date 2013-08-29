@@ -38,3 +38,35 @@ attribute "ee/system_folder",
   :recipes => [
     "expressionengine::default"
   ]
+
+attribute "ee/hostname",
+  :display_name => "Database Hostname",
+  :description => "Database hostname",
+  :required => "required",
+  :recipes => [
+    "expressionengine::default"
+  ]
+
+attribute "ee/username",
+  :display_name => "Database Username",
+  :description => "Database Username",
+  :required => "required",
+  :recipes => [
+    "expressionengine::default"
+  ]
+
+attribute "ee/password",
+  :display_name => "Database Password",
+  :description => "Database Password",
+  :required => "required",
+  :recipes => [
+    "expressionengine::default"
+  ]
+
+attribute "ee/database",
+  :display_name => "Database",
+  :description => "Database",
+  :required => "required",
+  :recipes => [
+    "expressionengine::default"
+  ]

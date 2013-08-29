@@ -3,11 +3,11 @@
 $active_group = 'live';
 $active_record = TRUE;
 
-// Live Server Settings 
-$db['live']['hostname'] = "<%= node[:newspring][:hostname] %>";
-$db['live']['username'] = "<%= node[:newspring][:username] %>";
-$db['live']['password'] = "<%= node[:newspring][:password] %>";
-$db['live']['database'] = "<%= node[:newspring][:database] %>";
+// Live Server Settings
+$db['live']['hostname'] = "<%= node[:ee][:hostname] %>";
+$db['live']['username'] = "<%= node[:ee][:username] %>";
+$db['live']['password'] = "<%= node[:ee][:password] %>";
+$db['live']['database'] = "<%= node[:ee][:database] %>";
 $db['live']['dbdriver'] = "mysql";
 $db['live']['dbprefix'] = "exp_";
 $db['live']['pconnect'] = FALSE;
