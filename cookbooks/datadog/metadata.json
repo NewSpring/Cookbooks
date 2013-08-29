@@ -91,44 +91,83 @@
       "calculated": false,
       "type": "string"
     },
-    "datadog/mysql/instances": {
-      "display_name": "MySQL Instance Config",
-      "description": "The MySQL Instance Config in JSON format",
+    "datadog/apache/status_url": {
+      "display_name": "Apache Status URL",
+      "description": "The apache status url that display apache status info.",
       "required": "recommended",
-      "type": "array",
-      "recipes": [
-        "datadog::mysql"
-      ],
-      "choice": [
-
-      ],
-      "calculated": false
-    },
-    "datadog/memcache/instances": {
-      "display_name": "MemCache Instance Config",
-      "description": "The MemCache Instance Config in JSON Format",
-      "required": "recommended",
-      "type": "array",
-      "recipes": [
-        "datadog::memcache"
-      ],
-      "choice": [
-
-      ],
-      "calculated": false
-    },
-    "datadog/apache/instances": {
-      "display_name": "Apache Instance Config",
-      "description": "Apaache Instance Config in JSON Format",
-      "required": "recommended",
-      "type": "array",
       "recipes": [
         "datadog::apache"
       ],
       "choice": [
 
       ],
-      "calculated": false
+      "calculated": false,
+      "type": "string"
+    },
+    "datadog/mysql/server": {
+      "display_name": "MySQl Server URL",
+      "description": "The URL for MYSQL server information",
+      "required": "recommended",
+      "recipes": [
+        "datadog::mysql"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "datadog/mysql/user": {
+      "display_name": "MySQl Datadog User",
+      "description": "The User for MYSQL server",
+      "required": "recommended",
+      "recipes": [
+        "datadog::mysql"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "datadog/mysql/pass": {
+      "display_name": "MySQl Server password",
+      "description": "The password for MYSQL server information",
+      "required": "recommended",
+      "recipes": [
+        "datadog::mysql"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "datadog/memcache/url": {
+      "display_name": "Memcache Listen URL",
+      "description": "Memcache Listen URL",
+      "required": "recommended",
+      "recipes": [
+        "datadog::memcache"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "datadog/memcache/port": {
+      "display_name": "Memcache Listen Port",
+      "description": "Memcache Listen Port",
+      "required": "recommended",
+      "recipes": [
+        "datadog::memcache"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string"
     }
   },
   "groupings": {

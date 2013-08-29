@@ -81,26 +81,42 @@ attribute "datadog/api_key",
       "datadog::couchdb"
     ]
 
-  attribute "datadog/mysql/instances",
-    :display_name => "MySQL Instance Config",
-    :description => "The MySQL Instance Config in JSON format",
+  attribute "datadog/apache/status_url",
+    :display_name => "Apache Status URL",
+    :description => "The apache status url that display apache status info.",
     :required => "recommended",
-    :type => "array",
+    :recipes => [ "datadog::apache" ]
+
+  attribute "datadog/mysql/server",
+    :display_name => "MySQl Server URL",
+    :description => "The URL for MYSQL server information",
+    :required => "recommended",
     :recipes => [ "datadog::mysql" ]
 
-  attribute "datadog/memcache/instances",
-    :display_name => "MemCache Instance Config",
-    :description => "The MemCache Instance Config in JSON Format",
+  attribute "datadog/mysql/user",
+    :display_name => "MySQl Datadog User",
+    :description => "The User for MYSQL server",
     :required => "recommended",
-    :type => "array",
+    :recipes => [ "datadog::mysql" ]
+
+  attribute "datadog/mysql/pass",
+    :display_name => "MySQl Server password",
+    :description => "The password for MYSQL server information",
+    :required => "recommended",
+    :recipes => [ "datadog::mysql" ]
+
+  attribute "datadog/memcache/url",
+    :display_name => "Memcache Listen URL",
+    :description => "Memcache Listen URL",
+    :required => "recommended",
     :recipes => [ "datadog::memcache" ]
 
-  attribute "datadog/apache/instances",
-    :display_name => "Apache Instance Config",
-    :description => "Apaache Instance Config in JSON Format",
+   attribute "datadog/memcache/port",
+    :display_name => "Memcache Listen Port",
+    :description => "Memcache Listen Port",
     :required => "recommended",
-    :type => "array",
-    :recipes => [ "datadog::apache" ]
+    :recipes => [ "datadog::memcache" ]
+
 
 
 

@@ -5,20 +5,19 @@ include_recipe "datadog::dd-agent"
 # Simply set up attributes following this example.
 # If you are running multiple memcache instances on the same machine
 # list them all as hashes.
-#
-# node.datadog.memcache.instances = [
-#                                    {
-#                                      "url" => "localhost",
-#                                      "port" => "11211",
-#                                      "tags" => ["prod", "aws"]
-#                                    }
-#                                   ]
+
+instance = [
+ {
+   "url" => node['datadog']['memcache']['url'],
+   "port" => node['datadog']['memcache']['port']
+ }
+]
 
 rightscale_marker :begin
 
 
 datadog_monitor "mcache" do
-  instances node["datadog"]["memcache"]["instances"]
+  instances instance
 end
 
 rightscale_marker :end
