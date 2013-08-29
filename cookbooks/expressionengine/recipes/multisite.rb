@@ -9,9 +9,11 @@ node[:ee][:multisite].each do |m|
   if domain.subdomain == ""
     site_name = domain.domain
     cookie_domain = "#{domain.domain}.#{domain.public_suffix}"
+    server_alias = "www.#{domain.domain}.#{domain.public_suffix}"
   else
     site_name = domain.subdomain
     cookie_domain = "#{domain.subdomain}.#{domain.domain}.#{domain.public_suffix}"
+    server_alias = cookie_domain
   end
 
   directory "#{node[:repo][:default][:destination]}/#{cookie_domain}" do
@@ -71,6 +73,7 @@ node[:ee][:multisite].each do |m|
     docroot "#{node[:repo][:default][:destination]}/#{cookie_domain}"
     vhost_port http_port
     server_name cookie_domain
+    server_aliases server_alias
     allow_override node[:web_apache][:allow_override]
     apache_log_dir node[:apache][:log_dir]
   end
