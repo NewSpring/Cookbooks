@@ -34,7 +34,7 @@
       "description": "API Key for the Datadog Service",
       "required": "required",
       "recipes": [
-        "datadag::default",
+        "datadog::default",
         "datadog::dd-agent",
         "datadog::dd-handler",
         "datadog::repository",
@@ -58,7 +58,7 @@
       ],
       "default": "false",
       "recipes": [
-        "datadag::default",
+        "datadog::default",
         "datadog::dd-agent",
         "datadog::dd-handler",
         "datadog::repository",
@@ -76,7 +76,7 @@
       "description": "Tag each server instance for metric tracking in datadog.",
       "required": "recommended",
       "recipes": [
-        "datadag::default",
+        "datadog::default",
         "datadog::dd-agent",
         "datadog::dd-handler",
         "datadog::repository",
