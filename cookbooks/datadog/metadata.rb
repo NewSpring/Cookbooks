@@ -85,18 +85,21 @@ attribute "datadog/api_key",
     :display_name => "MySQL Instance Config",
     :description => "The MySQL Instance Config in JSON format",
     :required => "recommended",
+    :type => "array",
     :recipes => [ "datadog::mysql" ]
 
   attribute "datadog/memcache/instances",
     :display_name => "MemCache Instance Config",
     :description => "The MemCache Instance Config in JSON Format",
     :required => "recommended",
+    :type => "array",
     :recipes => [ "datadog::memcache" ]
 
   attribute "datadog/apache/instances",
     :display_name => "Apache Instance Config",
     :description => "Apaache Instance Config in JSON Format",
     :required => "recommended",
+    :type => "array",
     :recipes => [ "datadog::apache" ]
 
 
