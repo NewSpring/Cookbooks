@@ -14,6 +14,11 @@ include_recipe "datadog::dd-agent"
 #                                    }
 #                                   ]
 
+rightscale_marker :begin
+
+
 datadog_monitor "mcache" do
   instances node["datadog"]["memcache"]["instances"]
 end
+
+rightscale_marker :end
