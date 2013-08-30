@@ -15,6 +15,9 @@ instance = [
 
 rightscale_marker :begin
 
+package 'python-memcache' do
+  action :install
+end
 
 datadog_monitor "mcache" do
   instances instance
