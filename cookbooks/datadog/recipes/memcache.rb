@@ -8,7 +8,7 @@ include_recipe "datadog::dd-agent"
 
 instance = [
  {
-   "url" => node['datadog']['memcache']['url'],
+   "url" => node[:cloud][:private_ips][0],
    "port" => node['datadog']['memcache']['port']
  }
 ]
