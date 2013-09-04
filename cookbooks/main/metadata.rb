@@ -13,6 +13,8 @@ recipe "main::added_to_lb", "Notifcation that instance was added to Load Balance
 recipe "main::removed_from_lb", "Notification was removed from the Load Balancer"
 recipe "main::add_auth_key", "Added Authorized Key"
 recipe "main::ruby", "Install Ruby Stuffs"
+recipe "main::memcache_hostname_setup", "Sets up a local memcache hostname to connect to the memcache instance on the deployment"
+
 
 
 attribute "rightscale/public_key",
