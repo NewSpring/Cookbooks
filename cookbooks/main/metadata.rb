@@ -7,6 +7,7 @@ version          "0.0.2"
 
 depends "firewall"
 depends "apt"
+depends "rightscale"
 
 recipe "main::apt", "Add PPA packages"
 recipe "main::added_to_lb", "Notifcation that instance was added to Load Balancer"
