@@ -1,4 +1,4 @@
-include_recipe "rightscale"
+include_recipe "rightscale::default"
 
 memcache = rightscale_server_collection "memcache_servers" do
   tags "memcached_server:active=true"
