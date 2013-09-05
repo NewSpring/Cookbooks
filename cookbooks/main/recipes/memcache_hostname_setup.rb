@@ -26,6 +26,4 @@ ruby_block "Installing Memcache Host..." do
     )
     file.write_file
   end
-
-  log "The tags are: #{ip_list[0]}"
 end
