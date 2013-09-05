@@ -1,11 +1,14 @@
 rightscale_marker
 
-include_recipe "rightscale::default"
+search = "memcache_servers"
 
-rightscale_server_collection "memcache_servers" do
+rightscale_server_collection search do
   tags "memcached_server:active=true"
   mandatory_tags "server:private_ip_0=*"
   action :load
 end
 
-log "This is a log for memcache server #{node[:server_collection].inspect}"
+tags = node[:server_collection][search][0]
+memcache_server_ip = RightScale::Utils::Helper.get_tag_value("server:private_ip_0", tags)
+
+log "The Memcached Server IP is: #{memcache_server_ip}"
