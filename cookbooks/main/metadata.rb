@@ -15,8 +15,7 @@ recipe "main::removed_from_lb", "Notification was removed from the Load Balancer
 recipe "main::add_auth_key", "Added Authorized Key"
 recipe "main::ruby", "Install Ruby Stuffs"
 recipe "main::memcache_hostname_setup", "Sets up a local memcache hostname to connect to the memcache instance on the deployment"
-
-
+recipe "main::setup_firewall", "Sets up basic http/https firewall"
 
 attribute "rightscale/public_key",
   :display_name => "Public Key",
