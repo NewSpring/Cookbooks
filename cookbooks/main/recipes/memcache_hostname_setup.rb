@@ -9,6 +9,7 @@ rightscale_server_collection search do
 end
 
 tags = node[:server_collection][search][0]
-memcache_server_ip = RightScale::Utils::Helper.get_tag_value("server:private_ip_0", tags)
+log "The tags are: #{tags}"
 
-log "The Memcached Server IP is: #{memcache_server_ip}"
+#memcache_server_ip = RightScale::Utils::Helper.get_tag_value("server:private_ip_0", tags)
+#log "The Memcached Server IP is: #{memcache_server_ip}"
