@@ -2,10 +2,9 @@ rightscale_marker
 
 search = "memcache_servers"
 
-rightscale_server_collection search do
+server_collection search do
   tags "memcached_server:active=true"
   mandatory_tags "server:private_ip_0=*"
-  action :load
 end
 
 log "Tags: #{node[:server_collection].inspect}"
