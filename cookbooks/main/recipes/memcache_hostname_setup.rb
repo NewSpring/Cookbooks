@@ -8,7 +8,7 @@ rightscale_server_collection search do
   action :load
 end
 
-log "Tags: #{node[:server_collection].inspect}"
+log "Tags: #{node.inspect}"
 
 #ruby_block "Installing Memcache Host..." do
 #
