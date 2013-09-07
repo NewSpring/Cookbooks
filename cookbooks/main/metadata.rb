@@ -26,18 +26,18 @@ attribute "rightscale/public_key",
     "main::add_auth_key"
   ]
 
-attribute "postfix/outgoing",
-  :display_name => "Outgoing Email Address",
-  :description => "Outgoing email address that connects to a SMTP server",
-  :required => "required",
-  :recipes => [
-    "main::setup_postfix"
-  ]
-
-attribute "postfix/password",
-  :display_name => "Outgoing SMTP Password",
-  :description => "Outgoing SMTP Password for the SMTP server",
-  :required => "recommended",
-  :recipes => [
-    "main::add_auth_key"
-  ]
+# attribute "postfix/outgoing",
+#   :display_name => "Outgoing Email Address",
+#   :description => "Outgoing email address that connects to a SMTP server",
+#   :required => "required",
+#   :recipes => [
+#     "main::setup_postfix"
+#   ]
+# 
+# attribute "postfix/password",
+#   :display_name => "Outgoing SMTP Password",
+#   :description => "Outgoing SMTP Password for the SMTP server",
+#   :required => "recommended",
+#   :recipes => [
+#     "main::add_auth_key"
+#   ]
