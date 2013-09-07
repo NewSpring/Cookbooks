@@ -16,10 +16,27 @@ recipe "main::add_auth_key", "Added Authorized Key"
 recipe "main::ruby", "Install Ruby Stuffs"
 recipe "main::memcache_hostname_setup", "Sets up a local memcache hostname to connect to the memcache instance on the deployment"
 recipe "main::setup_firewall", "Sets up basic http/https firewall"
+recipe "main::setup_postfix", "Setup up postfix service on MailGun"
 
 attribute "rightscale/public_key",
   :display_name => "Public Key",
   :description => "Public Key to simplify logging in",
+  :required => "recommended",
+  :recipes => [
+    "main::add_auth_key"
+  ]
+
+attribute "postfix/outgoing",
+  :display_name => "Outgoing Email Address",
+  :description => "Outgoing email address that connects to a SMTP server",
+  :required => "required",
+  :recipes => [
+    "main::setup_postfix"
+  ]
+
+attribute "postfix/password",
+  :display_name => "Outgoing SMTP Password",
+  :description => "Outgoing SMTP Password for the SMTP server",
   :required => "recommended",
   :recipes => [
     "main::add_auth_key"

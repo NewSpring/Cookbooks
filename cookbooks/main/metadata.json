@@ -35,6 +35,32 @@
       ],
       "calculated": false,
       "type": "string"
+    },
+    "postfix/outgoing": {
+      "display_name": "Outgoing Email Address",
+      "description": "Outgoing email address that connects to a SMTP server",
+      "required": "required",
+      "recipes": [
+        "main::setup_postfix"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "postfix/password": {
+      "display_name": "Outgoing SMTP Password",
+      "description": "Outgoing SMTP Password for the SMTP server",
+      "required": "recommended",
+      "recipes": [
+        "main::add_auth_key"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string"
     }
   },
   "groupings": {
@@ -46,7 +72,8 @@
     "main::add_auth_key": "Added Authorized Key",
     "main::ruby": "Install Ruby Stuffs",
     "main::memcache_hostname_setup": "Sets up a local memcache hostname to connect to the memcache instance on the deployment",
-    "main::setup_firewall": "Sets up basic http/https firewall"
+    "main::setup_firewall": "Sets up basic http/https firewall",
+    "main::setup_postfix": "Setup up postfix service on MailGun"
   },
   "version": "0.0.2"
 }
