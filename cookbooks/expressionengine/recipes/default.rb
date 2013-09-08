@@ -1,9 +1,8 @@
-
-
-# Cookbook Name:: newspring
+# expressionengine::default
+#
 # Recipe:: default
 #
-# Copyright 2012, NewSpring Church, Inc.
+# Copyright 2013, NewSpring Church, Inc.
 #
 # All rights reserved - Do Not Redistribute
 
@@ -19,7 +18,7 @@ user node[:web_apache][:application_name] do
   shell "/dev/null"
 end
 
-repo "newspring" do
+repo node[:web_apache][:application_name] do
   provider node[:repo][:default][:provider]
   destination "#{node[:repo][:default][:destination]}/#{node[:ee][:main]}"
   app_user node[:web_apache][:application_name]
