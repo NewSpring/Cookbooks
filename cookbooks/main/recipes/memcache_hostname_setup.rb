@@ -27,6 +27,7 @@ ruby_block "Installing Memcache Host..." do
     )
     file.write_file
   end
-
-  right_link_tag "memcached_client:active=true"
 end
+
+right_link_tag "memcached_client:active=true"
+
