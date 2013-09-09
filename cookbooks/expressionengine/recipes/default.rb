@@ -18,7 +18,7 @@ user node[:web_apache][:application_name] do
   shell "/dev/null"
 end
 
-repo node[:web_apache][:application_name] do
+repo "#{node[:web_apache][:application_name]}" do
   provider node[:repo][:default][:provider]
   destination "#{node[:repo][:default][:destination]}/#{node[:ee][:main]}"
   app_user node[:web_apache][:application_name]
