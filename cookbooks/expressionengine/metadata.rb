@@ -6,6 +6,7 @@ long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version          "0.0.7"
 
 depends "apache2"
+depends "repo"
 
 recipe "expressionengine::default", "Installs the Expressione Engine System and Clones down the repo"
 recipe "expressionengine::multisite", "Installs and Configures EE MSM Sites"
