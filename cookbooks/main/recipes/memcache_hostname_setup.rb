@@ -10,7 +10,6 @@ end
 collection.run_action(:load)
 
 ruby_block "Installing Memcache Host..." do
-
   ip_list = []
   valid_ip_regex =
               '\b(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}' +
@@ -28,4 +27,6 @@ ruby_block "Installing Memcache Host..." do
     )
     file.write_file
   end
+
+  right_link_tag "memcached_client:active=true"
 end
