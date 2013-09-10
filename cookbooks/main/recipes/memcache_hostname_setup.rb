@@ -1,4 +1,4 @@
-rightscale_marker
+rightscale_marker :begin
 
 search = "memcache_servers"
 
@@ -31,3 +31,4 @@ end
 
 right_link_tag "memcached_client:active=true"
 
+rightscale_marker :end
