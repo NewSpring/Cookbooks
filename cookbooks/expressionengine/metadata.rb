@@ -7,6 +7,9 @@ version          "0.0.7"
 
 depends "apache2"
 depends "repo"
+depends "web_apache"
+depends "rightscale"
+depends "app"
 
 recipe "expressionengine::default", "Installs the Expressione Engine System and Clones down the repo"
 recipe "expressionengine::multisite", "Installs and Configures EE MSM Sites"
