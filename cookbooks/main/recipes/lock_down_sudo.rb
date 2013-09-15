@@ -10,7 +10,7 @@ group "admin" do
   members ['webuser']
 end
 
-bash "lock_su" do
+execute "lock_su" do
   user "root"
   code <<-EOH
     dpkg-statoverride --update --add root admin 4750 /bin/su
