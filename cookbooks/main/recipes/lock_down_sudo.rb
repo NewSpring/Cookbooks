@@ -15,6 +15,8 @@ execute "lock_su" do
   code <<-EOH
     dpkg-statoverride --update --add root admin 4750 /bin/su
   EOH
+
+  not_if { ::File.exists? '[/bin/su]' }
 end
 
 rightscale_marker :end
