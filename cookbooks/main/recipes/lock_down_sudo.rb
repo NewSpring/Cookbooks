@@ -10,13 +10,9 @@ group "admin" do
   members ['webuser']
 end
 
-bash "lock_su" do
-  user "root"
-  code <<-EOH
-    dpkg-statoverride --update --add root admin 4750 /bin/su
-  EOH
-
-  not_if { ::File.exists? '[/bin/su]' }
+execute "lock_su" do
+  command "dpkg-statoverride --update --add root admin 4750 /bin/su"
+  not_if {::File.exists?("/bin/su")}
 end
 
 rightscale_marker :end
