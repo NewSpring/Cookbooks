@@ -41,13 +41,16 @@
   },
   "recipes": {
     "main::apt": "Add PPA packages",
+    "main::apache": "Disables default site and sets up ports",
     "main::added_to_lb": "Notifcation that instance was added to Load Balancer",
     "main::removed_from_lb": "Notification was removed from the Load Balancer",
     "main::add_auth_key": "Added Authorized Key",
     "main::ruby": "Install Ruby Stuffs",
     "main::memcache_hostname_setup": "Sets up a local memcache hostname to connect to the memcache instance on the deployment",
     "main::setup_firewall": "Sets up basic http/https firewall",
-    "main::setup_postfix": "Setup up postfix service on MailGun"
+    "main::setup_postfix": "Setup up postfix service on MailGun",
+    "main::lock_down_sudo": "Setup up postfix service on MailGun",
+    "main::prevent_ip_spoofing": "Setup up postfix service on MailGun"
   },
   "version": "0.0.2"
 }
