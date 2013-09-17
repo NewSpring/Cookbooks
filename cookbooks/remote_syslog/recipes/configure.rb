@@ -20,4 +20,9 @@ template "/etc/log_files.yml" do
   group "root"
   mode  "0644"
   notifies :restart, "service[remote_syslog]"
+  variables :yaml => {
+              'files'            => node.remote_syslog.conf.files,
+              'exclude_files'    => node.remote_syslog.exclude_files,
+              'destination'      => node.remote_syslog.destination
+            }.to_yaml(:SortKeys => true).split("\n").map{|l| l.gsub(/ \!ruby.*$/, "").gsub(/---/, "")}.join("\n")
 end

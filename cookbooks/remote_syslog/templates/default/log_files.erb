@@ -1,7 +1,1 @@
-files:
-<% node[:remote_syslog][:files].each do |file| %>
-  - <%= #{file} %>
-<% end %>
-destination:
-  host: logs.papertrailapp.com
-  port: <%= node[:remote_syslog][:port] %>
+<%= @yaml %>
