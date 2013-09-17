@@ -10,14 +10,14 @@
 # processname: remote_syslog
 
 prog="remote_syslog"
-config="/etc/log_files.yml"
+config="/etc/papertrail/logs.yml"
 pid_dir="/var/run"
 
 EXTRAOPTIONS="--tls"
 
 pid_file="$pid_dir/$prog.pid"
 
-PATH=/sbin:/bin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:$PATH
+PATH=/sbin:/bin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin
 
 RETVAL=0
 
@@ -29,7 +29,7 @@ start(){
     echo -n $"Starting $prog: "
 
     unset HOME MAIL USER USERNAME
-    $prog -c $config --pid-file $pid_file $EXTRAOPTIONS
+    $prog -c $config -P $pid_dir "$EXTRAOPTIONS"
     RETVAL=$?
     echo
     return $RETVAL

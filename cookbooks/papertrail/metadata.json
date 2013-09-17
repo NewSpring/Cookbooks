@@ -1,0 +1,87 @@
+{
+  "name": "papertrail",
+  "description": "Installs/Configures papertrail",
+  "long_description": "No README\n",
+  "maintainer": "First Banco",
+  "maintainer_email": "rob@firstbanco.com",
+  "license": "All rights reserved",
+  "platforms": {
+    "ubuntu": ">= 0.0.0",
+    "debian": ">= 0.0.0"
+  },
+  "dependencies": {
+    "build-essential": ">= 0.0.0",
+    "rsyslog": ">= 0.0.0"
+  },
+  "recommendations": {
+  },
+  "suggestions": {
+  },
+  "conflicting": {
+  },
+  "providing": {
+  },
+  "replacing": {
+  },
+  "attributes": {
+    "papertrail/logs": {
+      "display_name": "Log Files",
+      "description": "Select with log files to send",
+      "required": "required",
+      "type": "array",
+      "recipes": [
+        "papertrail::default"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false
+    },
+    "papertrail/host": {
+      "display_name": "Papertrail Host",
+      "description": "Hostname for Papertrail Service",
+      "default": "logs.papertrailapp.com",
+      "recipes": [
+        "papertrail::default"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional"
+    },
+    "papertrail/port": {
+      "display_name": "Papertrail Port",
+      "description": "Port for Papertrail Service",
+      "required": "required",
+      "recipes": [
+        "papertrail::default"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "papertrail/exclude_patterns": {
+      "display_name": "Exclude Patterns",
+      "description": "Pattern Regex to Exclude",
+      "recipes": [
+        "papertrail::default"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional"
+    }
+  },
+  "groupings": {
+  },
+  "recipes": {
+    "papertrail::default": "Installs the Configuration to send logs to the papertrail app service"
+  },
+  "version": "0.0.1"
+}
