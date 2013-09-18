@@ -48,9 +48,9 @@
     "main::ruby": "Install Ruby Stuffs",
     "main::memcache_hostname_setup": "Sets up a local memcache hostname to connect to the memcache instance on the deployment",
     "main::setup_firewall": "Sets up basic http/https firewall",
-    "main::setup_postfix": "Setup up postfix service on MailGun",
     "main::lock_down_sudo": "Lock down su and disable root access",
-    "main::prevent_ip_spoofing": "Prevent IP Spoofing"
+    "main::prevent_ip_spoofing": "Prevent IP Spoofing",
+    "main::add_mailname": "Add Mailname for Postfix"
   },
   "version": "0.0.2"
 }
