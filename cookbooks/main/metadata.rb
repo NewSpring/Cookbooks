@@ -20,7 +20,8 @@ recipe "main::setup_firewall", "Sets up basic http/https firewall"
 recipe "main::lock_down_sudo", "Lock down su and disable root access"
 recipe "main::prevent_ip_spoofing", "Prevent IP Spoofing"
 recipe "main::add_mailname", "Add Mailname for Postfix"
-
+recipe "main::harden_php_settings", "PHP Hardening"
+recipe "main::harden_sysctl_settings", "Harden Network Settings"
 
 attribute "rightscale/public_key",
   :display_name => "Public Key",

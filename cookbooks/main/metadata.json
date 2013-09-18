@@ -50,7 +50,9 @@
     "main::setup_firewall": "Sets up basic http/https firewall",
     "main::lock_down_sudo": "Lock down su and disable root access",
     "main::prevent_ip_spoofing": "Prevent IP Spoofing",
-    "main::add_mailname": "Add Mailname for Postfix"
+    "main::add_mailname": "Add Mailname for Postfix",
+    "main::harden_php_settings": "PHP Hardening",
+    "main::harden_sysctl_settings": "Harden Network Settings"
   },
   "version": "0.0.2"
 }

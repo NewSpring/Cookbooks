@@ -26,7 +26,7 @@
 
   LogLevel info
   ErrorLog <%= node[:apache][:log_dir] %>/<%= @params[:name] %>-error.log
-  CustomLog <%= node[:apache][:log_dir] %>/<%= @params[:name] %>-access.log combined
+  CustomLog <%= node[:apache][:log_dir] %>/<%= @params[:name] %>-access.log simple
 
   RewriteEngine On
   RewriteLog <%= node[:apache][:log_dir] %>/<%= @application_name %>-rewrite.log

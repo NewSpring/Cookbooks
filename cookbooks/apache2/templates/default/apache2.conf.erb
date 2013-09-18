@@ -120,7 +120,7 @@ DefaultType text/plain
 # each client request will result in AT LEAST one lookup request to the
 # nameserver.
 #
-HostnameLookups Off
+HostnameLookups On
 
 # ErrorLog: The location of the error log file.
 # If you do not specify an ErrorLog directive within a <VirtualHost>
@@ -128,7 +128,7 @@ HostnameLookups Off
 # logged here.  If you *do* define an error logfile for a <VirtualHost>
 # container, that host's errors will be logged there and not here.
 #
-ErrorLog <%= node[:apache][:log_dir] %>/error.log 
+ErrorLog <%= node[:apache][:log_dir] %>/error.log
 
 #
 # LogLevel: Control the number of messages logged to the error_log.
@@ -152,6 +152,7 @@ LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" combine
 LogFormat "%h %l %u %t \"%r\" %>s %b" common
 LogFormat "%{Referer}i -> %U" referer
 LogFormat "%{User-agent}i" agent
+LogFormat "%h | %H %m %t %U | %{User-Agent}i | {status:%>s}" simple
 #
 
 # Customizable error responses come in three flavors:

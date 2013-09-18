@@ -57,7 +57,7 @@ bash "set_permissions" do
 end
 
 #Create Vhost
-web_app "#{node[:ee][:main]}.frontend" do
+web_app "#{node[:ee][:main]}" do
   cookbook "apache2"
   template "web_app.conf.erb"
   docroot "#{node[:repo][:default][:destination]}/#{node[:ee][:main]}"
