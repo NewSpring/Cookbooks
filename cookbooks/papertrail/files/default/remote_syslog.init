@@ -17,7 +17,7 @@ EXTRAOPTIONS="--tls"
 
 pid_file="$pid_dir/$prog.pid"
 
-PATH=/sbin:/bin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin
+PATH=/sbin:/bin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:$PATH
 
 RETVAL=0
 
@@ -29,7 +29,7 @@ start(){
     echo -n $"Starting $prog: "
 
     unset HOME MAIL USER USERNAME
-    $prog -c $config -P $pid_dir "$EXTRAOPTIONS"
+    $prog -c $config --pid-file $pid_file $EXTRAOPTIONS
     RETVAL=$?
     echo
     return $RETVAL

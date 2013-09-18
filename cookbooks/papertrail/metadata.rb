@@ -47,6 +47,7 @@ attribute "papertrail/port",
 attribute "papertrail/exclude_patterns",
   :display_name => "Exclude Patterns",
   :description => "Pattern Regex to Exclude",
+  :type => "array",
   :recipes => [
     "papertrail::default"
   ]
