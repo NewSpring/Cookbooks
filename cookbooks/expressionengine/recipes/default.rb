@@ -24,8 +24,8 @@ repo "#{node[:web_apache][:application_name]}" do
   app_user node[:web_apache][:application_name]
   repository node[:repo][:default][:repository]
   credential node[:repo][:default][:credential]
-  symlinks "images" => "images" #, "events/current" => "events"
-  create_dirs_before_symlink ["images"]
+  symlinks "images" => "images", "css" => "assets/css" #, "events/current" => "events"
+  create_dirs_before_symlink ["images","css"]
   revision node[:repo][:default][:revision]
   action node[:repo][:default][:perform_action].to_sym
 end
@@ -42,6 +42,16 @@ file "#{node[:repo][:default][:destination]}/#{node[:ee][:main]}/#{node[:ee][:sy
   mode 0666
   owner node[:web_apache][:application_name]
   group node[:web_apache][:application_name]
+end
+
+ruby_block "install_assets" do
+  block do
+    r = Chef::Resource::Execute.new("install_assets")
+    r.cwd node[:repo][:default][:destination]
+    r.command "bundle install && rake"
+    r.returns [0,2]
+    r.run_action(:create)
+  end
 end
 
 #Make sure EE permissions are correct
