@@ -33,15 +33,6 @@ template "#{papertrail_conf_dir}/logs.yml" do
   source 'logs.yml.erb'
 end
 
-template "/etc/rsyslog.d/papertrail.conf" do
-  action :create
-  owner 'root'
-  group 'root'
-  mode '0644'
-  source 'papertrail.syslog.conf.erb'
-  notifies :restart, 'service[rsyslog]'
-end
-
 remote_file "#{papertrail_conf_dir}/syslog.papertrail.crt" do
   source 'https://papertrailapp.com/tools/syslog.papertrail.crt'
   mode '0644'
