@@ -7,13 +7,15 @@
 # All rights reserved - Do Not Redistribute
 #
 
+rightscale_marker :begin
+
 include_recipe 'build-essential'
 
 papertrail_conf_dir = '/etc/papertrail'
 
-papertrail = gem_package 'remote_syslog' do
+gem_package 'remote_syslog' do
   version node[:papertrail][:remote_syslog][:version]
-  action :nothing
+  action :install
 end
 
 papertrail.run_action(:install)
@@ -50,3 +52,5 @@ end
 service 'remote_syslog' do
   action :enable
 end
+
+rightscale_marker :end
