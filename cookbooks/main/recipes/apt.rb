@@ -5,7 +5,3 @@ apt_repository "php5" do
   keyserver "keyserver.ubuntu.com"
   key "EE379B61"
 end
-
-package "ruby-bundler" do
-  action :install
-end
