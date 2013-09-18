@@ -13,9 +13,9 @@ include_recipe 'build-essential'
 
 papertrail_conf_dir = '/etc/papertrail'
 
-gem_package 'remote_syslog' do
+papertrail = gem_package 'remote_syslog' do
   version node[:papertrail][:remote_syslog][:version]
-  action :install
+  action :nothing
 end
 
 papertrail.run_action(:install)
