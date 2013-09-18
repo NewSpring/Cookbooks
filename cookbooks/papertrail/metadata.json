@@ -23,6 +23,19 @@
   "replacing": {
   },
   "attributes": {
+    "papertrail/remote_syslog/version": {
+      "display_name": "Remote Syslog Version",
+      "description": "Which version of the remote syslog gem to install",
+      "required": "required",
+      "recipes": [
+        "papertrail::default"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string"
+    },
     "papertrail/logs": {
       "display_name": "Log Files",
       "description": "Select with log files to send",

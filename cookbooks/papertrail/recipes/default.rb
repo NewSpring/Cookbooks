@@ -8,15 +8,15 @@
 #
 
 include_recipe 'build-essential'
-include_recipe 'rsyslog'
-package 'rsyslog-gnutls'
 
 papertrail_conf_dir = '/etc/papertrail'
 
-gem_package 'remote_syslog' do
+papertrail = gem_package 'remote_syslog' do
   version node[:papertrail][:remote_syslog][:version]
-  retries 2
+  action :nothing
 end
+
+papertrail.run_action(:install)
 
 directory papertrail_conf_dir do
   action :create

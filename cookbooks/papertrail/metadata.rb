@@ -11,6 +11,14 @@ supports "debian"
 
 recipe "papertrail::default", "Installs the Configuration to send logs to the papertrail app service"
 
+attribute "papertrail/remote_syslog/version",
+  :display_name => "Remote Syslog Version",
+  :description => "Which version of the remote syslog gem to install",
+  :required => "required",
+  :recipes => [
+    "papertrail::default"
+  ]
+
 attribute "papertrail/logs",
   :display_name => "Log Files",
   :description => "Select with log files to send",
@@ -20,7 +28,7 @@ attribute "papertrail/logs",
     "papertrail::default"
   ]
 
-  attribute "papertrail/host",
+attribute "papertrail/host",
   :display_name => "Papertrail Host",
   :description => "Hostname for Papertrail Service",
   :default => "logs.papertrailapp.com",
@@ -28,7 +36,7 @@ attribute "papertrail/logs",
     "papertrail::default"
   ]
 
-  attribute "papertrail/port",
+attribute "papertrail/port",
   :display_name => "Papertrail Port",
   :description => "Port for Papertrail Service",
   :required => "required",
@@ -36,7 +44,7 @@ attribute "papertrail/logs",
     "papertrail::default"
   ]
 
-  attribute "papertrail/exclude_patterns",
+attribute "papertrail/exclude_patterns",
   :display_name => "Exclude Patterns",
   :description => "Pattern Regex to Exclude",
   :recipes => [

@@ -20,6 +20,7 @@ recipe "main::setup_firewall", "Sets up basic http/https firewall"
 recipe "main::setup_postfix", "Setup up postfix service on MailGun"
 recipe "main::lock_down_sudo", "Lock down su and disable root access"
 recipe "main::prevent_ip_spoofing", "Prevent IP Spoofing"
+recipe "main::add_mailname", "Add Mailname for Postfix"
 
 
 attribute "rightscale/public_key",
