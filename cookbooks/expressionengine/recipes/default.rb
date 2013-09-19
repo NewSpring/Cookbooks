@@ -47,10 +47,10 @@ end
 ruby_block "install_assets" do
   block do
     #does rakefile exist?
-    if File.join("#{node[:repo][:default][:destination]}/#{node[:ee][:main]}", "Rakefile").exist?
-    cmd = Chef::ShellOut.new("bundle install && rake", :cwd => "#{node[:repo][:default][:destination]}/#{node[:ee][:main]}").run_command
+    if FileTest.exist?("#{node[:repo][:default][:destination]}/#{node[:ee][:main]}/Rakefile")
+    cmd = Mixlab::ShellOut.new("bundle install && rake", :cwd => "#{node[:repo][:default][:destination]}/#{node[:ee][:main]}").run_command
       unless cmd.exitstatus == 0 or cmd.exitstatus == 2
-        Chef::Application.fatal!("Unable to Install Assets!")
+        Chef::Application.fatal!(cmd.stderr)
       end
     end
   end
