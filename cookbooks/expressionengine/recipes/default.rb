@@ -46,7 +46,8 @@ end
 
 ruby_block "install_assets" do
   block do
-    r = Chef::Resource::Execute.new("install_assets")
+    context = Chef::RunContext.new(node, {})
+    r = Chef::Resource::Execute.new("install_assets", context)
     r.cwd node[:repo][:default][:destination]
     r.command "bundle install && rake"
     r.returns [0,2]
