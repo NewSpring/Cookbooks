@@ -46,12 +46,10 @@ end
 
 ruby_block "install_assets" do
   block do
-    context = Chef::RunContext.new(node, {})
-    r = Chef::Resource::Execute.new("install_assets", context)
-    r.cwd node[:repo][:default][:destination]
-    r.command "bundle install && rake"
-    r.returns [0,2]
-    r.run_action(:create)
+  cmd = Chef::ShellOut.new("bundle install && rake").run_command
+    unless cmd.exitstatus == 0 or cmd.exitstatus == 2
+      Chef::Application.fatal!("Unable to Install Assets!")
+    end
   end
 end
 
