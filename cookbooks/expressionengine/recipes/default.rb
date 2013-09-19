@@ -18,9 +18,11 @@ user node[:web_apache][:application_name] do
   shell "/dev/null"
 end
 
+site_install_dir = "#{node[:repo][:default][:destination]}/#{node[:ee][:main]}"
+
 repo "#{node[:web_apache][:application_name]}" do
   provider node[:repo][:default][:provider]
-  destination "#{node[:repo][:default][:destination]}/#{node[:ee][:main]}"
+  destination site_install_dir
   app_user node[:web_apache][:application_name]
   repository node[:repo][:default][:repository]
   credential node[:repo][:default][:credential]
@@ -30,31 +32,38 @@ repo "#{node[:web_apache][:application_name]}" do
   action node[:repo][:default][:perform_action].to_sym
 end
 
-template "#{node[:repo][:default][:destination]}/#{node[:ee][:main]}/#{node[:ee][:system_folder]}/expressionengine/config/database.php" do
+template "#{site_install_dir}/#{node[:ee][:system_folder]}/expressionengine/config/database.php" do
   source "database.php.erb"
   mode 0666
   owner node[:web_apache][:application_name]
   group node[:web_apache][:application_name]
 end
 
-file "#{node[:repo][:default][:destination]}/#{node[:ee][:main]}/#{node[:ee][:system_folder]}/expressionengine/config/config.php" do
+file "#{site_install_dir}/#{node[:ee][:system_folder]}/expressionengine/config/config.php" do
   action :touch
   mode 0666
   owner node[:web_apache][:application_name]
   group node[:web_apache][:application_name]
 end
 
-ruby_block "install_assets" do
-  block do
-    #does rakefile exist?
-    if FileTest.exist?("#{node[:repo][:default][:destination]}/#{node[:ee][:main]}/Rakefile")
-    cmd = Mixlab::ShellOut.new("bundle install && rake", :cwd => "#{node[:repo][:default][:destination]}/#{node[:ee][:main]}").run_command
-      unless cmd.exitstatus == 0 or cmd.exitstatus == 2
-        Chef::Application.fatal!(cmd.stderr)
-      end
-    end
-  end
+execute "install_assets" do
+  cwd site_install_dir
+  command "bundle install && rake"
+  #only run if rake file exists
+  only_if { ::File.exists?("#{site_install_dir}/Rakefile") }
 end
+
+# ruby_block "install_assets" do
+#   block do
+#     #does rakefile exist?
+#     if FileTest.exist?("#{node[:repo][:default][:destination]}/#{node[:ee][:main]}/Rakefile")
+#     cmd = Mixlab::ShellOut.new("bundle install && rake", :cwd => "#{node[:repo][:default][:destination]}/#{node[:ee][:main]}").run_command
+#       unless cmd.exitstatus == 0 or cmd.exitstatus == 2
+#         Chef::Application.fatal!(cmd.stderr)
+#       end
+#     end
+#   end
+# end
 
 #Make sure EE permissions are correct
 bash "set_permissions" do
