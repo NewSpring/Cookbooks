@@ -26,7 +26,7 @@ repo "#{node[:web_apache][:application_name]}" do
   app_user node[:web_apache][:application_name]
   repository node[:repo][:default][:repository]
   credential node[:repo][:default][:credential]
-  # create_dirs_before_symlink %w{images}
+  create_dirs_before_symlink %w{/home/capistrano_repo/images, /home/capistrano_repo/css}
   symlinks "images" => "images", "css" => "assets/css"
   revision node[:repo][:default][:revision]
   action node[:repo][:default][:perform_action].to_sym
@@ -52,18 +52,6 @@ execute "install_assets" do
   #only run if rake file exists
   only_if { ::File.exists?("#{site_install_dir}/Rakefile") }
 end
-
-# ruby_block "install_assets" do
-#   block do
-#     #does rakefile exist?
-#     if FileTest.exist?("#{node[:repo][:default][:destination]}/#{node[:ee][:main]}/Rakefile")
-#     cmd = Mixlab::ShellOut.new("bundle install && rake", :cwd => "#{node[:repo][:default][:destination]}/#{node[:ee][:main]}").run_command
-#       unless cmd.exitstatus == 0 or cmd.exitstatus == 2
-#         Chef::Application.fatal!(cmd.stderr)
-#       end
-#     end
-#   end
-# end
 
 #Make sure EE permissions are correct
 bash "set_permissions" do
