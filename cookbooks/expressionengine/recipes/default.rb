@@ -26,7 +26,7 @@ repo "#{node[:web_apache][:application_name]}" do
   app_user node[:web_apache][:application_name]
   repository node[:repo][:default][:repository]
   credential node[:repo][:default][:credential]
-  create_dirs_before_symlink %w{images css}
+  create_dirs_before_symlink %w{images}
   symlinks "images" => "images", "css" => "assets/css"
   revision node[:repo][:default][:revision]
   action node[:repo][:default][:perform_action].to_sym
