@@ -26,10 +26,34 @@ repo "#{node[:web_apache][:application_name]}" do
   app_user node[:web_apache][:application_name]
   repository node[:repo][:default][:repository]
   credential node[:repo][:default][:credential]
-  create_dirs_before_symlink %w{/home/capistrano_repo/shared/images /home/capistrano_repo/shared/css}
-  symlinks "images" => "images", "css" => "assets/css"
   revision node[:repo][:default][:revision]
   action node[:repo][:default][:perform_action].to_sym
+end
+
+directory "/home/capistrano_repo/shared/css" do
+  action :create
+  owner node[:web_apache][:application_name]
+  group node[:web_apache][:application_name]
+end
+
+directory "/home/capistrano_repo/shared/images" do
+  action :create
+  owner node[:web_apache][:application_name]
+  group node[:web_apache][:application_name]
+end
+
+link "#{site_install_dir}/assets/css" do
+  link_type :symbolic
+  owner node[:web_apache][:application_name]
+  group node[:web_apache][:application_name]
+  to "/home/capistrano_repo/shared/css"
+end
+
+link "#{site_install_dir}/assets/images" do
+  link_type :symbolic
+  owner node[:web_apache][:application_name]
+  group node[:web_apache][:application_name]
+  to "/home/capistrano_repo/shared/images"
 end
 
 template "#{site_install_dir}/#{node[:ee][:system_folder]}/expressionengine/config/database.php" do
