@@ -42,18 +42,16 @@ directory "/home/capistrano_repo/shared/images" do
   group node[:web_apache][:application_name]
 end
 
-link "#{site_install_dir}/assets/css" do
-  link_type :symbolic
+link "/home/capistrano_repo/shared/css" do
   owner node[:web_apache][:application_name]
   group node[:web_apache][:application_name]
-  to "/home/capistrano_repo/shared/css"
+  to "#{site_install_dir}/assets/css"
 end
 
-link "#{site_install_dir}/assets/images" do
-  link_type :symbolic
+link "/home/capistrano_repo/shared/images" do
   owner node[:web_apache][:application_name]
   group node[:web_apache][:application_name]
-  to "/home/capistrano_repo/shared/images"
+  to "#{site_install_dir}/assets/images"
 end
 
 template "#{site_install_dir}/#{node[:ee][:system_folder]}/expressionengine/config/database.php" do
