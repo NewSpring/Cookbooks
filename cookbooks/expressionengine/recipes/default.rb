@@ -48,7 +48,7 @@ link "#{site_install_dir}/assets/css" do
   action :create
 end
 
-link "#{site_install_dir}/assets/images" do
+link "#{site_install_dir}/images" do
   to "/home/capistrano_repo/shared/images"
   link_type :symbolic
   action :create
