@@ -1,0 +1,6 @@
+[submodule "cookbooks/application_php"]
+	path = cookbooks/application_php
+	url = git@github.com:NewSpring/application_php.git
+[submodule "cookbooks/application"]
+	path = cookbooks/application
+	url = https://github.com/opscode-cookbooks/application.git
