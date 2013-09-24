@@ -10,6 +10,8 @@
 ## Then, deploy
 rightscale_marker :begin
 
+include_recipe "repo::default"
+
 site_install_dir = "#{node[:repo][:default][:destination]}/#{node[:ee][:main]}"
 
 repo node[:web_apache][:application_name] do

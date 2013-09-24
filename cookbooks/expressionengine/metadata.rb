@@ -7,6 +7,7 @@ version          "0.0.7"
 
 depends "apache2"
 depends "repo"
+depends "repo_git"
 depends "web_apache"
 depends "rightscale"
 depends "app"
