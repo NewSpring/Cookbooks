@@ -32,7 +32,8 @@ attribute "ee/multisite",
   :required => "optional",
   :type => "array",
   :recipes => [
-    "expressionengine::multisite"
+    "expressionengine::multisite",
+    "expressionengine::update"
   ]
 
 attribute "ee/system_folder",
@@ -40,7 +41,8 @@ attribute "ee/system_folder",
   :description => "EE System Folder, by default its set to 'system'",
   :default => "system",
   :recipes => [
-    "expressionengine::default"
+    "expressionengine::default",
+    "expressionengine::update"
   ]
 
 attribute "ee/hostname",
@@ -48,7 +50,8 @@ attribute "ee/hostname",
   :description => "Database hostname",
   :required => "required",
   :recipes => [
-    "expressionengine::default"
+    "expressionengine::default",
+    "expressionengine::update"
   ]
 
 attribute "ee/username",
@@ -56,7 +59,8 @@ attribute "ee/username",
   :description => "Database Username",
   :required => "required",
   :recipes => [
-    "expressionengine::default"
+    "expressionengine::default",
+    "expressionengine::update"
   ]
 
 attribute "ee/password",
@@ -64,7 +68,8 @@ attribute "ee/password",
   :description => "Database Password",
   :required => "required",
   :recipes => [
-    "expressionengine::default"
+    "expressionengine::default",
+    "expressionengine::update"
   ]
 
 attribute "ee/database",
@@ -72,5 +77,6 @@ attribute "ee/database",
   :description => "Database",
   :required => "required",
   :recipes => [
-    "expressionengine::default"
+    "expressionengine::default",
+    "expressionengine::update"
   ]

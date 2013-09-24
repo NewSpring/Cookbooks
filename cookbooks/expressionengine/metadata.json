@@ -10,6 +10,7 @@
   "dependencies": {
     "apache2": ">= 0.0.0",
     "repo": ">= 0.0.0",
+    "repo_git": ">= 0.0.0",
     "web_apache": ">= 0.0.0",
     "rightscale": ">= 0.0.0",
     "app": ">= 0.0.0"
@@ -46,7 +47,8 @@
       "required": "optional",
       "type": "array",
       "recipes": [
-        "expressionengine::multisite"
+        "expressionengine::multisite",
+        "expressionengine::update"
       ],
       "choice": [
 
@@ -58,7 +60,8 @@
       "description": "EE System Folder, by default its set to 'system'",
       "default": "system",
       "recipes": [
-        "expressionengine::default"
+        "expressionengine::default",
+        "expressionengine::update"
       ],
       "choice": [
 
@@ -72,7 +75,8 @@
       "description": "Database hostname",
       "required": "required",
       "recipes": [
-        "expressionengine::default"
+        "expressionengine::default",
+        "expressionengine::update"
       ],
       "choice": [
 
@@ -85,7 +89,8 @@
       "description": "Database Username",
       "required": "required",
       "recipes": [
-        "expressionengine::default"
+        "expressionengine::default",
+        "expressionengine::update"
       ],
       "choice": [
 
@@ -98,7 +103,8 @@
       "description": "Database Password",
       "required": "required",
       "recipes": [
-        "expressionengine::default"
+        "expressionengine::default",
+        "expressionengine::update"
       ],
       "choice": [
 
@@ -111,7 +117,8 @@
       "description": "Database",
       "required": "required",
       "recipes": [
-        "expressionengine::default"
+        "expressionengine::default",
+        "expressionengine::update"
       ],
       "choice": [
 
