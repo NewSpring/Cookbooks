@@ -11,6 +11,7 @@
 rightscale_marker :begin
 
 include_recipe "repo_git::default"
+include_recipe "repo::default"
 
 site_install_dir = "#{node[:repo][:default][:destination]}/#{node[:ee][:main]}"
 
