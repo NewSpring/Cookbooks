@@ -10,3 +10,8 @@ attribute "hipchat/api_key",
   :display_name => "HipChat API Key",
   :description => "API Key for the HipChat Message Service, Only needs to be a notification API key.",
   :required => "required"
+
+attribute "hipchat/room",
+  :display_name => "Default Room",
+  :description => "Which Room the message should be sent to",
+  :required => "required"

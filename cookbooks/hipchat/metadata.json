@@ -32,6 +32,19 @@
       "recipes": [
 
       ]
+    },
+    "hipchat/room": {
+      "display_name": "Default Room",
+      "description": "Which Room the message should be sent to",
+      "required": "required",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "recipes": [
+
+      ]
     }
   },
   "groupings": {
