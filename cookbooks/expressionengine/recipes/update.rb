@@ -14,7 +14,7 @@ include_recipe "repo::default"
 
 site_install_dir = "#{node[:repo][:default][:destination]}/#{node[:ee][:main]}"
 
-repo "#{node[:web_apache][:application_name]}" do
+repo "default" do
   destination "#{node[:repo][:default][:destination]}/#{node[:ee][:main]}"
   symlinks "images" => "images", "css" => "assets/css"
   action node[:repo][:default][:perform_action].to_sym
