@@ -16,7 +16,6 @@ site_install_dir = "#{node[:repo][:default][:destination]}/#{node[:ee][:main]}"
 
 deploy_revision site_install_dir do
   symlinks ( "images" => "images", "css" => "assets/css" )
-  action node[:repo][:default][:perform_action].to_sym
   credential node[:repo][:default][:credential]
   revision node[:repo][:default][:revision]
   repository node[:repo][:default][:repository]
