@@ -57,7 +57,6 @@ deploy_revision site_install_dir do
       group node[:web_apache][:application_name]
     end
   end
-  notifies :restart, "service[apache2]"
 end
 
 
