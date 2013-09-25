@@ -63,3 +63,10 @@ begin
 rescue LoadError
   # since foodcritic is not available for Ruby 1.8.7, don't try to load its rules if it is not available
 end
+
+begin
+  require 'kitchen/rake_tasks'
+  Kitchen::RakeTasks.new
+rescue LoadError
+  puts ">>>>> Kitchen gem not loaded, omitting tasks" unless ENV['CI']
+end

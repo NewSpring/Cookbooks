@@ -5,4 +5,5 @@ tmp/*
 *~
 .DEV_TEMP
 .DS_Store
-.idea
+.idea.kitchen/
+.kitchen.local.yml
