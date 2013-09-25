@@ -26,6 +26,14 @@ attribute "ee/main",
     "expressionengine::update"
   ]
 
+attribute "ee/update_revision",
+  :display_name => "Repo Revision",
+  :description => "The Revision that should be set on deploy",
+  :default => "master",
+  :recipes => [
+    "expressionengine::update"
+  ]
+
 attribute "ee/multisite",
   :display_name => "FQDN for Each Multisite Domain",
   :description => "FQDN for Each Multisite Domain, Format should look like http://domain.com or https://sub.domain.com",

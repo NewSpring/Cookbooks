@@ -17,7 +17,7 @@ site_install_dir = "#{node[:repo][:default][:destination]}/#{node[:ee][:main]}"
 deploy_revision site_install_dir do
   symlinks ( "images" => "images", "css" => "assets/css" )
   symlink_before_migrate "" => ""
-  revision node[:repo][:default][:revision]
+  revision node[:ee][:update_revision]
   repository node[:repo][:default][:repository]
   migrate false
   shallow_clone true
