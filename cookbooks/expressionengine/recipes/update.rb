@@ -25,17 +25,19 @@ deploy_revision site_install_dir do
   user node[:web_apache][:application_name]
   group node[:web_apache][:application_name]
   before_restart do
+    release_dir = "#{release_path}"
+
     execute "install_assets" do
       cwd site_install_dir
       command "bundle install && rake"
       #only run if rake file exists
-      only_if { ::File.exists?("#{current_release}/Rakefile") }
+      only_if { ::File.exists?("#{release_dir}/Rakefile") }
     end
 
     #Make sure EE permissions are correct
     bash "set_permissions" do
       user "root"
-      cwd "#{current_release}"
+      cwd release_dir
       code <<-EOH
         chmod -R 777 hello/expressionengine/cache
         chmod -R 777 assets/cache
@@ -44,14 +46,14 @@ deploy_revision site_install_dir do
         EOH
     end
 
-    template "#{current_release}/#{node[:ee][:system_folder]}/expressionengine/config/database.php" do
+    template "#{release_dir}/#{node[:ee][:system_folder]}/expressionengine/config/database.php" do
       source "database.php.erb"
       mode 0666
       owner node[:web_apache][:application_name]
       group node[:web_apache][:application_name]
     end
 
-    file "#{current_release}/#{node[:ee][:system_folder]}/expressionengine/config/config.php" do
+    file "#{release_dir}/#{node[:ee][:system_folder]}/expressionengine/config/config.php" do
       action :touch
       mode 0666
       owner node[:web_apache][:application_name]
