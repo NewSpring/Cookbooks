@@ -20,7 +20,7 @@ end
 
 site_install_dir = "#{node[:repo][:default][:destination]}/#{node[:ee][:main]}"
 
-repo "#{node[:web_apache][:application_name]}" do
+repo "default" do
   provider node[:repo][:default][:provider]
   destination site_install_dir
   app_user node[:web_apache][:application_name]
