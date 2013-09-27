@@ -7,15 +7,18 @@
 # All rights reserved - Do Not Redistribute
 #
 
-rightscale_marker :begin
+# rightscale_marker :begin
 
 include_recipe 'build-essential'
 
 papertrail_conf_dir = '/etc/papertrail'
 
-package 'remote_syslog' do
-  version node[:papertrail][:remote_syslog][:version]
-  action :install
+ruby_block 'remote_syslog' do
+  block do
+    execute "install gem" do
+      command "gem install remote_syslog -v '#{node[:papertrail][:remote_syslog][:version]}'"
+    end
+  end
 end
 
 directory papertrail_conf_dir do
@@ -51,4 +54,4 @@ service 'remote_syslog' do
   action :enable
 end
 
-rightscale_marker :end
+# rightscale_marker :end
