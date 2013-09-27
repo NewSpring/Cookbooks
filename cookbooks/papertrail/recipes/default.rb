@@ -13,12 +13,8 @@ include_recipe 'build-essential'
 
 papertrail_conf_dir = '/etc/papertrail'
 
-ruby_block 'remote_syslog' do
-  block do
-    execute "install gem" do
+execute "install gem" do
       command "gem install remote_syslog -v '#{node[:papertrail][:remote_syslog][:version]}'"
-    end
-  end
 end
 
 directory papertrail_conf_dir do
