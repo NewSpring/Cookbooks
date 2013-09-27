@@ -7,7 +7,7 @@
 # All rights reserved - Do Not Redistribute
 #
 
-# rightscale_marker :begin
+rightscale_marker :begin
 
 include_recipe 'build-essential'
 
@@ -47,7 +47,7 @@ cookbook_file '/etc/init.d/remote_syslog' do
 end
 
 service 'remote_syslog' do
-  action :enable
+  action [ :enable, :start ]
 end
 
-# rightscale_marker :end
+rightscale_marker :end
