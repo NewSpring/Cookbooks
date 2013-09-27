@@ -1,0 +1,117 @@
+{
+  "name": "aide",
+  "description": "Installs and configures AIDE HIDS",
+  "long_description": "Description\n===========\n\nInstalls and configures the AIDE host-based intrusion detection system.\n\nRequirements\n============\n\nPlatform\n--------\n\nTested on CentOS and Ubuntu\n\nAttributes\n==========\n\n* `node[\"aide\"][\"binary\"]` - Path to aide binary. Defaults to a sensible\nchoice for the platform\n\n* `node[\"aide\"][\"config\"]` - Path to aide.conf file. Defaults to a sensible\nchoice for the platform\n\n* `node[\"aide\"][\"extra_parameters\"]` - Extra parameters to use when invoking\naide. Defaults to a sensible choice for the platform.\n\n* `node[\"aide\"][\"cron_service\"]` - The name of the cron service on the\nplatform. Defaults to a sensible choice for the platform.\n\n* `node[\"aide\"][\"dbdir\"]` - Where the AIDE database files are kept. Defaults\nto /var/lib/aide\n\n* `node[\"aide\"][\"macros\"]` - A dictionary of AIDE macros, pre-populated\nas in the default AIDE config file.\n\n* `node[\"aide\"][\"paths\"]` - A dictionary of paths for AIDE to inspect and\nhow to handle them, pre-populated as in the default AIDE config file.\n\n* `node[\"aide\"][\"report_url\"]` - Where to send the output.  Defaults to \"stdout\". \nSee the AIDE documentation for other options.\n\nUsage\n=====\n\nTypically, you'll want to add the default recipe to a role's run list, then\nadd to the paths dictionary with locations to ignore.  Remember that paths\nuse regex syntax, not glob syntax, so \"all files in /opt/foo\" is expressed\nas \"/opt/foo/.*\" not \"/opt/foo/*\".\n\n    {\n      \"name\": \"foo\",\n      ...\n      \"run_list\": [\n        ...\n        \"recipe[aide]\"\n      ],\n      \"override_attributes\": {\n        ...\n        \"aide\": {\n          \"paths\": {\n            \"/opt/foo/.*\": \"!\"\n          }\n        }\n      }\n    }\n\nLicense and Author\n==================\n\nAuthor:: Elliot Kendall (<elliot.kendall@ucsf.edu>)\n\nCopyright:: 2013, The Regents of the University of California\n",
+  "maintainer": "Elliot Kendall",
+  "maintainer_email": "elliot.kendall@ucsf.edu",
+  "license": "BSD",
+  "platforms": {
+  },
+  "dependencies": {
+  },
+  "recommendations": {
+  },
+  "suggestions": {
+  },
+  "conflicting": {
+  },
+  "providing": {
+  },
+  "replacing": {
+  },
+  "attributes": {
+    "aide/cron_service": {
+      "display_name": "CRON Server",
+      "description": "Which CRON server is being using on the server",
+      "choice": [
+        "cron",
+        "crond"
+      ],
+      "default": "cron",
+      "recipes": [
+        "aide::default"
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional"
+    },
+    "aide/report_url": {
+      "display_name": "Log or Email Address",
+      "description": "Log or Email Address you can send the reports too",
+      "required": "recommended",
+      "recipes": [
+        "aide::default"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "aide/testmode": {
+      "display_name": "Test Mode",
+      "description": "Place AIDE in Test Mode",
+      "choice": [
+        "true",
+        "false"
+      ],
+      "default": "false",
+      "recipes": [
+        "aide::default"
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional"
+    },
+    "aide/binary": {
+      "display_name": "AIDE Binary",
+      "description": "Where the AIDE Binary lives",
+      "choice": [
+        "/usr/bin/aide",
+        "/usr/sbin/aide"
+      ],
+      "default": "/usr/bin/aide",
+      "recipes": [
+        "aide::default"
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional"
+    },
+    "aide/config": {
+      "display_name": "AIDE Config Location",
+      "description": "Where the AIDE Config Location lives on the server",
+      "choice": [
+        "/etc/aide.conf",
+        "/etc/aide/aide.conf"
+      ],
+      "default": "/etc/aide/aide.conf",
+      "recipes": [
+        "aide::default"
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional"
+    },
+    "aide/extra_parameters": {
+      "display_name": "Any Extra Parameters",
+      "description": "Run the AIDE command with extra parameters. Only Used with Ubuntu/Debian",
+      "default": "-c /etc/aide/aide.conf",
+      "recipes": [
+        "aide::default"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional"
+    }
+  },
+  "groupings": {
+  },
+  "recipes": {
+    "aide::default": "Installs and configures AIDE HIDS"
+  },
+  "version": "0.1.2"
+}
