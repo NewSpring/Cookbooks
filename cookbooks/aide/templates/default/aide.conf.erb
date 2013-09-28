@@ -1,9 +1,56 @@
 @@define DBDIR <%= node["aide"]["dbdir"] %>
-database=file:@@{DBDIR}/aide.db.gz
-database_out=file:@@{DBDIR}/aide.db.gz
+database=file:@@{DBDIR}/aide.db
+database_out=file:@@{DBDIR}/aide.db.new
+database_new=file:@@{DBDIR}/aide.db.new
 gzip_dbout=yes
 verbose=5
 report_url=<%= node["aide"]["report_url"] %>
+
+# Set to no to disable summarize_changes option.
+summarize_changes=yes
+
+# Set to no to disable grouping of files in report.
+grouped=yes
+
+# if you want to sacrifice security for speed, remove some of these
+# checksums. Whirlpool is broken on sparc and sparc64 (see #429180,
+# #420547, #152203).
+Checksums = sha256+tiger
+
+# check permissions, owner, group and file type
+OwnerMode = p+u+g+ftype
+
+# Check size and block count
+Size = s+b
+
+# Files that stay static
+InodeData = OwnerMode+n+i+Size+l+acl+xattrs+e2fsattrs+selinux
+StaticFile = m+c+Checksums
+
+# Files that stay static but are copied to a ram disk on startup
+# (causing different inode)
+RamdiskData = InodeData-i
+
+# Check everything
+Full = InodeData+StaticFile
+
+# Files that change their mtimes or ctimes but not their contents
+VarTime = InodeData+Checksums
+
+# Files that are recreated regularly but do not change their contents
+VarInode = VarTime-i
+
+# Files that change their contents during system operation
+VarFile = OwnerMode+n+l+acl+xattrs+e2fsattrs+selinux
+
+# Directories that change their contents during system operation
+VarDir = OwnerMode+n+i+acl+xattrs+e2fsattrs+selinux
+
+# Directories that are recreated regularly and change their contents
+VarDirInode = OwnerMode+n+acl+xattrs+e2fsattrs+selinux
+
+# Directories that change their mtimes or ctimes but not their contents
+VarDirTime = InodeData
 
 <% node["aide"]["macros"].each do |name,definition| -%>
 <%= name %> = <%= definition %>
