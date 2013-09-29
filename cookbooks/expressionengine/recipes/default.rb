@@ -68,7 +68,7 @@ file "#{site_install_dir}/#{node[:ee][:system_folder]}/expressionengine/config/c
   group node[:web_apache][:application_name]
 end
 
-execute "run_rake" do
+base "run_rake" do
   cwd site_install_dir
   command "/usr/local/bin/rake --verbose --trace"
   #only run if rake file exists
