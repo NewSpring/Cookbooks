@@ -9,6 +9,6 @@
 #
 
 hubot "default" do
-    body "  *** This is a test"
+    body "  *** Communicating with Apollos"
 end
 
