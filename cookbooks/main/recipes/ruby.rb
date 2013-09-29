@@ -17,3 +17,8 @@ execute "install_coffeescript" do
   command "gem install coffeescript --no-ri --no-rdoc --version '> 2.2.0'"
   not_if "`which coffee`"
 end
+
+execute "install_rake" do
+  command "gem install rake --no-ri --no-rdoc --version '> 10.1.0'"
+  not_if "`which rake`"
+end
