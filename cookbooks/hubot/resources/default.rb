@@ -1,6 +1,6 @@
 def initialize(*args)
   super
-  @action = :speak
+  @action = :run
 end
 
 actions :run
