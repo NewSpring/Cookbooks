@@ -16,7 +16,7 @@ execute "install_sass" do
 end
 
 execute "install_coffeescript" do
-  command "gem install coffeescript --no-ri --no-rdoc"
+  command "gem install coffee-script --no-ri --no-rdoc"
   not_if "`which coffee`"
 end
 
