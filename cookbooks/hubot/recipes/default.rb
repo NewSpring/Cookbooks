@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: unleash
+# Cookbook Name:: hubot
 # Recipe:: default
 #
 # Copyright 2013, YOUR_COMPANY_NAME

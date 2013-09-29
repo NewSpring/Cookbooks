@@ -1,5 +1,9 @@
 rightscale_marker :begin
 
+hubot "installing ruby gems" do
+    message "  *** Installing Rubygems!"
+end
+
 package "ruby-bundler" do
   action :install
 end
@@ -28,7 +32,6 @@ execute "install_rake" do
   command "gem install rake --no-ri --no-rdoc"
   not_if "`which rake`"
 end
-
 
 
 rightscale_marker :end
