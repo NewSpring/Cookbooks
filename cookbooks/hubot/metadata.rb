@@ -8,7 +8,7 @@ version          '0.1.0'
 
 recipe "hubot::default", "Initializes the resource"
 
-attribute "hubot/url",
+attribute "hubot/webhook",
   :display_name => "Hubot Webhook URL",
   :description => "The webhook url that should be posted too?",
   :required => "required",
