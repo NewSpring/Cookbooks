@@ -20,9 +20,15 @@ execute "install_coffeescript" do
   not_if "`which coffee`"
 end
 
+execute "install_rb-fsevent" do
+  command "gem install rb-fsevent --no-ri --no-rdoc"
+end
+
 execute "install_rake" do
   command "gem install rake --no-ri --no-rdoc"
   not_if "`which rake`"
 end
+
+
 
 rightscale_marker :end
