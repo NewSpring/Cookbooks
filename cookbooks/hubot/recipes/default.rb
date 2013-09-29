@@ -8,7 +8,7 @@
 #
 #
 
-hubot "testing" do
-    message "  *** This is a test"
+hubot "default" do
+    body "  *** This is a test"
 end
 
