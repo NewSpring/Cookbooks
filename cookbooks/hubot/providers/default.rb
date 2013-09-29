@@ -1,7 +1,11 @@
 action :run do
-  room = node[:hubot][:room] || new_resource.room
+  room = new_resource.room || node[:hubot][:room]
   message = { :message => "#{message}", :room => "#{room}" }
-  webhook = node[:hubot][:url] || new_resource.url
+  webhook = new_resource.url || node[:hubot][:url]
+
+  log "  ROOM: #{room}"
+  log "  MESSAGE: #{message}"
+  log "  URL: #{webhook}"
 
   http_request "send_hubot_message" do
     action :post
