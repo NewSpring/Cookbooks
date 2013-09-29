@@ -6,3 +6,9 @@
 #
 # All rights reserved - Do Not Redistribute
 #
+#
+
+hubot "testing" do
+    message "  *** This is a test"
+end
+
