@@ -1,7 +1,7 @@
 rightscale_marker :begin
 
 hubot "do start notify" do
-    message "  *** Starting Chef Run!"
+    body "  *** Starting Chef Run!"
 end
 
 rightscale_marker :end

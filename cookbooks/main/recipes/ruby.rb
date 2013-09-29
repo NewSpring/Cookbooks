@@ -1,7 +1,7 @@
 rightscale_marker :begin
 
 hubot "installing ruby gems" do
-    message "  *** Installing Rubygems!"
+    body "  *** Installing Rubygems!"
 end
 
 package "ruby-bundler" do

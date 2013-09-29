@@ -12,6 +12,10 @@ rightscale_marker :begin
 
 include_recipe "repo::default"
 
+hubot "pulling down repo" do
+    body "  ***  Pulling down updated #{node[:repo][:default][:repository]}."
+end
+
 site_install_dir = "#{node[:repo][:default][:destination]}/#{node[:ee][:main]}"
 
 repo "default" do
@@ -38,9 +42,9 @@ file "#{node[:repo][:default][:destination]}/#{node[:ee][:main]}/#{node[:ee][:sy
   group node[:web_apache][:application_name]
 end
 
-execute "install_assets" do
+base "run_rake" do
   cwd site_install_dir
-  command "bundle install && rake"
+  command "/usr/local/bin/rake --verbose --trace"
   #only run if rake file exists
   only_if { ::File.exists?("#{site_install_dir}/Rakefile") }
 end
