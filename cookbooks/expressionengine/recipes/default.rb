@@ -68,9 +68,9 @@ file "#{site_install_dir}/#{node[:ee][:system_folder]}/expressionengine/config/c
   group node[:web_apache][:application_name]
 end
 
-execute "install_assets" do
+execute "run_rake" do
   cwd site_install_dir
-  command "bundle install && rake"
+  command "rake"
   #only run if rake file exists
   only_if { ::File.exists?("#{site_install_dir}/Rakefile") }
 end
