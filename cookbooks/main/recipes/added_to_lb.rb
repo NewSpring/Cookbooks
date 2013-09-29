@@ -1,13 +1,12 @@
 rightscale_marker :begin
 
-include_recipe "hipchat"
-
-hipchat_msg "added to lb" do
-  room node[:hipchat][:room]
-  token node[:hipchat][:api_key]
-  nickname "RightScale"
-  message "Instance: #{node[:cloud][:public_ips][0]}, has been added to Load Balancer: #{node[:lb][:service][:lb_name]}"
-  color "green"
+hubot "added to loadbalancer" do
+    message "  *** Added #{node[:cloud][:public_ips][0]} to Load Balancer: #{node[:lb][:service][:lb_name]}"
 end
+
+hubot "added to loadbalancer" do
+    message "  *** Chef Run Complete!"
+end
+
 
 rightscale_marker :end

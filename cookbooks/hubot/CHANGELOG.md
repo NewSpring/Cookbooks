@@ -1,10 +1,10 @@
-# CHANGELOG for unleash
+# CHANGELOG for hubot
 
-This file is used to list changes made in each version of unleash.
+This file is used to list changes made in each version of hubot.
 
 ## 0.1.0:
 
-* Initial release of unleash
+* Initial release of hubot
 
 - - -
 Check the [Markdown Syntax Guide](http://daringfireball.net/projects/markdown/syntax) for help with Markdown.

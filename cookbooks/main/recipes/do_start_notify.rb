@@ -1,9 +1,7 @@
 rightscale_marker :begin
 
-http_request "do start notify" do
-  action :post
-  url "http://apollos.herokuapp.com/apollos/rightscale"
-  message :message => "Starting to set this beyotch up!", :room => "21097_newspring_church@conf.hipchat.com"
+hubot "do start notify" do
+    message "  *** Starting Chef Run!"
 end
 
 rightscale_marker :end
