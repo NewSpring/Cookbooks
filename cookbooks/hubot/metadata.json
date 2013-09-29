@@ -20,7 +20,7 @@
   "replacing": {
   },
   "attributes": {
-    "hubot/url": {
+    "hubot/webhook": {
       "display_name": "Hubot Webhook URL",
       "description": "The webhook url that should be posted too?",
       "required": "required",
