@@ -1,14 +1,12 @@
 action :run do
-  if new_resource.room.empty?
-    room = node[:hubot][:room]
-  else
-    room = new_resource.room
-  end
+  room = node[:hubot][:room] || new_resource.room
+  message = new_resource.message
+  url = node[:hubot][:url] || new_resource.url
 
-  hubot = http_request "do start notify" do
+  http_request "send_hubot_message" do
     action :post
-    url node[:hubot][:url] ||= new_resource.url
-    message :message => "#{new_resource.message}", :room => "#{room}"
+    url url
+    message :message => "#{message}", :room => "#{room}"
   end
 end
 
