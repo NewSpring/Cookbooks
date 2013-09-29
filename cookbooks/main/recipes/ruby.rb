@@ -1,3 +1,5 @@
+rightscale_marker :begin
+
 package "ruby-bundler" do
   action :install
 end
@@ -22,3 +24,5 @@ execute "install_rake" do
   command "gem install rake --no-ri --no-rdoc --version '= 10.1.0'"
   not_if "`which rake`"
 end
+
+rightscale_marker :end
