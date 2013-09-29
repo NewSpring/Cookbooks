@@ -70,7 +70,7 @@ end
 
 execute "run_rake" do
   cwd site_install_dir
-  command "rake"
+  command "/usr/local/bin/rake"
   #only run if rake file exists
   only_if { ::File.exists?("#{site_install_dir}/Rakefile") }
 end
