@@ -18,7 +18,7 @@ service "#{node['aide']['cron_service']}" do
   action :nothing
 end
 
-ruby_block "Modify /etc/default/aide" do
+ruby_block "edit_aide_default" do
   block do
     file = Chef::Util::FileEdit.new("/etc/default/aide")
     file.search_file_replace_line(
@@ -32,6 +32,7 @@ ruby_block "Modify /etc/default/aide" do
 
     file.search_file_replace_line(
       "#QUIETREPORTS=no", "QUIETREPORTS=yes/n")
+    file.write_file
   end
 end
 
