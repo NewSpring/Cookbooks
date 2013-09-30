@@ -19,26 +19,10 @@ service "#{node['aide']['cron_service']}" do
 end
 
 ruby_block "edit_aide_default" do
-  block do
-    file = Chef::Util::FileEdit.new("/etc/default/aide")
-    file.search_file_replace_line(
-      "FQDN=", "FQDN=\"NewSpring Church\"")
-    file.write_file
-  end
-  block do
-    file = Chef::Util::FileEdit.new("/etc/default/aide")
-    file.search_file_replace_line(
-      "MAILTO=root", "MAILTO=web@newspring.cc")
-    file.write_file
-  end
-  block do
+   block do
     file = Chef::Util::FileEdit.new("/etc/default/aide")
     file.search_file_replace_line(
       "COPYNEWDB=no", "COPYNEWDB=yes")
-    file.write_file
-  end
-  block do
-    file = Chef::Util::FileEdit.new("/etc/default/aide")
     file.search_file_replace_line(
       "#QUIETREPORTS=no", "QUIETREPORTS=yes")
     file.write_file
