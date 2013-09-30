@@ -7,8 +7,3 @@
 # All rights reserved - Do Not Redistribute
 #
 #
-
-hubot "default" do
-    body "  *** Communicating with Apollos"
-end
-
