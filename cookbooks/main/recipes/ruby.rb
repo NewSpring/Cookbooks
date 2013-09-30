@@ -4,6 +4,10 @@ hubot "installing ruby gems" do
     body "  *** Installing Rubygems!"
 end
 
+package "rubygems" do
+  action :install
+end
+
 package "ruby-bundler" do
   action :install
 end
