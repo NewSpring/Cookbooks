@@ -18,6 +18,12 @@ end
 
 domainatrix.run_action(:install)
 
+sass = chef_gem "sass" do
+  action :nothing
+end
+
+sass.run_action(:install)
+
 execute "install_sass" do
   command "gem install sass --no-ri --no-rdoc"
   not_if "`which sass`"
