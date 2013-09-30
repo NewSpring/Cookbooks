@@ -42,7 +42,7 @@ file "#{node[:repo][:default][:destination]}/#{node[:ee][:main]}/#{node[:ee][:sy
   group node[:web_apache][:application_name]
 end
 
-base "run_rake" do
+bash "run_rake" do
   cwd site_install_dir
   command "/usr/local/bin/rake --verbose --trace"
   #only run if rake file exists
