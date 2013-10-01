@@ -18,29 +18,23 @@ end
 
 domainatrix.run_action(:install)
 
-sass = gem_package 'sass' do
-  action :nothing
-  version '3.2.11'
+execute "install_sass" do
+  command "gem install sass --no-ri --no-rdoc"
+  not_if "`which sass`"
 end
 
-fsevent = gem_package 'rb-fsevent' do
-  action :nothing
-  version '0.9.3'
+execute "install_coffeescript" do
+  command "gem install coffee-script --no-ri --no-rdoc"
+  not_if "`which coffee`"
 end
 
-coffee = gem_package 'coffee-script' do
-  action :nothing
-  version '2.2.0'
+execute "install_rb-fsevent" do
+  command "gem install rb-fsevent --no-ri --no-rdoc"
 end
 
-rake = gem_package 'rake' do
-  action :nothing
-  version '10.1.0'
+execute "install_rake" do
+  command "gem install rake --no-ri --no-rdoc"
+  not_if "`which rake`"
 end
-
-sass.run_action(:install)
-fsevent.run_action(:install)
-coffee.run_action(:install)
-rake.run_action(:install)
 
 rightscale_marker :end
