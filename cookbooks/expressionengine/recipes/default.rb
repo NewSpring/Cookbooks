@@ -72,9 +72,9 @@ file "#{site_install_dir}/#{node[:ee][:system_folder]}/expressionengine/config/c
   group node[:web_apache][:application_name]
 end
 
-bash "rake" do
+execute "rake" do
   cwd "#{site_install_dir}"
-  command "rake --verbose --trace sass:build"
+  command "bundle install && rake --verbose --trace sass:build"
   returns [0,1]
   #only run if rake file exists
   only_if { ::File.exists?("#{site_install_dir}/Rakefile") }
