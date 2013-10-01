@@ -75,9 +75,8 @@ end
 execute "rake" do
   cwd "#{site_install_dir}"
   user "root"
-  command "rake --verbose --trace sass:build"
+  command "/usr/local/bin/rake --verbose --trace sass:build"
   returns [0,1]
-  path [ "/usr/local/bin" ]
   #only run if rake file exists
   only_if { ::File.exists?("#{site_install_dir}/Rakefile") }
 end
