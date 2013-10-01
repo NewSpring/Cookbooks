@@ -77,7 +77,7 @@ execute "rake" do
   user "root"
   command "bundle install && rake --verbose --trace sass:build"
   returns [0,1]
-  path "/usr/local/bin"
+  path [ "/usr/local/bin" ]
   #only run if rake file exists
   only_if { ::File.exists?("#{site_install_dir}/Rakefile") }
 end
