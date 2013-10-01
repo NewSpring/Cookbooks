@@ -1,7 +1,7 @@
 rightscale_marker :begin
 
 hubot "installing ruby gems" do
-    body "  *** Installing Rubygems!"
+    body "  *** Installing rubygems!"
 end
 
 package "rubygems" do
@@ -18,30 +18,28 @@ end
 
 domainatrix.run_action(:install)
 
-sass = chef_gem "sass" do
-  action :nothing
+gem_package 'sass' do
+  action :install
+  version '3.2.11'
+  options("--no-ri --no-rdoc")
 end
 
-sass.run_action(:install)
-
-execute "install_sass" do
-  command "gem install sass --no-ri --no-rdoc"
-  not_if "`which sass`"
+gem_package 'rb-fsevent' do
+  action :install
+  version '0.9.3'
+  options("--no-ri --no-rdoc")
 end
 
-execute "install_coffeescript" do
-  command "gem install coffee-script --no-ri --no-rdoc"
-  not_if "`which coffee`"
+gem_package 'coffee-script' do
+  action :install
+  version '2.2.0'
+  options("--no-ri --no-rdoc")
 end
 
-execute "install_rb-fsevent" do
-  command "gem install rb-fsevent --no-ri --no-rdoc"
+gem_package 'rake' do
+  action :install
+  version '10.1.0'
+  options("--no-ri --no-rdoc")
 end
-
-execute "install_rake" do
-  command "gem install rake --no-ri --no-rdoc"
-  not_if "`which rake`"
-end
-
 
 rightscale_marker :end
