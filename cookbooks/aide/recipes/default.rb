@@ -25,6 +25,8 @@ ruby_block "edit_aide_default" do
       "COPYNEWDB=no", "COPYNEWDB=yes")
     file.search_file_replace_line(
       "#QUIETREPORTS=no", "QUIETREPORTS=yes")
+    file.search_file_replace_line(
+      "MAILTO=root", "MAILTO=#{node[:apache][:contact]}")
     file.write_file
   end
 end

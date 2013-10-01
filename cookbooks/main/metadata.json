@@ -54,8 +54,7 @@
     "main::harden_php_settings": "PHP Hardening",
     "main::harden_sysctl_settings": "Harden Network Settings",
     "main::do_start_notify": "Notify Apollos that setup has started",
-    "main::do_middle_notify": "Notify Apollos that setup is halfway through",
-    "main::do_end_notify": "Notify Apollos that setup has completed."
+    "main::set_php_timezone": "Set the PHP TimeZone"
   },
   "version": "0.0.2"
 }

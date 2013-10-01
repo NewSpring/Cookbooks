@@ -23,8 +23,7 @@ recipe "main::add_mailname", "Add Mailname for Postfix"
 recipe "main::harden_php_settings", "PHP Hardening"
 recipe "main::harden_sysctl_settings", "Harden Network Settings"
 recipe "main::do_start_notify", "Notify Apollos that setup has started"
-recipe "main::do_middle_notify", "Notify Apollos that setup is halfway through"
-recipe "main::do_end_notify", "Notify Apollos that setup has completed."
+recipe "main::set_php_timezone", "Set the PHP TimeZone"
 
 attribute "rightscale/public_key",
   :display_name => "Public Key",
