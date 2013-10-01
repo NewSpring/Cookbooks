@@ -42,9 +42,12 @@ file "#{node[:repo][:default][:destination]}/#{node[:ee][:main]}/#{node[:ee][:sy
   group node[:web_apache][:application_name]
 end
 
-bash "run_rake" do
-  cwd site_install_dir
-  command "/usr/local/bin/rake --verbose --trace"
+execute "rake" do
+  cwd "#{site_install_dir}"
+  user "root"
+  command "/usr/local/bin/rake --verbose --trace sass:build"
+  environment {"RAKE_ENV" => "production"}
+  returns [0,1]
   #only run if rake file exists
   only_if { ::File.exists?("#{site_install_dir}/Rakefile") }
 end
