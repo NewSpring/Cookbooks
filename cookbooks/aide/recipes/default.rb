@@ -18,6 +18,16 @@ service "#{node['aide']['cron_service']}" do
   action :nothing
 end
 
+# Run by a notification from the template, so it happens at the end of
+# the chef run, picking up all changes that were made
+script "generate_database" do
+  action :nothing
+  interpreter "bash"
+  unless node['aide']['testmode'] == "true"
+    code "#{node['aide']['binary']} #{node['aide']['extra_parameters']} --init"
+  end
+end
+
 ruby_block "edit_aide_default" do
    block do
     file = Chef::Util::FileEdit.new("/etc/default/aide")
@@ -28,15 +38,5 @@ ruby_block "edit_aide_default" do
     file.search_file_replace_line(
       "MAILTO=root", "MAILTO=#{node[:apache][:contact]}")
     file.write_file
-  end
-end
-
-# Run by a notification from the template, so it happens at the end of
-# the chef run, picking up all changes that were made
-script "generate_database" do
-  action :nothing
-  interpreter "bash"
-  unless node['aide']['testmode'] == "true"
-    code "#{node['aide']['binary']} #{node['aide']['extra_parameters']} --init"
   end
 end
