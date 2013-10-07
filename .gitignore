@@ -1,9 +1,16 @@
-tmp/*
-.rake_test_cache
-*.swp
-*.swo
+.vagrant
+Berksfile.lock
 *~
-.DEV_TEMP
-.DS_Store
-.idea.kitchen/
+*#
+.#*
+\#*#
+.*.sw[a-z]
+*.un~
+
+# Bundler
+Gemfile.lock
+bin/*
+.bundle/*
+
+.kitchen/
 .kitchen.local.yml
