@@ -11,6 +11,10 @@ rightscale_marker :begin
 
 include_recipe 'build-essential'
 
+package "libssl-dev" do
+  action :install
+end
+
 papertrail_conf_dir = '/etc/papertrail'
 
 execute "install gem" do
