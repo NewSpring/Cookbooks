@@ -24,19 +24,19 @@ script "generate_database" do
   action :nothing
   interpreter "bash"
   unless node['aide']['testmode'] == "true"
-    code "#{node['aide']['binary']} #{node['aide']['extra_parameters']} --init"
+    code "aideinit"
   end
 end
 
-# ruby_block "edit_aide_default" do
-#    block do
-#     file = Chef::Util::FileEdit.new("/etc/default/aide")
-#     file.search_file_replace_line(
-#       "COPYNEWDB=no", "COPYNEWDB=yes")
-#     file.search_file_replace_line(
-#       "#QUIETREPORTS=no", "QUIETREPORTS=yes")
-#     file.search_file_replace_line(
-#       "MAILTO=root", "MAILTO=#{node[:apache][:contact]}")
-#     file.write_file
-#   end
-# end
+ruby_block "edit_aide_default" do
+   block do
+    file = Chef::Util::FileEdit.new("/etc/default/aide")
+    file.search_file_replace_line(
+      "COPYNEWDB=no", "COPYNEWDB=yes")
+    file.search_file_replace_line(
+      "#QUIETREPORTS=no", "QUIETREPORTS=yes")
+    file.search_file_replace_line(
+      "MAILTO=root", "MAILTO=#{node[:apache][:contact]}")
+    file.write_file
+  end
+end

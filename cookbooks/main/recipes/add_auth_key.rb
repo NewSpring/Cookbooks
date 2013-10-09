@@ -1,5 +1,11 @@
 rightscale_marker :begin
 
+directory "/root/.ssh/" do
+  owner "root"
+  group "root"
+  action :create
+end
+
 file "/root/.ssh/authorized_keys" do
   owner "root"
   group "root"
