@@ -20,10 +20,6 @@ end
 
 site_install_dir = "#{node[:repo][:default][:destination]}/#{node[:ee][:main]}"
 
-hubot "pulling down repo" do
-    body "  *** Cloning down #{node[:repo][:default][:repository]}."
-end
-
 repo "default" do
   provider node[:repo][:default][:provider]
   destination site_install_dir
