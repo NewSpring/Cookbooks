@@ -8,13 +8,7 @@
 #
 #
 ## Then, deploy
-rightscale_marker :begin
-
 include_recipe "repo::default"
-
-hubot "pulling down repo" do
-    body "  ***  Pulling down updated #{node[:repo][:default][:repository]}."
-end
 
 site_install_dir = "#{node[:repo][:default][:destination]}/#{node[:ee][:main]}"
 
@@ -28,14 +22,14 @@ repo "default" do
   repository node[:repo][:default][:repository]
 end
 
-template "#{node[:repo][:default][:destination]}/#{node[:ee][:main]}/#{node[:ee][:system_folder]}/expressionengine/config/database.php" do
+template "#{site_install_dir}/#{node[:ee][:system_folder]}/expressionengine/config/database.php" do
   source "database.php.erb"
   mode 0666
   owner node[:web_apache][:application_name]
   group node[:web_apache][:application_name]
 end
 
-file "#{node[:repo][:default][:destination]}/#{node[:ee][:main]}/#{node[:ee][:system_folder]}/expressionengine/config/config.php" do
+file "#{site_install_dir}/#{node[:ee][:system_folder]}/expressionengine/config/config.php" do
   action :touch
   mode 0666
   owner node[:web_apache][:application_name]
@@ -67,9 +61,6 @@ end
 service "apache2" do
   action :reload
 end
-
-rightscale_marker :end
-
 
 
 
