@@ -16,6 +16,7 @@ recipe "main::removed_from_lb", "Notification was removed from the Load Balancer
 recipe "main::add_auth_key", "Added Authorized Key"
 recipe "main::ruby", "Install Ruby Stuffs"
 recipe "main::memcache_hostname_setup", "Sets up a local memcache hostname to connect to the memcache instance on the deployment"
+recipe "main::new_memcache_hostname_setup", "Sets up a local memcache hostname to connect to the memcache instance on the deployment"
 recipe "main::setup_firewall", "Sets up basic http/https firewall"
 recipe "main::lock_down_sudo", "Lock down su and disable root access"
 recipe "main::prevent_ip_spoofing", "Prevent IP Spoofing"

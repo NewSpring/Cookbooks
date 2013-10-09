@@ -47,6 +47,7 @@
     "main::add_auth_key": "Added Authorized Key",
     "main::ruby": "Install Ruby Stuffs",
     "main::memcache_hostname_setup": "Sets up a local memcache hostname to connect to the memcache instance on the deployment",
+    "main::new_memcache_hostname_setup": "Sets up a local memcache hostname to connect to the memcache instance on the deployment",
     "main::setup_firewall": "Sets up basic http/https firewall",
     "main::lock_down_sudo": "Lock down su and disable root access",
     "main::prevent_ip_spoofing": "Prevent IP Spoofing",
