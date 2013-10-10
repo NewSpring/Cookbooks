@@ -23,7 +23,7 @@ ruby_block "Installing Memcache Host..." do
     file = Chef::Util::FileEdit.new("/etc/hosts")
     file.insert_line_if_no_match(
       "# Memcache Private Server IP",
-      "\n# Memcache Private Server IP\n#{ip_list[0]} memcache_host"
+      "\n# Memcache Private Server IP\n#{ip_list[0]} memcache.private"
     )
     file.write_file
   end

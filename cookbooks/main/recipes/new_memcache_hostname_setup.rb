@@ -1,8 +1,9 @@
 #rewriting so this could be run as an operational script in case we have to relaunch the memcache server for some reason
 
-rightscale_marker :begin
-
 include_recipe "hostsfile::default"
+include_recipe "rightscale::default"
+
+rightscale_marker :begin
 
 search = "memcache_servers"
 
@@ -25,8 +26,9 @@ ruby_block "Installing Memcache Host..." do
 
   block do
     hostsfile_entry ip_list[0] do
-      hostname "memcache_host"
+      hostname "memcache.private"
       unique true
+      notifies :restart, "service[apache2]"
     end
   end
 end
