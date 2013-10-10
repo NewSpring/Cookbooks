@@ -7,6 +7,7 @@ version          "0.0.2"
 
 depends "firewall"
 depends "apt"
+depends "hostsfile"
 depends "rightscale"
 
 recipe "main::apt", "Add PPA packages"
