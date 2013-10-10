@@ -57,7 +57,9 @@
     "main::harden_sysctl_settings": "Harden Network Settings",
     "main::do_start_notify": "Notify Apollos that setup has started",
     "main::set_php_timezone": "Set the PHP TimeZone",
-    "main::configure_apc": "Configure APC Caching"
+    "main::configure_apc": "Configure APC Caching",
+    "main::do_cache_on": "Turn Caching On",
+    "main::do_cache_off": "Turn Caching Off"
   },
   "version": "0.0.2"
 }

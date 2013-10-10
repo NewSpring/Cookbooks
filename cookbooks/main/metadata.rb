@@ -28,6 +28,10 @@ recipe "main::do_start_notify", "Notify Apollos that setup has started"
 recipe "main::set_php_timezone", "Set the PHP TimeZone"
 recipe "main::configure_apc", "Configure APC Caching"
 
+recipe "main::do_cache_on", "Turn Caching On"
+recipe "main::do_cache_off", "Turn Caching Off"
+
+
 attribute "rightscale/public_key",
   :display_name => "Public Key",
   :description => "Public Key to simplify logging in",
