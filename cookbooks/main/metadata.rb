@@ -7,6 +7,7 @@ version          "0.0.2"
 
 depends "firewall"
 depends "apt"
+depends "php"
 depends "rightscale"
 
 recipe "main::apt", "Add PPA packages"
@@ -25,6 +26,7 @@ recipe "main::harden_php_settings", "PHP Hardening"
 recipe "main::harden_sysctl_settings", "Harden Network Settings"
 recipe "main::do_start_notify", "Notify Apollos that setup has started"
 recipe "main::set_php_timezone", "Set the PHP TimeZone"
+recipe "main::configure_apc", "Configure APC Caching"
 
 attribute "rightscale/public_key",
   :display_name => "Public Key",
