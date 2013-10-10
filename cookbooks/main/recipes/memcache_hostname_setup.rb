@@ -1,3 +1,5 @@
+include_recipe "rightscale::default"
+
 rightscale_marker :begin
 
 search = "memcache_servers"
@@ -27,6 +29,10 @@ ruby_block "Installing Memcache Host..." do
     )
     file.write_file
   end
+end
+
+service "apache2" do
+  action :restart
 end
 
 right_link_tag "memcached_client:active=true"
