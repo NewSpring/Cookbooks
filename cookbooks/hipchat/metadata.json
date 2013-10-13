@@ -1,13 +1,14 @@
 {
   "name": "hipchat",
-  "description": "LWRP for sending messages to HipChat rooms",
-  "long_description": "",
-  "maintainer": "Cameron Johnston",
-  "maintainer_email": "cameron@rootdown.net",
-  "license": "none",
+  "description": "Installs/Configures hipchat",
+  "long_description": "# hipchat cookbook\n\n# Requirements\n\n# Usage\n\n# Attributes\n\n# Recipes\n\n# Author\n\nAuthor:: YOUR_NAME (<YOUR_EMAIL>)\n",
+  "maintainer": "YOUR_NAME",
+  "maintainer_email": "YOUR_EMAIL",
+  "license": "All rights reserved",
   "platforms": {
   },
   "dependencies": {
+    "chef_handler": ">= 0.0.0"
   },
   "recommendations": {
   },
@@ -20,37 +21,56 @@
   "replacing": {
   },
   "attributes": {
-    "hipchat/api_key": {
-      "display_name": "HipChat API Key",
-      "description": "API Key for the HipChat Message Service, Only needs to be a notification API key.",
+    "hipchat/token": {
+      "display_name": "API Token",
+      "description": "Notification token to the HipChat API",
       "required": "required",
+      "recipes": [
+        "hipchat::default",
+        "hipchat::hipchat_hander"
+      ],
       "choice": [
 
       ],
       "calculated": false,
-      "type": "string",
-      "recipes": [
-
-      ]
+      "type": "string"
     },
     "hipchat/room": {
-      "display_name": "Default Room",
-      "description": "Which Room the message should be sent to",
+      "display_name": "Reporting Room",
+      "description": "The room that should receive the report",
       "required": "required",
+      "recipes": [
+        "hipchat::default",
+        "hipchat::hipchat_hander"
+      ],
       "choice": [
 
       ],
       "calculated": false,
-      "type": "string",
+      "type": "string"
+    },
+    "hipchat/notify": {
+      "display_name": "Notify Users",
+      "description": "Should the notification notify all users?",
+      "choice": [
+        "true",
+        "false"
+      ],
+      "default": "true",
       "recipes": [
-
-      ]
+        "hipchat::default",
+        "hipchat::hipchat_hander"
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional"
     }
   },
   "groupings": {
   },
   "recipes": {
-    "hipchat::default": "Installed HipChat Gem within Chef"
+    "hipchat::default": "Installs the HipChat Gem",
+    "hipchat::hipchat_handler": "Sets up the Chef Reporting Handler to HipChat"
   },
-  "version": "0.1.1"
+  "version": "0.1.0"
 }
