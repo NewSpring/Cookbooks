@@ -6,7 +6,7 @@ description      'Installs/Configures hipchat'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version          '0.1.5'
 
-depends "chef_handler"
+depends "chef_handler", "1.0.8"
 
 recipe "hipchat::default", "Installs the HipChat Gem"
 recipe "hipchat::hipchat_handler", "Sets up the Chef Reporting Handler to HipChat"

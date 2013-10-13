@@ -1,14 +1,14 @@
 {
   "name": "hipchat",
   "description": "Installs/Configures hipchat",
-  "long_description": "# hipchat cookbook\n\n# Requirements\n\n# Usage\n\n# Attributes\n\n# Recipes\n\n# Author\n\nAuthor:: YOUR_NAME (<YOUR_EMAIL>)\n",
+  "long_description": "# hipchat cookbook\n\n# Requirements\n\n# Usage\n\n# Attributes\n\n# Recipes\n\n# Author\n\nAuthor:: Drew Delianides\n",
   "maintainer": "YOUR_NAME",
   "maintainer_email": "YOUR_EMAIL",
   "license": "All rights reserved",
   "platforms": {
   },
   "dependencies": {
-    "chef_handler": ">= 0.0.0"
+    "chef_handler": "1.0.8"
   },
   "recommendations": {
   },
