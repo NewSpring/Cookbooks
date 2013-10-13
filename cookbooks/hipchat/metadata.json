@@ -72,5 +72,5 @@
     "hipchat::default": "Installs the HipChat Gem",
     "hipchat::hipchat_handler": "Sets up the Chef Reporting Handler to HipChat"
   },
-  "version": "0.1.0"
+  "version": "0.1.5"
 }
