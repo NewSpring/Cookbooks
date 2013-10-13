@@ -1,9 +1,9 @@
-name             'hipchat'
-maintainer       'YOUR_NAME'
+name             'hipchat_test'
+maintainer       'YOUR_COMPANY_NAME'
 maintainer_email 'YOUR_EMAIL'
 license          'All rights reserved'
-description      'Installs/Configures hipchat'
+description      'Installs/Configures hipchat_test'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version          '0.1.0'
 
-depends "chef_handler"
+depends "ruby_build"
