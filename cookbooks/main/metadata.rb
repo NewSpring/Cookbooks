@@ -8,6 +8,7 @@ version          "0.5.0"
 depends "apt"
 depends "php"
 depends "rightscale"
+depends "hipchat"
 
 recipe "main::do_php_apt_repo", "Add PPA packages"
 recipe "main::do_apache_configure", "Disables default site and sets up ports"
