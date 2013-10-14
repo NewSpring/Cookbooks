@@ -1,0 +1,61 @@
+{
+  "name": "main",
+  "description": "Main cookbook for NewSpring Cloud Servers",
+  "long_description": "Description\n===========\n\nA very simple set of recipes that will help configure a Rackspace cloud server running 10.04. \n\nMore to come...\n\nRequirements\n============\n\nAttributes\n==========\n\nUsage\n=====\n\nIt's best to just include recipes in roles or specified in a run list.\n",
+  "maintainer": "NewSpring Church",
+  "maintainer_email": "web@newspring.cc",
+  "license": "All rights reserved",
+  "platforms": {
+  },
+  "dependencies": {
+    "apt": ">= 0.0.0",
+    "php": ">= 0.0.0",
+    "rightscale": ">= 0.0.0"
+  },
+  "recommendations": {
+  },
+  "suggestions": {
+  },
+  "conflicting": {
+  },
+  "providing": {
+  },
+  "replacing": {
+  },
+  "attributes": {
+    "rightscale/public_key": {
+      "display_name": "Public Key",
+      "description": "Public Key to simplify logging in",
+      "required": "recommended",
+      "recipes": [
+        "main::do_auth_key"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string"
+    }
+  },
+  "groupings": {
+  },
+  "recipes": {
+    "main::do_php_apt_repo": "Add PPA packages",
+    "main::do_apache_configure": "Disables default site and sets up ports",
+    "main::do_hipchat_lb_added": "Notifcation that instance was added to Load Balancer",
+    "main::do_hipchat_lb_removed": "Notification was removed from the Load Balancer",
+    "main::do_auth_key": "Added Authorized Key",
+    "main::do_setup_rubygems": "Install Ruby Stuffs",
+    "main::do_memcache_setup": "Adds the private IP to the config.php file",
+    "main::do_prevent_ip_spoof": "Prevent IP Spoofing",
+    "main::do_add_mailname": "Add Mailname for Postfix",
+    "main::do_harden_php": "PHP Hardening",
+    "main::do_harden_sysctl": "Harden Network Settings",
+    "main::do_hipchat_start_notify": "Notify Apollos that setup has started",
+    "main::do_set_php_timezone": "Set the PHP TimeZone",
+    "main::do_apc_setup": "Configure APC Caching",
+    "main::do_cache_on": "Turn Caching On",
+    "main::do_cache_off": "Turn Caching Off"
+  },
+  "version": "0.5.0"
+}
