@@ -1,12 +1,12 @@
 rightscale_marker :begin
 
-hubot "added to loadbalancer" do
-    body "  *** Added #{node[:cloud][:public_ips][0]} to Load Balancer: #{node[:lb][:service][:lb_name]}"
-end
+include_recipe "hipchat::default"
 
-hubot "added to loadbalancer" do
-    body "  *** Chef Run Complete!"
+hipchat_msg "default" do
+  room "Deployment"
+  nickname "RightScale"
+  message "Added #{node[:cloud][:public_ips][0]} to Load Balancer: #{node[:lb][:service][:lb_name]}."
+  action :speak
 end
-
 
 rightscale_marker :end
