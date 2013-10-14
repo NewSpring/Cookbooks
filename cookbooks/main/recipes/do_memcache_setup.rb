@@ -22,10 +22,10 @@ ruby_block "Installing Memcache Host..." do
   end
 
   block do
-    file = Chef::Util::FileEdit.new("/etc/hosts")
-    file.insert_line_if_no_match(
-      "# Memcache Private Server IP",
-      "\n# Memcache Private Server IP\n#{ip_list[0]} memcache.private"
+    file = Chef::Util::FileEdit.new("/var/www/newspring.cc/hello/expressionengine/config/config.php")
+    file.search_file_replace_line(
+      "array( 'memcached.private', 11211, 1 )",
+      "array( '#{ip_list[0]}', 11211, 1 )"
     )
     file.write_file
   end

@@ -1,9 +1,5 @@
 rightscale_marker :begin
 
-hubot "installing ruby gems" do
-    body "  *** Installing rubygems!"
-end
-
 package "rubygems" do
   action :install
 end
