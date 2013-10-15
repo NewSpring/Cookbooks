@@ -36,3 +36,35 @@ attribute "rightscale/public_key",
   :recipes => [
     "main::do_auth_key"
   ]
+
+attribute "hipchat/token",
+  :display_name => "API Token",
+  :description => "Notification token to the HipChat API",
+  :required => "required",
+  :recipes => [
+    "main::do_hipchat_lb_added",
+    "main::do_hipchat_lb_removed",
+    "main::do_hipchat_start_notify"
+  ]
+
+attribute "hipchat/room",
+  :display_name => "Reporting Room",
+  :description => "The room that should receive the report",
+  :required => "required",
+  :recipes => [
+    "main::do_hipchat_lb_added",
+    "main::do_hipchat_lb_removed",
+    "main::do_hipchat_start_notify"
+  ]
+
+attribute "hipchat/notify",
+  :display_name => "Notify Users",
+  :description => "Should the notification notify all users?",
+  :choice => ["true", "false"],
+  :default => "true",
+  :recipes => [
+    "main::do_hipchat_lb_added",
+    "main::do_hipchat_lb_removed",
+    "main::do_hipchat_start_notify"
+  ]
+

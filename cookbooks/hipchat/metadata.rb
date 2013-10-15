@@ -25,7 +25,7 @@ attribute "hipchat/room",
   :description => "The room that should receive the report",
   :required => "required",
   :recipes => [
-     "hipchat::default",
+    "hipchat::default",
     "hipchat::hipchat_hander"
   ]
 
@@ -35,7 +35,7 @@ attribute "hipchat/notify",
   :choice => ["true", "false"],
   :default => "true",
   :recipes => [
-     "hipchat::default",
+    "hipchat::default",
     "hipchat::hipchat_hander"
   ]
 

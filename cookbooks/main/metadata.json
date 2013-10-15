@@ -36,6 +36,53 @@
       ],
       "calculated": false,
       "type": "string"
+    },
+    "hipchat/token": {
+      "display_name": "API Token",
+      "description": "Notification token to the HipChat API",
+      "required": "required",
+      "recipes": [
+        "main::do_hipchat_lb_added",
+        "main::do_hipchat_lb_removed",
+        "main::do_hipchat_start_notify"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "hipchat/room": {
+      "display_name": "Reporting Room",
+      "description": "The room that should receive the report",
+      "required": "required",
+      "recipes": [
+        "main::do_hipchat_lb_added",
+        "main::do_hipchat_lb_removed",
+        "main::do_hipchat_start_notify"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "hipchat/notify": {
+      "display_name": "Notify Users",
+      "description": "Should the notification notify all users?",
+      "choice": [
+        "true",
+        "false"
+      ],
+      "default": "true",
+      "recipes": [
+        "main::do_hipchat_lb_added",
+        "main::do_hipchat_lb_removed",
+        "main::do_hipchat_start_notify"
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional"
     }
   },
   "groupings": {
