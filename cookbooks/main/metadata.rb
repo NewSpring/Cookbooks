@@ -17,6 +17,7 @@ recipe "main::do_hipchat_lb_removed", "Notification was removed from the Load Ba
 recipe "main::do_auth_key", "Added Authorized Key"
 recipe "main::do_setup_rubygems", "Install Ruby Stuffs"
 recipe "main::do_memcache_setup", "Adds the private IP to the config.php file"
+recipe "main::do_memcache_update", "Updates the private IP to the config.php file incase the memcache server needs to be relaunched"
 recipe "main::do_prevent_ip_spoof", "Prevent IP Spoofing"
 recipe "main::do_add_mailname", "Add Mailname for Postfix"
 recipe "main::do_harden_php", "PHP Hardening"

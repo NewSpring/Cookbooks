@@ -95,6 +95,7 @@
     "main::do_auth_key": "Added Authorized Key",
     "main::do_setup_rubygems": "Install Ruby Stuffs",
     "main::do_memcache_setup": "Adds the private IP to the config.php file",
+    "main::do_memcache_update": "Updates the private IP to the config.php file incase the memcache server needs to be relaunched",
     "main::do_prevent_ip_spoof": "Prevent IP Spoofing",
     "main::do_add_mailname": "Add Mailname for Postfix",
     "main::do_harden_php": "PHP Hardening",
