@@ -11,7 +11,7 @@ end
 
 collection.run_action(:load)
 
-ruby_block "Installing Memcache Host..." do
+ruby_block "Adding private IP of memcached server to config.php" do
   ip_list = []
   valid_ip_regex =
               '\b(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}' +
@@ -24,7 +24,7 @@ ruby_block "Installing Memcache Host..." do
   block do
     file = Chef::Util::FileEdit.new("/var/www/newspring.cc/hello/expressionengine/config/config.php")
     file.search_file_replace_line(
-      "array( 'memcached.private', 11211, 1 )",
+      "memcached.private",
       "array( '#{ip_list[0]}', 11211, 1 )"
     )
     file.write_file
