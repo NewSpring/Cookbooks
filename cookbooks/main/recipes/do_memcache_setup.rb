@@ -28,6 +28,13 @@ ruby_block "Adding private IP of memcached server to config.php" do
       "array( '#{ip_list[0]}', 11211, 1 )"
     )
     file.write_file
+
+    file = Chef::Util::FileEdit.new("/etc/hosts")
+    file.insert_line_if_no_match(
+      "memcached.private",
+      "#{ip_list[0]} memcached.private"
+    )
+    file.write_file
   end
 end
 

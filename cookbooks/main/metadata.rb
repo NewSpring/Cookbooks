@@ -29,6 +29,24 @@ recipe "main::do_apc_setup", "Configure APC Caching"
 recipe "main::do_cache_on", "Turn Caching On"
 recipe "main::do_cache_off", "Turn Caching Off"
 
+recipe "main::do_setup_newrelic_monitoring", "Setup NewRelic"
+recipe "main::do_setup_newrelic_php", "Setup NewRelic PHP"
+recipe "main::do_setup_newrelic_memcache", "Setup NewRelic Memcache"
+recipe "main::do_setup_newrelic_apache", "Setup NewRelic Apache"
+recipe "main::do_setup_newrelic_apc", "Setup NewRelic APC"
+recipe "main::do_setup_newrelic_clb", "Setup NewRelic CLB"
+
+attribute "newrelic-ng/license_key",
+  :display_name => "NewRelic License Key",
+  :description => "The NewRelic License Key Tied to your account",
+  :required => "required",
+  :recipes => [
+    "main::do_setup_newrelic_monitoring",
+    "main::do_setup_newrelic_php",
+    "main::do_setup_newrelic_memcache",
+    "main::do_setup_newrelic_apache",
+    "main::do_setup_newrelic_apc"
+  ]
 
 attribute "rightscale/public_key",
   :display_name => "Public Key",
