@@ -11,6 +11,6 @@ package 'newrelic-php5'
 template "/etc/php5/conf.d/newrelic.ini" do
   source "newrelic.ini.erb"
   mode 0644
-  notifies :restart, "app[default]"
+  notifies :restart, "service[apache2]"
 end
 
