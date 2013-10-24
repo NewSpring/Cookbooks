@@ -34,7 +34,9 @@
       ],
       "default": "true",
       "recipes": [
-        "newrelic::default"
+        "newrelic::default",
+        "newrelic::install_newrelic_php5",
+        "newrelic::install_newrelic_nrsysmond"
       ],
       "calculated": false,
       "type": "string",
@@ -45,7 +47,9 @@
       "description": "NewRelic License Key to connect monitoring to your account",
       "required": "required",
       "recipes": [
-        "newrelic::default"
+        "newrelic::default",
+        "newrelic::install_newrelic_php5",
+        "newrelic::install_newrelic_nrsysmond"
       ],
       "choice": [
 
@@ -58,7 +62,9 @@
       "description": "Where should the NewRelic Log be located?",
       "default": "/var/log/newrelic/php_agent.log",
       "recipes": [
-        "newrelic::default"
+        "newrelic::default",
+        "newrelic::install_newrelic_php5",
+        "newrelic::install_newrelic_nrsysmond"
       ],
       "choice": [
 
@@ -81,7 +87,9 @@
         "verbosedebug"
       ],
       "recipes": [
-        "newrelic::default"
+        "newrelic::default",
+        "newrelic::install_newrelic_php5",
+        "newrelic::install_newrelic_nrsysmond"
       ],
       "calculated": false,
       "type": "string",
@@ -93,7 +101,9 @@
       "default": "PHP Application",
       "required": "recommended",
       "recipes": [
-        "newrelic::default"
+        "newrelic::default",
+        "newrelic::install_newrelic_php5",
+        "newrelic::install_newrelic_nrsysmond"
       ],
       "choice": [
 
@@ -105,7 +115,10 @@
   "groupings": {
   },
   "recipes": {
-    "newrelic::default": "Installs the PHP NewRelic Agent"
+    "newrelic::default": "Installs NewRelic",
+    "newrelic::do_setup_repository": "Adds NewRelic to APT list sources",
+    "newrelic::install_newrelic_php5": "Installs NewRelic PHP Monitoring",
+    "newrelic::install_newrelic_nrsysmond": "Installs NewRelic System Monitoring"
   },
-  "version": "0.0.1"
+  "version": "0.5.0"
 }

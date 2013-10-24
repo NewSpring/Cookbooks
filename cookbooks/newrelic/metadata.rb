@@ -3,7 +3,7 @@ maintainer_email "web@newspring.cc"
 license          "All rights reserved"
 description      "Installs/Configures newrelic"
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version          "0.0.1"
+version          "0.5.0"
 
 depends          'apt'
 depends          'build-essential'
@@ -13,7 +13,10 @@ depends          'python'
   supports os
 end
 
-recipe "newrelic::default", "Installs the PHP NewRelic Agent"
+recipe "newrelic::default", "Installs NewRelic"
+recipe "newrelic::do_setup_repository", "Adds NewRelic to APT list sources"
+recipe "newrelic::install_newrelic_php5", "Installs NewRelic PHP Monitoring"
+recipe "newrelic::install_newrelic_nrsysmond", "Installs NewRelic System Monitoring"
 
 attribute "newrelic/enabled",
   :display_name => "Enabled NewRelic",
@@ -21,7 +24,9 @@ attribute "newrelic/enabled",
   :choice => ["true", "false"],
   :default => "true",
   :recipes => [
-    "newrelic::default"
+    "newrelic::default",
+    "newrelic::install_newrelic_php5",
+    "newrelic::install_newrelic_nrsysmond"
   ]
 
 attribute "newrelic/license_key",
@@ -29,7 +34,9 @@ attribute "newrelic/license_key",
   :description => "NewRelic License Key to connect monitoring to your account",
   :required => "required",
   :recipes => [
-    "newrelic::default"
+    "newrelic::default",
+    "newrelic::install_newrelic_php5",
+    "newrelic::install_newrelic_nrsysmond"
   ]
 
 attribute "newrelic/log_location",
@@ -37,7 +44,9 @@ attribute "newrelic/log_location",
   :description => "Where should the NewRelic Log be located?",
   :default => "/var/log/newrelic/php_agent.log",
   :recipes => [
-    "newrelic::default"
+    "newrelic::default",
+    "newrelic::install_newrelic_php5",
+    "newrelic::install_newrelic_nrsysmond"
   ]
 
 attribute "newrelic/log_level",
@@ -46,7 +55,9 @@ attribute "newrelic/log_level",
   :default => "info",
   :choice => ["always","error","warning","info","verbose","debug","verbosedebug"],
   :recipes => [
-    "newrelic::default"
+    "newrelic::default",
+    "newrelic::install_newrelic_php5",
+    "newrelic::install_newrelic_nrsysmond"
   ]
 
 attribute "newrelic/app_name",
@@ -55,5 +66,8 @@ attribute "newrelic/app_name",
   :default => "PHP Application",
   :required => "recommended",
   :recipes => [
-    "newrelic::default"
+    "newrelic::default",
+    "newrelic::install_newrelic_php5",
+    "newrelic::install_newrelic_nrsysmond"
   ]
+

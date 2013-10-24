@@ -1,3 +1,12 @@
+#
+# Cookbook Name:: newrelic
+# Recipe:: do_setup_repository
+#
+# Copyright 2013, NewSpring Church
+#
+# All rights reserved - Do Not Redistribute
+#
+
 apt_repository 'newrelic' do
   uri          node['newrelic']['apt']['repo']['url']
   distribution node['newrelic']['apt']['repo']['distribution']
@@ -5,12 +14,3 @@ apt_repository 'newrelic' do
   key          node['newrelic']['apt']['repo']['key']
   only_if    { node['platform_family'] == 'debian' }
 end
-
-package 'newrelic-php5'
-
-template "/etc/php5/conf.d/newrelic.ini" do
-  source "newrelic.ini.erb"
-  mode 0644
-  notifies :restart, "service[apache2]"
-end
-
