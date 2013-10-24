@@ -1,0 +1,111 @@
+{
+  "name": "newrelic",
+  "description": "Installs/Configures newrelic",
+  "long_description": "Description\n===========\n\nRequirements\n============\n\nAttributes\n==========\n\nUsage\n=====\n\n",
+  "maintainer": "NewSpring Church",
+  "maintainer_email": "web@newspring.cc",
+  "license": "All rights reserved",
+  "platforms": {
+    "ubuntu": ">= 0.0.0",
+    "debian": ">= 0.0.0"
+  },
+  "dependencies": {
+    "apt": ">= 0.0.0",
+    "build-essential": ">= 0.0.0",
+    "python": ">= 0.0.0"
+  },
+  "recommendations": {
+  },
+  "suggestions": {
+  },
+  "conflicting": {
+  },
+  "providing": {
+  },
+  "replacing": {
+  },
+  "attributes": {
+    "newrelic/enabled": {
+      "display_name": "Enabled NewRelic",
+      "description": "Whether or not NewRelic should be enabled",
+      "choice": [
+        "true",
+        "false"
+      ],
+      "default": "true",
+      "recipes": [
+        "newrelic::default"
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional"
+    },
+    "newrelic/license_key": {
+      "display_name": "NewRelic License Key",
+      "description": "NewRelic License Key to connect monitoring to your account",
+      "required": "required",
+      "recipes": [
+        "newrelic::default"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "newrelic/log_location": {
+      "display_name": "Log Location",
+      "description": "Where should the NewRelic Log be located?",
+      "default": "/var/log/newrelic/php_agent.log",
+      "recipes": [
+        "newrelic::default"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional"
+    },
+    "newrelic/log_level": {
+      "display_name": "NewRelic PHP Agent Log Level",
+      "description": "The level of reporting set for the PHP Agent",
+      "default": "info",
+      "choice": [
+        "always",
+        "error",
+        "warning",
+        "info",
+        "verbose",
+        "debug",
+        "verbosedebug"
+      ],
+      "recipes": [
+        "newrelic::default"
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional"
+    },
+    "app_name": {
+      "display_name": "App Name",
+      "description": "Name of the PHP App in NewRelic",
+      "default": "PHP Application",
+      "required": "recommended",
+      "recipes": [
+        "newrelic::default"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string"
+    }
+  },
+  "groupings": {
+  },
+  "recipes": {
+    "newrelic::default": "Installs the PHP NewRelic Agent"
+  },
+  "version": "0.0.1"
+}
