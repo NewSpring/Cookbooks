@@ -87,7 +87,7 @@
       "type": "string",
       "required": "optional"
     },
-    "app_name": {
+    "newrelic/app_name": {
       "display_name": "App Name",
       "description": "Name of the PHP App in NewRelic",
       "default": "PHP Application",

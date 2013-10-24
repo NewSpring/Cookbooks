@@ -49,7 +49,7 @@ attribute "newrelic/log_level",
     "newrelic::default"
   ]
 
-attribute "app_name",
+attribute "newrelic/app_name",
   :display_name => "App Name",
   :description => "Name of the PHP App in NewRelic",
   :default => "PHP Application",
