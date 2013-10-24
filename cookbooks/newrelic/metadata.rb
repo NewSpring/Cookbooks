@@ -9,6 +9,8 @@ depends          'apt'
 depends          'build-essential'
 depends          'python'
 depends          'apache2'
+depends          'app'
+depends          'app_php'
 
 %w{ ubuntu debian }.each do |os|
   supports os
