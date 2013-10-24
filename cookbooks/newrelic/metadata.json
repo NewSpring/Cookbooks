@@ -12,7 +12,8 @@
   "dependencies": {
     "apt": ">= 0.0.0",
     "build-essential": ">= 0.0.0",
-    "python": ">= 0.0.0"
+    "python": ">= 0.0.0",
+    "apache2": ">= 0.0.0"
   },
   "recommendations": {
   },

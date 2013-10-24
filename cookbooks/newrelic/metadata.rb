@@ -8,6 +8,7 @@ version          "0.0.1"
 depends          'apt'
 depends          'build-essential'
 depends          'python'
+depends          'apache2'
 
 %w{ ubuntu debian }.each do |os|
   supports os
