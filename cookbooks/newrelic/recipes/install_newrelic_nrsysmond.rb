@@ -7,7 +7,7 @@
 # All rights reserved - Do Not Redistribute
 #
 
-package 'newrelic-sysmod'
+package 'newrelic-sysmond'
 
 service 'newrelic-daemon' do
   supports :start => true, :stop => true, :restart => true, :status => true
