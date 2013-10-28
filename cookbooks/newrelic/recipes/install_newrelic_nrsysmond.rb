@@ -9,11 +9,6 @@
 
 package 'newrelic-sysmond'
 
-service 'newrelic-daemon' do
-  supports :start => true, :stop => true, :restart => true, :status => true
-  action :nothing
-end
-
 service 'newrelic-sysmond' do
   supports :start => true, :stop => true, :restart => true, :status => true
   action :nothing
@@ -22,11 +17,5 @@ end
 template "/etc/newrelic/nrsysmond.cfg" do
   source "nrsysmond.cfg.erb"
   mode 0644
-  notifies :restart, "service[newrelic-daemon]"
-end
-
-execute "rename_newrelic_cfg" do
-  command "cp /etc/newrelic/newrelic.cfg.template /etc/newrelic/newrelic.cfg"
   notifies :restart, "service[newrelic-sysmond]"
 end
-

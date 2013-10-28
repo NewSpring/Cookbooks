@@ -12,7 +12,17 @@ service "apache2" do
   action [ :enable ]
 end
 
+service 'newrelic-daemon' do
+  supports :start => true, :stop => true, :restart => true, :status => true
+  action :nothing
+end
+
 package 'newrelic-php5'
+
+execute "rename_newrelic_cfg" do
+  command "cp /etc/newrelic/newrelic.cfg.template /etc/newrelic/newrelic.cfg"
+  notifies :restart, "service[newrelic-daemon]"
+end
 
 template "/etc/php5/conf.d/newrelic.ini" do
   source "newrelic.ini.erb"
