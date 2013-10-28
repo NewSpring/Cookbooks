@@ -7,6 +7,11 @@
 # All rights reserved - Do Not Redistribute
 #
 
+service "apache2" do
+  supports :restart => true
+  action [ :enable ]
+end
+
 package 'newrelic-php5'
 
 template "/etc/php5/conf.d/newrelic.ini" do
