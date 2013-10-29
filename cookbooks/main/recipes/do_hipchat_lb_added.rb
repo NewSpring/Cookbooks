@@ -6,7 +6,7 @@ hipchat_msg "default" do
   token node[:hipchat][:token]
   room node[:hipchat][:room]
   nickname "RightScale"
-  message "Added #{node[:cloud][:public_ips][0]} to Load Balancer: #{node[:lb][:service][:lb_name]}."
+  message "Added #{node[:cloud][:hostname]} to Load Balancer: #{node[:lb][:service][:lb_name]}."
   action :speak
 end
 

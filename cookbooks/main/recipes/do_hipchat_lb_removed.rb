@@ -6,7 +6,7 @@ hipchat_msg "default" do
   token node[:hipchat][:token]
   room node[:hipchat][:room]
   nickname "RightScale"
-  message "Removed #{node[:cloud][:public_ips][0]} from Load Balancer: #{node[:lb][:service][:lb_name]}."
+  message "Removed #{node[:cloud][:hostname]} from Load Balancer: #{node[:lb][:service][:lb_name]}."
   action :speak
 end
 
