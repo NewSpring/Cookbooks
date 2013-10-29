@@ -44,7 +44,7 @@ RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 #remove www
 RewriteCond %{REQUEST_URI} !=/server-status
 RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
-RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+RewriteRule ^(.*)$ %{HTTP:X-Forwarded-Proto}://%1/$1 [R=301,L]
 
 # Add a trailing slash to paths without an extension
 RewriteCond %{REQUEST_FILENAME} !-f
