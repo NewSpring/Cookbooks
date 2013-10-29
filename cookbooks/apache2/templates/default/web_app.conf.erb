@@ -17,14 +17,6 @@
     AllowOverride None
   </Directory>
 
-  <Location /server-status>
-    SetHandler server-status
-
-    Order Deny,Allow
-    Deny from all
-    Allow from 127.0.0.1
-  </Location>
-
   LogLevel info
   ErrorLog <%= node[:apache][:log_dir] %>/<%= @params[:name] %>-error.log
   CustomLog <%= node[:apache][:log_dir] %>/<%= @params[:name] %>-access.log simple
