@@ -1,5 +1,13 @@
 rightscale_marker :begin
 
+ruby_block "Get Hostname" do
+  block do
+    if File.exists?("/etc/hostname")
+      node.set[:cloud][:hostname] = File.open("/etc/hostname").read.strip
+    end
+  end
+end
+
 include_recipe "hipchat::default"
 
 hipchat_msg "default" do
