@@ -39,7 +39,8 @@ attribute "newrelic/license_key",
   :recipes => [
     "newrelic::default",
     "newrelic::install_newrelic_php5",
-    "newrelic::install_newrelic_nrsysmond"
+    "newrelic::install_newrelic_nrsysmond",
+    "newrelic::install_newrelic_plugin_agent"
   ]
 
 attribute "newrelic/log_location",
