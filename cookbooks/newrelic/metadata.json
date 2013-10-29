@@ -12,7 +12,8 @@
   "dependencies": {
     "apt": ">= 0.0.0",
     "build-essential": ">= 0.0.0",
-    "python": ">= 0.0.0"
+    "python": ">= 0.0.0",
+    "runit": ">= 0.0.0"
   },
   "recommendations": {
   },
@@ -110,6 +111,19 @@
       ],
       "calculated": false,
       "type": "string"
+    },
+    "newrelic/fqdn": {
+      "display_name": "Domain Name for APC Monitoring",
+      "description": "Domain name for apc monitoring",
+      "required": "required",
+      "recipes": [
+        "newrelic::install_newrelic_plugin_agent"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string"
     }
   },
   "groupings": {
@@ -118,7 +132,8 @@
     "newrelic::default": "Installs NewRelic",
     "newrelic::do_setup_repository": "Adds NewRelic to APT list sources",
     "newrelic::install_newrelic_php5": "Installs NewRelic PHP Monitoring",
-    "newrelic::install_newrelic_nrsysmond": "Installs NewRelic System Monitoring"
+    "newrelic::install_newrelic_nrsysmond": "Installs NewRelic System Monitoring",
+    "newrelic::install_newrelic_plugin_agent": "Installs the newrelic plugin agent"
   },
   "version": "0.5.0"
 }
