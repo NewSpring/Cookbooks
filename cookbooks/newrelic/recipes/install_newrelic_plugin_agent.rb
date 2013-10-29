@@ -6,7 +6,7 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-include_recipe "python::pip"
+package "python-pip"
 
 python_pip "newrelic_plugin_agent" do
   action :install
