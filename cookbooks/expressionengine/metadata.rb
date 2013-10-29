@@ -11,6 +11,7 @@ depends "repo_git"
 depends "web_apache"
 depends "rightscale"
 depends "app"
+depends "main"
 
 recipe "expressionengine::default", "Installs the Expressione Engine System and Clones down the repo"
 recipe "expressionengine::multisite", "Installs and Configures EE MSM Sites"

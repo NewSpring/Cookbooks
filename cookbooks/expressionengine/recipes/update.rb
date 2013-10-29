@@ -17,7 +17,7 @@ repo "default" do
   symlinks "images" => "images", "css" => "assets/css"
   action node[:repo][:default][:perform_action].to_sym
   credential node[:repo][:default][:credential]
-  revision node[:repo][:default][:revision]
+  revision node[:ee][:update_revision]
   app_user node[:web_apache][:application_name]
   repository node[:repo][:default][:repository]
 end
@@ -57,6 +57,8 @@ bash "set_permissions" do
    chmod -R 777 images
  EOH
 end
+
+include_recipe "main::do_memcache_update"
 
 service "apache2" do
   action :reload
