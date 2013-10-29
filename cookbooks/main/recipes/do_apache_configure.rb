@@ -14,3 +14,12 @@ template "#{node[:apache][:dir]}/ports.conf" do
   source "ports.conf.erb"
   variables :apache_listen_ports => http_port
 end
+
+template "/etc/apache2/sites-available/localhost.conf" do
+  source "localhost.conf.erb"
+  mode 0644
+end
+
+apache_site "localhost.conf" do
+  enable true
+end
