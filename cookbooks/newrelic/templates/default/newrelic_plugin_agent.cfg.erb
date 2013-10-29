@@ -6,7 +6,7 @@ Application:
   #proxy: http://localhost:8080
 
   apache_httpd:
-    name: <%= @params[:hostname] %>
+    name: <%= node[:cloud][:hostname] %>
     scheme: http
     host: localhost
   # verify_ssl_cert: true
@@ -79,7 +79,7 @@ Application:
   #  user: stats
 
   php_apc:
-    name: <%= @params[:hostname] %>
+    name: <%= node[:cloud][:hostname] %>
     scheme: http
     host: localhost
   # verify_ssl_cert: true

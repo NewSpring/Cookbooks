@@ -25,9 +25,6 @@ template "/etc/newrelic/newrelic_plugin_agent.cfg" do
   mode 664
   user "root"
   group "root"
-  variables({
-    :hostname => "#{node[:cloud][:hostname]}"
-  })
 end
 
 template "/etc/init.d/newrelic-plugin-agent" do
