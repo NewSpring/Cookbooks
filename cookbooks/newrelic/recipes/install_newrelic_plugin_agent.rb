@@ -34,7 +34,7 @@ directory "/var/localhost" do
 end
 
 execute "newrelic-plugin-agent" do
-  command "cp /opt/newrelic_plugin_agent.deb /etc/init.d/newrelic-plugin-agent"
+  command "cp /opt/newrelic_plugin_agent/newrelic_plugin_agent.deb /etc/init.d/newrelic-plugin-agent"
 end
 
 execute "apc-ng.php" do
