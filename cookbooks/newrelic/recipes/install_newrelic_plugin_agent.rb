@@ -15,7 +15,7 @@ end
 ruby_block "Get Hostname" do
   block do
     if File.exists?("/etc/hostname")
-      hostname = File.open("/etc/hostname")
+      node.set[:cloud][:hostname] = File.open("/etc/hostname")
     end
   end
 end
@@ -26,7 +26,7 @@ template "/etc/newrelic/newrelic_plugin_agent.cfg" do
   user "root"
   group "root"
   variables({
-    :hostname => "#{hostname}"
+    :hostname => "#{node[:cloud][:hostname]}"
   })
 end
 
