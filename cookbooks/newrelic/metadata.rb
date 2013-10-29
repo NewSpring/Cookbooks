@@ -18,6 +18,8 @@ recipe "newrelic::default", "Installs NewRelic"
 recipe "newrelic::do_setup_repository", "Adds NewRelic to APT list sources"
 recipe "newrelic::install_newrelic_php5", "Installs NewRelic PHP Monitoring"
 recipe "newrelic::install_newrelic_nrsysmond", "Installs NewRelic System Monitoring"
+recipe "newrelic::install_newrelic_plugin_agent", "Installs the newrelic plugin agent"
+
 
 attribute "newrelic/enabled",
   :display_name => "Enabled NewRelic",
@@ -71,4 +73,13 @@ attribute "newrelic/app_name",
     "newrelic::install_newrelic_php5",
     "newrelic::install_newrelic_nrsysmond"
   ]
+
+attribute "newrelic/fqdn",
+  :display_name => "Domain Name for APC Monitoring",
+  :description => "Domain name for apc monitoring",
+  :required => "required",
+  :recipes => [
+    "newrelic::install_newrelic_plugin_agent"
+  ]
+
 
