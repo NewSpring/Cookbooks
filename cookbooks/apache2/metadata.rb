@@ -42,8 +42,8 @@ recipe            "apache2::mod_ssl", "Apache module 'ssl' with config file, add
 recipe            "apache2::mod_status", "Apache module 'status' with config file"
 recipe            "apache2::mod_xsendfile", "Apache module 'xsendfile'"
 recipe            "apache2::mod_info", "Apache Module Info"
-recipe            "apache2::mem_cache", "Memcached Module"
 recipe            "apache2::mod_include", "Apache Include Module"
+recipe            "apache2::mod_disk_cache", "Apache Disk Cache Module"
 
 %w{redhat centos scientific fedora debian ubuntu arch }.each do |os|
   supports os

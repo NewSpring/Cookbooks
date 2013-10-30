@@ -489,8 +489,8 @@
     "apache2::mod_status": "Apache module 'status' with config file",
     "apache2::mod_xsendfile": "Apache module 'xsendfile'",
     "apache2::mod_info": "Apache Module Info",
-    "apache2::mem_cache": "Memcached Module",
-    "apache2::mod_include": "Apache Include Module"
+    "apache2::mod_include": "Apache Include Module",
+    "apache2::mod_disk_cache": "Apache Disk Cache Module"
   },
   "version": "1.0.0"
 }
