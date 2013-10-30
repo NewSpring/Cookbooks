@@ -6,15 +6,6 @@ RewriteRule ^(.*)$ $1.gz [QSA,L]
 
 AddType application/x-javascript .js
 
-# secure .htaccess file
-<Files .htaccess>
- order allow,deny
- deny from all
-</Files>
-
-#Prevents access to .git folders
-RedirectMatch 404 /\\.git(/|$)
-
 # Dont list files in index pages
 IndexIgnore *
 
@@ -26,8 +17,13 @@ ErrorDocument 404 /index.php?/
   ErrorDocument 404 "File Not Found"
 </FilesMatch>
 
-RewriteEngine On
+# Remove IE image toolbar
+<FilesMatch "\.(html|htm|php)$">
+  Header set imagetoolbar "no"
+</FilesMatch>
 
+
+RewriteEngine On
 RewriteBase /
 
 #autocorrect perrynoble switch to EE
@@ -46,20 +42,15 @@ RewriteCond %{REQUEST_URI} !=/server-status
 RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
 RewriteRule ^(.*)$ %{HTTP:X-Forwarded-Proto}://%1/$1 [R=301,L]
 
-# Add a trailing slash to paths without an extension
+#remove trailing slash if present
+RewriteCond %{REQUEST_METHOD} !=POST
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_URI} !(\.[a-zA-Z0-9]{1,5}|/)$
-RewriteRule ^(.*)$ $1/ [L,R=301]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.+)/$ $1 [L,R=301]
 
 #Remove index.php - Directory Check Method
 RewriteCond %{REQUEST_URI} !=/server-status
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ /index.php/$1 [L]
-
-# Remove IE image toolbar
-<FilesMatch "\.(html|htm|php)$">
-  Header set imagetoolbar "no"
-</FilesMatch>
-
 

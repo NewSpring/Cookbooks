@@ -23,6 +23,13 @@ node[:ee][:multisite].each do |m|
     action :create
   end
 
+  directory "#{node[:repo][:default][:destination]}/#{cookie_domain}/images" do
+    owner node[:web_apache][:application_name]
+    group node[:web_apache][:application_name]
+    mode 0777
+    action :create
+  end
+
   template "#{node[:repo][:default][:destination]}/#{cookie_domain}/index.php" do
     source "index.php.erb"
     mode 0666
