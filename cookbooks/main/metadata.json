@@ -24,6 +24,23 @@
   "replacing": {
   },
   "attributes": {
+    "newrelic-ng/license_key": {
+      "display_name": "NewRelic License Key",
+      "description": "The NewRelic License Key Tied to your account",
+      "required": "required",
+      "recipes": [
+        "main::do_setup_newrelic_monitoring",
+        "main::do_setup_newrelic_php",
+        "main::do_setup_newrelic_memcache",
+        "main::do_setup_newrelic_apache",
+        "main::do_setup_newrelic_apc"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string"
+    },
     "rightscale/public_key": {
       "display_name": "Public Key",
       "description": "Public Key to simplify logging in",
@@ -90,6 +107,7 @@
   "recipes": {
     "main::do_php_apt_repo": "Add PPA packages",
     "main::do_apache_configure": "Disables default site and sets up ports",
+    "main::do_php_configure": "Sets up PHP POST and Upload values",
     "main::do_hipchat_lb_added": "Notifcation that instance was added to Load Balancer",
     "main::do_hipchat_lb_removed": "Notification was removed from the Load Balancer",
     "main::do_auth_key": "Added Authorized Key",
