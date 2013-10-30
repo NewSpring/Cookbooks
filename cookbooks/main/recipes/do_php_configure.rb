@@ -1,3 +1,5 @@
+rightscale_marker :begin
+
 ruby_block "Update the Upload and POST file Size" do
   block do
     file = Chef::Util::FileEdit.new("/etc/php5/apache2/php.ini")
@@ -14,3 +16,5 @@ ruby_block "Update the Upload and POST file Size" do
     file.write_file
   end
 end
+
+rightscale_marker :end
