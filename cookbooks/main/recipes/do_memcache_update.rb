@@ -23,7 +23,7 @@ ruby_block "Updating the private IP of memcached server to config.php" do
 
   block do
     file = Chef::Util::FileEdit.new("/var/www/newspring.cc/hello/expressionengine/config/config.php")
-    file.search_file_replace_line(
+    file.search_file_replace(
       /'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}'\, \d{5}/,
       "array( '#{ip_list[0]}', 11211, 1 )"
     )
