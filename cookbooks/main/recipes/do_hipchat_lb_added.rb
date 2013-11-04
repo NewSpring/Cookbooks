@@ -4,6 +4,8 @@ ruby_block "Get Hostname" do
   block do
     if File.exists?("/etc/hostname")
       node.set[:cloud][:hostname] = File.open("/etc/hostname").read.strip
+    else
+      log "   HOSTNAME FILE DOESN'T EXIST!"
     end
   end
 end

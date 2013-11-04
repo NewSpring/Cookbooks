@@ -58,10 +58,30 @@ bash "set_permissions" do
  EOH
 end
 
-include_recipe "main::do_memcache_update"
+include_recipe "main::do_memcache_setup"
 
 service "apache2" do
   action :reload
+end
+
+ruby_block "Get Hostname" do
+  block do
+    if File.exists?("/etc/hostname")
+      node.set[:cloud][:hostname] = File.open("/etc/hostname").read.strip
+    else
+      log "   HOSTNAME FILE DOESN'T EXIST!"
+    end
+  end
+end
+
+include_recipe "hipchat::default"
+
+hipchat_msg "default" do
+  token node[:hipchat][:token]
+  room node[:hipchat][:room]
+  nickname "RightScale"
+  message "Updated Application on #{node[:cloud][:hostname]}."
+  action :speak
 end
 
 

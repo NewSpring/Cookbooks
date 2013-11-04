@@ -14,7 +14,8 @@
     "web_apache": ">= 0.0.0",
     "rightscale": ">= 0.0.0",
     "app": ">= 0.0.0",
-    "main": ">= 0.0.0"
+    "main": ">= 0.0.0",
+    "hipchat": ">= 0.0.0"
   },
   "recommendations": {
   },
