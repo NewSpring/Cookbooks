@@ -161,7 +161,8 @@
   "recipes": {
     "expressionengine::default": "Installs the Expressione Engine System and Clones down the repo",
     "expressionengine::multisite": "Installs and Configures EE MSM Sites",
-    "expressionengine::update": "Deploys the Revision Specified"
+    "expressionengine::update": "Deploys the Revision Specified",
+    "expressionengine::disable": "Disable Domain"
   },
   "version": "0.0.7"
 }

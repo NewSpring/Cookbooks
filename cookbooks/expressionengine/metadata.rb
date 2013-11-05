@@ -17,6 +17,7 @@ depends "hipchat"
 recipe "expressionengine::default", "Installs the Expressione Engine System and Clones down the repo"
 recipe "expressionengine::multisite", "Installs and Configures EE MSM Sites"
 recipe "expressionengine::update", "Deploys the Revision Specified"
+recipe "expressionengine::disable", "Disable Domain"
 
 attribute "ee/main",
   :display_name => "Main System Domain",
