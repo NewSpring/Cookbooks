@@ -71,6 +71,19 @@
       ],
       "calculated": false
     },
+    "ee/disable": {
+      "display_name": "Disable Domain",
+      "description": "Disable Domain",
+      "required": "optional",
+      "recipes": [
+        "expressionengine::disable"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string"
+    },
     "ee/system_folder": {
       "display_name": "EE System Folder",
       "description": "EE System Folder, by default its set to 'system'",
