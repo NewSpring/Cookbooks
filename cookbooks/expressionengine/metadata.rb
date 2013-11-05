@@ -42,8 +42,16 @@ attribute "ee/multisite",
   :required => "optional",
   :type => "array",
   :recipes => [
-    "expressionengine::multisite",
-    "expressionengine::update"
+   "expressionengine::multisite",
+   "expressionengine::update"
+  ]
+
+attribute "ee/disable",
+  :display_name => "Disable Domain",
+  :description => "Disable Domain",
+  :required => "optional",
+  :recipes => [
+    "expressionengine::disable"
   ]
 
 attribute "ee/system_folder",
