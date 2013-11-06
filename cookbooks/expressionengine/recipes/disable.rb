@@ -1,3 +1,3 @@
-apache_site "#{node[:ee][:disable]}" do
+apache_site "#{node[:ee][:disable]}.frontend.conf" do
   action :disable
 end
