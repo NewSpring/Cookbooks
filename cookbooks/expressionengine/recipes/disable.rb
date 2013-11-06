@@ -1,3 +1,3 @@
 apache_site "#{node[:ee][:disable]}.frontend.conf" do
-  action :disable
+  enable false
 end
