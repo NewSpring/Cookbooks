@@ -1,5 +1,6 @@
-include_recipe "app::do_server_restart"
-
+service "apache2" do
+  action :restart
+end
 
 include_recipe "hipchat::default"
 

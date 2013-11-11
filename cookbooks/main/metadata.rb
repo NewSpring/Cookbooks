@@ -9,7 +9,7 @@ depends "apt"
 depends "php"
 depends "rightscale"
 depends "hipchat"
-depends "app"
+depends "apache2"
 
 recipe "main::do_php_apt_repo", "Add PPA packages"
 recipe "main::do_apache_configure", "Disables default site and sets up ports"
