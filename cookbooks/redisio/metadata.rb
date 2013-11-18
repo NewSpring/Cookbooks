@@ -21,7 +21,6 @@ depends "ulimit", ">= 0.1.2"
 attribute 'redisio/version',
   :diplay_name => "Redis Version",
   :description => "What version of redis?",
-  :required => "required",
   :default => "2.6.16",
   :recipes => [
     "redisio::default",
