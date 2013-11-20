@@ -17,17 +17,16 @@
 # limitations under the License.
 #
 
-define :iptables_rule, :enable => true, :source => nil, :variables => {}, :cookbook => nil  do
+define :iptables_rule, :enable => true, :source => nil, :variables => {}, :cookbook => nil do
   template_source = params[:source] ? params[:source] : "#{params[:name]}.erb"
-
+  
   template "/etc/iptables.d/#{params[:name]}" do
     source template_source
-    cookbook params[:cookbook] if params[:cookbook]
     mode 0644
+    cookbook params[:cookbook] if params[:cookbook]
     variables params[:variables]
     backup false
     notifies :run, resources(:execute => "rebuild-iptables")
-    notifies :run, resources(:execute => "reload-sysctl")
     if params[:enable]
       action :create
     else
