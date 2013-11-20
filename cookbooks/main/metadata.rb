@@ -10,6 +10,8 @@ depends "php"
 depends "rightscale"
 depends "hipchat"
 depends "apache2"
+depends "sys_firewall"
+depends "iptables"
 
 recipe "main::do_php_apt_repo", "Add PPA packages"
 recipe "main::do_apache_configure", "Disables default site and sets up ports"
