@@ -29,6 +29,7 @@ recipe "main::do_set_php_timezone", "Set the PHP TimeZone"
 recipe "main::do_apc_setup", "Configure APC Caching"
 recipe "main::do_redis_setup", "Configure Redis PHP Client"
 recipe "main::do_redis_firewall", "Configure Redis Firewall for Redis Server"
+recipe "main::do_redis_update", "Update Redis Configuration"
 
 recipe "main::do_reboot_apache", "Reboot Apache"
 
