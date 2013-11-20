@@ -3,7 +3,7 @@ rightscale_marker :begin
 sys_firewall "redis" do
   port 6379
   enable true
-  ip_addr node[:cloud][:private_ips][0]
+  ip_tag "server:private_ip_0"
   action :update
 end
 
