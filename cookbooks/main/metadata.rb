@@ -27,6 +27,7 @@ recipe "main::do_harden_sysctl", "Harden Network Settings"
 recipe "main::do_hipchat_start_notify", "Notify Apollos that setup has started"
 recipe "main::do_set_php_timezone", "Set the PHP TimeZone"
 recipe "main::do_apc_setup", "Configure APC Caching"
+recipe "main::do_redis_setup", "Configure Redis PHP Client"
 
 recipe "main::do_reboot_apache", "Reboot Apache"
 

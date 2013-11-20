@@ -26,3 +26,21 @@ attribute 'redisio/version',
     "redisio::default",
     "redisio::install"
   ]
+
+attribute 'redisio/port',
+  :diplay_name => "Redis Port",
+  :description => "The port the redis server should be served on. Default is 6379",
+  :default => "6379",
+  :recipes => [
+    "redisio::default",
+    "redisio::install"
+  ]
+
+attribute 'redisio/requirepass',
+  :diplay_name => "Redis Password",
+  :description => "Redis Password for authentication",
+  :required => "recommended",
+  :recipes => [
+    "redisio::default",
+    "redisio::install"
+  ]
