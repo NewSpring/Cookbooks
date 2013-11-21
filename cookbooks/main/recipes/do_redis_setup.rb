@@ -1,9 +1,10 @@
 include_recipe "rightscale::default"
 rightscale_marker :begin
 
-php_pear "redis" do
-  action :install
-end
+execute "default" do
+  command "pecl install redis"
+  action :nothing
+end.run_action(:run)
 
 file "/etc/php5/apache2/conf.d/redis.ini" do
   content "extension=redis.so"
