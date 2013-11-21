@@ -1,19 +1,6 @@
 include_recipe "rightscale::default"
 rightscale_marker :begin
 
-redis = php_pear "redis" do
-  action :nothing
-end
-
-redis.run_action(:install)
-
-file "/etc/php5/apache2/conf.d/redis.ini" do
-  content "extension=redis.so"
-  mode "644"
-  owner "root"
-  group "root"
-end
-
 search = "redis_servers"
 
 collection = server_collection search do
