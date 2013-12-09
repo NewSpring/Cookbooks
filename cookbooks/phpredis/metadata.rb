@@ -11,5 +11,6 @@ recipe            "phpredis", "Includes the package recipe by default."
 end
 
 depends 'git'
+depends 'php'
 
 recipe "phpredis::git", "Installs PHP Redis Client"
