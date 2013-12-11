@@ -103,7 +103,6 @@ attribute "ee/database",
 attribute "ee/env",
   :display_name => "ENV Config Environment",
   :description => "Select the Environment for which EE config should be set.",
-  :required => "required",
   :choices => ["prod", "dev", "stage"],
   :default => "prod",
   :recipes => [
