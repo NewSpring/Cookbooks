@@ -10,10 +10,6 @@
  * @since		Version 2.0
  */
 
-//Set paths for Master Config to work with MSM
-define('FLC_DOCROOT', $_SERVER['DOCUMENT_ROOT']);
-define('FLC_PATH', $_SERVER['DOCUMENT_ROOT'].'/config');
-
 /*
  * --------------------------------------------------------------------
  *  System Path
@@ -28,6 +24,12 @@ define('FLC_PATH', $_SERVER['DOCUMENT_ROOT'].'/config');
  * http://expressionengine.com/user_guide/installation/best_practices.html
  *
  */
+
+  //Set paths for Master Config to work with MSM
+  define('FLC_DOCROOT', $_SERVER['DOCUMENT_ROOT']);
+  define('FLC_PATH', '<%= node[:repo][:default][:destination] %>/<%= node[:ee][:main] %>/config');
+
+
 	$system_path = "<%= node[:repo][:default][:destination] %>/<%= node[:ee][:main] %>/hello";
 
 
