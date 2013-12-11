@@ -3,7 +3,7 @@ maintainer_email "web@newspring.cc"
 license          "All rights reserved"
 description      "Installs/Configures Expression Engine Sites"
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version          "0.0.7"
+version          "0.1.0"
 
 depends "apache2"
 depends "repo"
@@ -99,3 +99,15 @@ attribute "ee/database",
     "expressionengine::default",
     "expressionengine::update"
   ]
+
+attribute "ee/env",
+  :display_name => "ENV Config Environment",
+  :description => "Select the Environment for which EE config should be set.",
+  :required => "required",
+  :choices => ["prod", "dev", "stage"],
+  :default => "prod",
+  :recipes => [
+    "expressionengine::default",
+    "expressionengine::update"
+  ]
+

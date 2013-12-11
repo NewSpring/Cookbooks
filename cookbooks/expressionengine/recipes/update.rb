@@ -22,8 +22,15 @@ repo "default" do
   repository node[:repo][:default][:repository]
 end
 
-template "#{site_install_dir}/#{node[:ee][:system_folder]}/expressionengine/config/database.php" do
-  source "database.php.erb"
+template "#{site_install_dir}/config/config.#{node[:ee][:env]}.php" do
+  source "config.php.erb"
+  mode 0666
+  owner node[:web_apache][:application_name]
+  group node[:web_apache][:application_name]
+end
+
+file "#{site_install_dir}/#{node[:ee][:system_folder]}/expressionengine/config/database.php" do
+  action :touch
   mode 0666
   owner node[:web_apache][:application_name]
   group node[:web_apache][:application_name]
