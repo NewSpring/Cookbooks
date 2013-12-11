@@ -65,8 +65,6 @@ bash "set_permissions" do
  EOH
 end
 
-include_recipe "main::do_memcache_setup"
-
 service "apache2" do
   action :reload
 end
