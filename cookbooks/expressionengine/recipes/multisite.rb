@@ -6,7 +6,7 @@ node[:ee][:multisite].each do |m|
 
   domain = Domainatrix.parse(m)
 
-  if domain.subdomain == ""
+  if domain.subdomain == "" || domain.subdomain == "dev" || domain.subdomain == "beta" || domain.subdomain == "staging"
     site_name = domain.domain
     cookie_domain = "#{domain.domain}.#{domain.public_suffix}"
     server_alias = "www.#{domain.domain}.#{domain.public_suffix}"
