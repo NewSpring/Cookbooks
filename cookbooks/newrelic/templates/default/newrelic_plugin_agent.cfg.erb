@@ -11,10 +11,12 @@ Application:
     port:
     path: /server-status
 
-  memcached:
-    name: memcached.private
-    host: memcached.private
-    port: 11211
+  redis:
+    name: newspringredis
+    host: redis.private
+    port: 6379
+    db_count: 16
+    password: <%= node[:newrelic][:redis_password] %>
 
   php_apc:
     name: <%= node[:cloud][:hostname] %>

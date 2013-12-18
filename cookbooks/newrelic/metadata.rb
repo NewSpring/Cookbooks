@@ -43,6 +43,17 @@ attribute "newrelic/license_key",
     "newrelic::install_newrelic_plugin_agent"
   ]
 
+attribute "newrelic/redis_password",
+  :display_name => "Redis Password for NewRelic",
+  :description => "NewRelic Password For NewRelic",
+  :required => "required",
+  :recipes => [
+    "newrelic::default",
+    "newrelic::install_newrelic_php5",
+    "newrelic::install_newrelic_nrsysmond",
+    "newrelic::install_newrelic_plugin_agent"
+  ]
+
 attribute "newrelic/log_location",
   :display_name => "Log Location",
   :description => "Where should the NewRelic Log be located?",
