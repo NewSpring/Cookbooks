@@ -21,10 +21,6 @@ ruby_block "Adding private IP of redis server to config.php" do
     RightScale::Utils::Helper.get_tag_value("server:private_ip_0", tags, valid_ip_regex)
   end
 
-  port = node[:server_collection][search].collect do |_, tags|
-    RightScale::Utils::Helper.get_tag_value("redis_server:port", tags)
-  end
-
   block do
     file = Chef::Util::FileEdit.new("/etc/hosts")
     file.insert_line_if_no_match(
