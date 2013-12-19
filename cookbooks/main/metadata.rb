@@ -90,3 +90,26 @@ attribute "hipchat/notify",
     "main::do_hipchat_start_notify"
   ]
 
+attribute "vpn/host",
+  :display_name => "Hostname of the VPN",
+  :description => "Enter the hostname of the vpn server that you want to connect to",
+  :required => "required",
+  :recipes => [
+    "main::do_vpn_connect"
+  ]
+
+attribute "vpn/username",
+  :display_name => "VPN Username",
+  :description => "Username to access the VPN",
+  :required => "required",
+  :recipes => [
+    "main::do_vpn_connect"
+  ]
+
+attributes "vpn/password",
+  :display_name => "VPN Password",
+  :description => "Password to Access the VPN",
+  :required => "required",
+  :recipes => [
+    "main::do_vpn_connect"
+  ]
