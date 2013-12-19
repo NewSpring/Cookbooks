@@ -54,6 +54,10 @@ link "#{site_install_dir}/images" do
   action :create
 end
 
+if node[:ee][:env] == ''
+  node.set[:ee][:env] = "prod"
+end
+
 template "#{site_install_dir}/config/config.#{node[:ee][:env]}.php" do
   source "config.php"
   mode 0666
