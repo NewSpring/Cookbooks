@@ -21,6 +21,13 @@ package "monit" do
   action :install
 end
 
+template "/etc/monit/monitrc" do
+  source "monit.erb"
+  mode 0777
+  owner "root"
+  group "root"
+end
+
 template "/etc/monit/conf.d/newspring_vpn" do
   source "newspring_vpn.monit.erb"
   mode 0777
