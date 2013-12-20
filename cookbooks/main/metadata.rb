@@ -92,7 +92,7 @@ attribute "hipchat/notify",
     "main::do_hipchat_start_notify"
   ]
 
-attribute "vpn/host",
+attribute "vpn/hostname",
   :display_name => "Hostname of the VPN",
   :description => "Enter the hostname of the vpn server that you want to connect to",
   :required => "required",
