@@ -108,7 +108,7 @@ attribute "vpn/username",
     "main::do_vpn_connect"
   ]
 
-attributes "vpn/password",
+attribute "vpn/password",
   :display_name => "VPN Password",
   :description => "Password to Access the VPN",
   :required => "required",
