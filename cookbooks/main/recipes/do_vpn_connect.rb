@@ -23,7 +23,7 @@ end
 
 template "/etc/monit/monitrc" do
   source "monit.erb"
-  mode 0777
+  mode 0700
   owner "root"
   group "root"
 end
