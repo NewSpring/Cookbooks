@@ -33,6 +33,8 @@ recipe "main::do_redis_setup", "Configure Redis PHP Client"
 recipe "main::do_redis_firewall", "Configure Redis Firewall for Redis Server"
 recipe "main::do_redis_update", "Update Redis Configuration"
 
+recipe "main::do_vpn_connect", "Setup NewSpring VPN Connection"
+
 recipe "main::do_reboot_apache", "Reboot Apache"
 
 recipe "main::do_cache_on", "Turn Caching On"
