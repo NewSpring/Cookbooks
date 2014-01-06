@@ -32,7 +32,7 @@ RewriteRule ^([0-9]+)/([0-9]+)/([0-9]+)/(.*)$ /blog/$4 [R=301,NC,L]
 RewriteRule ^index\.php$ - [L]
 
 #force SSL for https
-RewriteCond %{HTTP_HOST} ^give\.newspring\.cc$ [NC]
+RewriteCond %{HTTP_HOST} ^(staff|give)\.newspring\.cc$ [NC]
 RewriteCond %{HTTPS} !=on
 RewriteCond %{HTTP:X-Forwarded-Proto} !https
 RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
