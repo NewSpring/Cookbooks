@@ -11,6 +11,7 @@ template "/etc/init.d/newspring_vpn" do
   mode 0777
   owner "root"
   group "root"
+  action :create_if_missing
 end
 
 execute "apt-get update" do
@@ -41,6 +42,7 @@ template "/etc/monit/monitrc" do
   mode 0700
   owner "root"
   group "root"
+  action :create_if_missing
 end
 
 template "/etc/monit/conf.d/newspring_vpn" do
@@ -48,12 +50,15 @@ template "/etc/monit/conf.d/newspring_vpn" do
   mode 0777
   owner "root"
   group "root"
-end
-
-execute "monit load daemon" do
-  command "/etc/init.d/monit start"
+  action :create_if_missing
 end
 
 execute "monit start" do
   command "monit start all"
+  action :nothing
+end
+
+execute "monit load daemon" do
+  command "/etc/init.d/monit reload && /etc/init.d/monit start"
+  notifies :run, "execute[monit start]"
 end
