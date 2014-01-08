@@ -17,6 +17,10 @@ execute "apt-get update" do
   command "apt-get update"
 end
 
+package "openconnect" do
+  action :install
+end
+
 package "monit" do
   action :install
 end
