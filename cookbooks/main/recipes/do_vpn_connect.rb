@@ -50,6 +50,10 @@ template "/etc/monit/conf.d/newspring_vpn" do
   group "root"
 end
 
+execute "monit load daemon" do
+  command "/etc/init.d/monit start"
+end
+
 execute "monit start" do
   command "monit start all"
 end
