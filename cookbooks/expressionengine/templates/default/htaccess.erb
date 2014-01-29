@@ -26,6 +26,11 @@ ErrorDocument 404 /index.php?/
 RewriteEngine On
 RewriteBase /
 
+#redirect to feedpress
+RewriteCond %{HTTP_HOST} ^(perrynoble.com)$
+RewriteCond %{HTTP_USER_AGENT} !^(FeedPress|FeedValidator) [NC]
+Redirect 302 /feeds/rss http://feedpress.me/perrynoble
+
 #autocorrect perrynoble switch to EE
 RewriteCond %{HTTP_HOST} ^(perrynoble.com)$
 RewriteRule ^([0-9]+)/([0-9]+)/([0-9]+)/(.*)$ /blog/$4 [R=301,NC,L]
