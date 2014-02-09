@@ -120,6 +120,7 @@ attribute "rubygems/list",
   :display_name => "Ruby Gems",
   :description => "Array of Ruby Gems to Install",
   :required => "recommended",
+  :type => "array",
   :recipes => [
     "main::do_setup_rubygems"
   ]
