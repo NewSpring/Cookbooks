@@ -50,7 +50,7 @@ end
 execute "rake" do
   cwd "#{site_install_dir}"
   user "root"
-  command "/usr/local/bin/rake --verbose --trace sass:build"
+  command "/usr/local/bin/rake --verbose --trace deploy:site"
   environment("RAKE_ENV" => "production")
   returns [0,1]
   #only run if rake file exists
