@@ -14,23 +14,10 @@ end
 
 domainatrix.run_action(:install)
 
-execute "install_sass" do
-  command "gem install sass --no-ri --no-rdoc"
-  not_if "`which sass`"
-end
-
-execute "install_coffeescript" do
-  command "gem install coffee-script --no-ri --no-rdoc"
-  not_if "`which coffee`"
-end
-
-execute "install_rb-fsevent" do
-  command "gem install rb-fsevent --no-ri --no-rdoc"
-end
-
-execute "install_rake" do
-  command "gem install rake --no-ri --no-rdoc"
-  not_if "`which rake`"
+node[:rubygems][:list].each do |gem|
+  execute "install_#{gem}" do
+    command "gem install #{gem} --no-ri --no-rdoc"
+  end
 end
 
 rightscale_marker :end

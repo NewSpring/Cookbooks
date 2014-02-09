@@ -115,3 +115,11 @@ attribute "vpn/password",
   :recipes => [
     "main::do_vpn_connect"
   ]
+
+attribute "rubygems/list",
+  :display_name => "Ruby Gems",
+  :description => "Array of Ruby Gems to Install",
+  :required => "recommended",
+  :recipes => [
+    "main::do_setup_rubygems"
+  ]
