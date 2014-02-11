@@ -55,6 +55,7 @@ end
 
 execute "monit start" do
   command "monit start all"
+  only_if do File.exists?("/var/run/monit.pid") end
   action :nothing
 end
 
