@@ -59,6 +59,6 @@ execute "monit start" do
 end
 
 execute "monit load daemon" do
-  command "/etc/init.d/monit start"
+  command "/etc/init.d/monit restart"
   notifies :run, "execute[monit start]"
 end
