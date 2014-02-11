@@ -42,7 +42,6 @@ template "/etc/monit/monitrc" do
   mode 0700
   owner "root"
   group "root"
-  action :create_if_missing
 end
 
 template "/etc/monit/conf.d/newspring_vpn" do
