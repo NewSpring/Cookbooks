@@ -58,12 +58,24 @@ end
 #   node.set[:ee][:env] = "prod"
 # end
 
-template "#{site_install_dir}/config/config.#{node[:ee][:env]}.php" do
-  source "config.php.erb"
-  mode 0666
-  owner node[:web_apache][:application_name]
-  group node[:web_apache][:application_name]
+# template "#{site_install_dir}/config/config.#{node[:ee][:env]}.php" do
+#   source "config.php.erb"
+#   mode 0666
+#   owner node[:web_apache][:application_name]
+#   group node[:web_apache][:application_name]
+# end
+
+ruby_block "Amend Environment Config File" do
+  block do
+    file = Chef::Util::FileEdit.new("/var/www/newspring.cc/hello/expressionengine/config/config.#{node[:ee][:env]}.php")
+    file.search_file_replace_line("$env_db['hostname']","$env_db['hostname'] = '#{node[:ee][:hostname]}';")
+    file.search_file_replace_line("$env_db['username']","$env_db['hostname'] = '#{node[:ee][:username]}';")
+    file.search_file_replace_line("$env_db['password']","$env_db['hostname'] = '#{node[:ee][:password]}';")
+    file.search_file_replace_line("$env_db['database']","$env_db['hostname'] = '#{node[:ee][:datebase]}';")
+    file.write_file
+  end
 end
+
 
 file "#{site_install_dir}/#{node[:ee][:system_folder]}/expressionengine/config/database.php" do
   action :touch
