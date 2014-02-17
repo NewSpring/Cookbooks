@@ -66,10 +66,10 @@ end
 ruby_block "Amend Environment Config File" do
   block do
     file = Chef::Util::FileEdit.new("#{site_install_dir}/config/config.#{node[:ee][:env]}.php")
-    file.search_file_replace_line("\['hostname']","$env_db['hostname'] = '#{node[:ee][:hostname]}';")
-    file.search_file_replace_line("\['username']","$env_db['hostname'] = '#{node[:ee][:username]}';")
-    file.search_file_replace_line("\['password']","$env_db['hostname'] = '#{node[:ee][:password]}';")
-    file.search_file_replace_line("\['database']","$env_db['hostname'] = '#{node[:ee][:datebase]}';")
+    file.search_file_replace_line("\$env_db\['hostname']","$env_db['hostname'] = '#{node[:ee][:hostname]}';")
+    file.search_file_replace_line("\$env_db\['username']","$env_db['hostname'] = '#{node[:ee][:username]}';")
+    file.search_file_replace_line("\$env_db\['password']","$env_db['hostname'] = '#{node[:ee][:password]}';")
+    file.search_file_replace_line("\$env_db\['database']","$env_db['hostname'] = '#{node[:ee][:datebase]}';")
     file.write_file
   end
 end
