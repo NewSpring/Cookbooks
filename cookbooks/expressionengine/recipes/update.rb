@@ -26,11 +26,15 @@ end
 #   node.set[:ee][:env] = "prod"
 # end
 
-template "#{site_install_dir}/config/config.#{node[:ee][:env]}.php" do
-  source "config.php.erb"
-  mode 0666
-  owner node[:web_apache][:application_name]
-  group node[:web_apache][:application_name]
+ruby_block "Amend Environment Config File" do
+  block do
+    file = Chef::Util::FileEdit.new("#{site_install_dir}/config/config.#{node[:ee][:env]}.php")
+    file.search_file_replace_line("\$env_db\['hostname']","$env_db['hostname'] = '#{node[:ee][:hostname]}';")
+    file.search_file_replace_line("\$env_db\['username']","$env_db['username'] = '#{node[:ee][:username]}';")
+    file.search_file_replace_line("\$env_db\['password']","$env_db['password'] = '#{node[:ee][:password]}';")
+    file.search_file_replace_line("\$env_db\['database']","$env_db['database'] = '#{node[:ee][:datebase]}';")
+    file.write_file
+  end
 end
 
 file "#{site_install_dir}/#{node[:ee][:system_folder]}/expressionengine/config/database.php" do
