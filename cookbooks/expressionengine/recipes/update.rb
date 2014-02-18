@@ -26,22 +26,34 @@ end
 #   node.set[:ee][:env] = "prod"
 # end
 
-ruby_block "Amend Environment Config File" do
+ruby_block "Set the Database Hostname" do
   block do
     file = Chef::Util::FileEdit.new("#{site_install_dir}/config/config.#{node[:ee][:env]}.php")
     file.search_file_replace_line("\['hostname'\]", "$env_db['hostname'] = '#{node[:ee][:hostname]}';" )
-    #file.write_file
+    file.write_file
+  end
+end
 
+ruby_block "Set the Database Username" do
+  block do
     file = Chef::Util::FileEdit.new("#{site_install_dir}/config/config.#{node[:ee][:env]}.php")
-    file.search_file_replace_line("\['username'\]", "$env_db['username'] = '#{node[:ee][:username]}';")
-    #file.write_file
+    file.search_file_replace_line("\['username'\]", "$env_db['username'] = '#{node[:ee][:username]}';" )
+    file.write_file
+  end
+end
 
+ruby_block "Set the Database Password" do
+  block do
     file = Chef::Util::FileEdit.new("#{site_install_dir}/config/config.#{node[:ee][:env]}.php")
-    file.search_file_replace_line("\['password'\]", "$env_db['password'] = '#{node[:ee][:password]}';")
-    #file.write_file
+    file.search_file_replace_line("\['password'\]", "$env_db['password'] = '#{node[:ee][:password]}';" )
+    file.write_file
+  end
+end
 
+ruby_block "Set the Database" do
+  block do
     file = Chef::Util::FileEdit.new("#{site_install_dir}/config/config.#{node[:ee][:env]}.php")
-    file.search_file_replace_line("\['database'\]", "$env_db['database'] = '#{node[:ee][:database]}';")
+    file.search_file_replace_line("\['database'\]", "$env_db['database'] = '#{node[:ee][:database]}';" )
     file.write_file
   end
 end
