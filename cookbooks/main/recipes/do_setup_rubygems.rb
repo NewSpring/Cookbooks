@@ -6,12 +6,14 @@ rightscale_marker :begin
   end
 end
 
+#dominatrix is only used during chef run to parse out the multisite information
 domainatrix = chef_gem "domainatrix" do
   action :nothing
 end
 
 domainatrix.run_action(:install)
 
+#install gems from attributes
 node[:rubygems][:list].each do |gem|
   execute "install_#{gem}" do
     command "gem install #{gem} --no-ri --no-rdoc"
