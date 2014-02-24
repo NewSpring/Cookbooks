@@ -26,6 +26,7 @@ repo "default" do
   credential node[:repo][:default][:credential]
   revision node[:repo][:default][:revision]
   action node[:repo][:default][:perform_action].to_sym
+  shallow_clone true
 end
 
 directory "/home/capistrano_repo/shared/css" do

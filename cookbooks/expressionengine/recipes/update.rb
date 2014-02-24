@@ -20,6 +20,7 @@ repo "default" do
   revision node[:ee][:update_revision]
   app_user node[:web_apache][:application_name]
   repository node[:repo][:default][:repository]
+  shallow_clone true
 end
 
 # if node[:ee][:env] == ''
