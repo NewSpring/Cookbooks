@@ -94,7 +94,7 @@ hipchat_msg "default" do
   token node[:hipchat][:token]
   room node[:hipchat][:room]
   nickname "RightScale"
-  message "Updated Application on #{node[:cloud][:hostname]}."
+  message "Updated #{node[:ee][:update_revision]} on #{node[:cloud][:hostname]}."
   action :speak
 end
 
