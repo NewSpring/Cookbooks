@@ -18,6 +18,7 @@ recipe "expressionengine::default", "Installs the Expressione Engine System and 
 recipe "expressionengine::multisite", "Installs and Configures EE MSM Sites"
 recipe "expressionengine::update", "Deploys the Revision Specified"
 recipe "expressionengine::disable", "Disable Domain"
+recipe "expressionengine::rollback", "Roll back to previous version"
 
 attribute "ee/main",
   :display_name => "Main System Domain",
