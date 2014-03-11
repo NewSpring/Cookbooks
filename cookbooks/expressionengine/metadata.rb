@@ -110,3 +110,11 @@ attribute "ee/env",
     "expressionengine::update"
   ]
 
+attribute "ee/rake",
+:display_name => "Run Rake Command",
+:description => "Run Rake Command on Deploy and Update",
+:required => "required",
+:recipes => [
+  "expressionengine::default",
+  "expressionengine::update"
+]
