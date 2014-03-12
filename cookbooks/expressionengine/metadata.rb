@@ -27,7 +27,8 @@ attribute "ee/main",
   :recipes => [
     "expressionengine::default",
     "expressionengine::multisite",
-    "expressionengine::update"
+    "expressionengine::update",
+    "expressionengine::rollback"
   ]
 
 attribute "ee/update_revision",
@@ -62,7 +63,8 @@ attribute "ee/system_folder",
   :default => "system",
   :recipes => [
     "expressionengine::default",
-    "expressionengine::update"
+    "expressionengine::update",
+    "expressionengine::rollback"
   ]
 
 attribute "ee/hostname",

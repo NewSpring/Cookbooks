@@ -41,12 +41,6 @@ directory "/home/capistrano_repo/shared/images" do
   group node[:web_apache][:application_name]
 end
 
-link "#{site_install_dir}/assets/css" do
-  to "/home/capistrano_repo/shared/css"
-  link_type :symbolic
-  action :create
-end
-
 link "#{site_install_dir}/images" do
   to "/home/capistrano_repo/shared/images"
   link_type :symbolic

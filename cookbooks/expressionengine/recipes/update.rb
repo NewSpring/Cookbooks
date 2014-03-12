@@ -14,7 +14,7 @@ site_install_dir = "#{node[:repo][:default][:destination]}/#{node[:ee][:main]}"
 
 repo "default" do
   destination "#{node[:repo][:default][:destination]}/#{node[:ee][:main]}"
-  symlinks "images" => "images", "css" => "assets/css"
+  symlinks "images" => "images"
   action node[:repo][:default][:perform_action].to_sym
   credential node[:repo][:default][:credential]
   revision node[:ee][:update_revision]
@@ -22,10 +22,6 @@ repo "default" do
   repository node[:repo][:default][:repository]
   shallow_clone true
 end
-
-# if node[:ee][:env] == ''
-#   node.set[:ee][:env] = "prod"
-# end
 
 ruby_block "Set the Database Config" do
   block do
