@@ -33,7 +33,7 @@ hipchat_msg "default" do
   token node[:hipchat][:token]
   room node[:hipchat][:room]
   nickname "RightScale"
-  message "Rolled back to previous revison on #{node[:cloud][:hostname]}."
+  message "Rolled back to previous revision on #{node[:cloud][:hostname]}."
   action :speak
 end
 

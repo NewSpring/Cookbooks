@@ -29,11 +29,11 @@ repo "default" do
   shallow_clone true
 end
 
-directory "/home/capistrano_repo/shared/css" do
-  action :create
-  owner node[:web_apache][:application_name]
-  group node[:web_apache][:application_name]
-end
+# directory "/home/capistrano_repo/shared/css" do
+#   action :create
+#   owner node[:web_apache][:application_name]
+#   group node[:web_apache][:application_name]
+# end
 
 directory "/home/capistrano_repo/shared/images" do
   action :create
