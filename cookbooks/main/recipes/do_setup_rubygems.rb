@@ -13,6 +13,22 @@ end
 
 domainatrix.run_action(:install)
 
+execute "install-bundler" do
+  command "gem install bundler -f --no-fdoc --no-ri"
+  action :nothing
+end
+
+execute "run-rubygems-update" do
+  command "update_rubygems"
+  action :nothing
+  notifies :run, "execute[install-bundler]"
+end
+
+execute "install-rubygems-update" do
+  command "gem install rubygems-update --no-ri --no-rdoc"
+  notifies :run, "execute[run-rubygems-update]"
+end
+
 #install gems from attributes
 node[:rubygems][:list].each do |gem|
   execute "install_#{gem}" do
