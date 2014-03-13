@@ -87,6 +87,16 @@ end
 execute "rake" do
   cwd "#{site_install_dir}"
   user "root"
+  command "/usr/bin/bundle install --without development"
+  environment('RAKE_ENV' => 'production')
+  returns [0,1]
+  #only run if rake file exists
+  only_if { ::File.exists?("#{site_install_dir}/Gemfile") }
+end
+
+execute "rake" do
+  cwd "#{site_install_dir}"
+  user "root"
   command "/usr/local/bin/rake --verbose --trace #{node[:ee][:rake]}"
   environment('RAKE_ENV' => 'production')
   returns [0,1]

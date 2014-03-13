@@ -48,6 +48,16 @@ file "#{site_install_dir}/#{node[:ee][:system_folder]}/expressionengine/config/c
   group node[:web_apache][:application_name]
 end
 
+execute "bundler" do
+  cwd "#{site_install_dir}"
+  user "root"
+  command "/usr/bin/bundle --without development"
+  environment("RAKE_ENV" => "production")
+  returns [0,1]
+  #only run if rake file exists
+  only_if { ::File.exists?("#{site_install_dir}/Gemfile") }
+end
+
 execute "rake" do
   cwd "#{site_install_dir}"
   user "root"
