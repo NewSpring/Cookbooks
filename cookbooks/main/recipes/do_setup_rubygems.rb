@@ -19,14 +19,14 @@ execute "install-rubygems-update" do
 end
 
 execute "run-rubygems-update" do
-  command "update_rubygems"
+  command "/usr/local/bin/update_rubygems"
   user "root"
   action :nothing
   notifies :run, "execute[install-bundler]"
 end
 
 execute "install-bundler" do
-  command "gem install bundler -f --no-fdoc --no-ri"
+  command "gem install bundler -f --no-rdoc --no-ri"
   action :nothing
 end
 
