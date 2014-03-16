@@ -9,6 +9,7 @@
 #
 ## Then, deploy
 include_recipe "repo::default"
+include_recipe "rvm::system"
 
 site_install_dir = "#{node[:repo][:default][:destination]}/#{node[:ee][:main]}"
 
