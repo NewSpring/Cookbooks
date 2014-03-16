@@ -48,20 +48,22 @@ file "#{site_install_dir}/#{node[:ee][:system_folder]}/expressionengine/config/c
   group node[:web_apache][:application_name]
 end
 
-execute "bundler" do
+rvm_shell "run_bundler_install" do
+  ruby_string node[:rvm][:default_ruby]
   cwd "#{site_install_dir}"
   user "root"
-  command "/usr/bin/bundle --without development"
+  code %{bundle install --without development}
   environment("RAKE_ENV" => "production")
   returns [0,1]
   #only run if rake file exists
   only_if { ::File.exists?("#{site_install_dir}/Gemfile") }
 end
 
-execute "rake" do
+rvm_shell "run_rake_compile_assets" do
+  ruby_string node[:rvm][:default_ruby]
   cwd "#{site_install_dir}"
   user "root"
-  command "/usr/local/bin/rake --verbose --trace #{node[:ee][:rake]}"
+  command %{rake --verbose --trace #{node[:ee][:rake]}}
   environment("RAKE_ENV" => "production")
   returns [0,1]
   #only run if rake file exists
@@ -103,7 +105,3 @@ hipchat_msg "default" do
   message "Updated #{node[:ee][:update_revision]} on #{node[:cloud][:hostname]}."
   action :speak
 end
-
-
-
-
