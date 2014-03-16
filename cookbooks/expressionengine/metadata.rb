@@ -13,6 +13,7 @@ depends "rightscale"
 depends "app"
 depends "main"
 depends "hipchat"
+depends "rvm"
 
 recipe "expressionengine::default", "Installs the Expressione Engine System and Clones down the repo"
 recipe "expressionengine::multisite", "Installs and Configures EE MSM Sites"
