@@ -63,7 +63,7 @@ rvm_shell "run_rake_compile_assets" do
   ruby_string node[:rvm][:default_ruby]
   cwd "#{site_install_dir}"
   user "root"
-  command %{rake --verbose --trace #{node[:ee][:rake]}}
+  code %{rake --verbose --trace #{node[:ee][:rake]}}
   environment("RAKE_ENV" => "production")
   returns [0,1]
   #only run if rake file exists
