@@ -1,4 +1,0 @@
-check process openconnect with pidfile /run/newspring_vpn.pid
-  start program = "/etc/init.d/newspring_vpn start" with timeout 60 seconds
-  stop program = "/etc/init.d/newspring_vpn stop"
-  if failed host cen-dc001.ad.newspring.cc port 389 then restart
