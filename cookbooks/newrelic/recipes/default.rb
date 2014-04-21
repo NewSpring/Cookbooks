@@ -2,9 +2,7 @@
 # Cookbook Name:: newrelic
 # Recipe:: default
 #
-# Copyright 2013, NewSpring Church
+# Copyright 2012-2014, Escape Studios
 #
-# All rights reserved - Do Not Redistribute
-#
-include_recipe "newrelic::do_setup_repository"
-include_recipe "newrelic::install_newrelic_nrsysmond"
+
+include_recipe 'newrelic::server-monitor-agent'
