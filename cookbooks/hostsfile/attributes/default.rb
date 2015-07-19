@@ -1,7 +1,7 @@
 #
 # Author:: Seth Vargo <sethvargo@gmail.com>
 # Cookbook:: hostsfile
-# Resource:: entry
+# Attribute:: default
 #
 # Copyright 2012-2013, Seth Vargo
 # Copyright 2012, CustomInk, LCC
@@ -19,18 +19,4 @@
 # limitations under the License.
 #
 
-# List of all actions supported by the provider
-actions :create, :create_if_missing, :append, :update, :remove
-
-# Make create the default action
-default_action :create
-
-# Required attributes
-attribute :ip_address, kind_of: String, name_attribute: true
-attribute :hostname,   kind_of: String
-
-# Optional attributes
-attribute :aliases,  kind_of: Array
-attribute :comment,  kind_of: String
-attribute :priority, kind_of: Fixnum
-attribute :unique,   kind_of: [TrueClass, FalseClass]
+default['hostsfile']['path'] = nil

@@ -10,7 +10,7 @@ Requirements
 - Chef 11 or higher
 - **Ruby 1.9.3 or higher**
 
-**Please stop opening Pull Requests to restore Ruby 1.8 support!** Any of the `1.x.y` series of this cookbook will work with Chef 10 and Ruby 1.8. You can use Opscode's [Omnibus installer](http://www.opscode.com/blog/2012/06/29/omnibus-chef-packaging/) to install Ruby 1.9+ and Seth Chisamore's [Vagrant Omnibus plugin](https://github.com/schisamo/vagrant-omnibus) to get Ruby 1.9+ on your Vagrant box.
+**Please stop opening Pull Requests to restore Ruby 1.8 support!** Any of the `1.x.y` series of this cookbook will work with Chef 10 and Ruby 1.8. You can use Chef's [Omnibus installer](http://www.chef.io/blog/2012/06/29/omnibus-chef-packaging/) to install Ruby 1.9+ and Seth Chisamore's [Vagrant Omnibus plugin](https://github.com/schisamo/vagrant-omnibus) to get Ruby 1.9+ on your Vagrant box.
 
 
 Attributes
@@ -108,7 +108,7 @@ end
 ```
 
 #### `append`
-Append a hostname or alias to an existing record. If the given IP address doesn't not already exist in the hostsfile, this method behaves the same as create. Otherwise, it will append the additional hostname and aliases to the existing entry.
+Append a hostname or alias to an existing record. If the given IP address doesn't already exist in the hostsfile, this method behaves the same as create. Otherwise, it will append the additional hostname and aliases to the existing entry.
 
     1.2.3.4         example.com www.example.com # Created by Chef
 
@@ -173,14 +173,36 @@ Have any other cookbooks *depend* on hostsfile by editing editing the `metadata.
 depends 'hostsfile'
 ```
 
+Note that you can specify a custom path to your hosts file in the `['hostsfile']['path']` node attribute. Otherwise, it defaults to sensible paths depending on your OS.
+
+### Testing
+If you are using [ChefSpec](https://github.com/sethvargo/chefspec) to unit test a cookbook that implements the `hostsfile_entry` LWRP, this cookbook packages customer matchers that you can use in your unit tests:
+
+- `append_hostsfile_entry`
+- `create_hostsfile_entry`
+- `create_hostsfile_entry_if_missing`
+- `remove_hostsfile_entry`
+- `update_hostsfile_entry`
+
+For example:
+
+```ruby
+it 'creates a hostsfile entry for the DNS server' do
+  expect(chef_run).to create_hostsfile_entry('1.2.3.4')
+    .with_hostname('dns.example.com')
+end
+```
 
 Priority
 --------
 Priority is a relatively new addition to the cookbook. It gives you the ability to (somewhat) specify the relative order of entries. By default, the priority is calculated for you as follows:
 
-1. Local, loopback
-2. IPV4
-3. IPV6
+82. 127.0.0.1
+81. ::1
+80. 127.0.0.0/8
+60. IPV4
+20. IPV6
+00. default
 
 However, you can override it using the `priority` option.
 
